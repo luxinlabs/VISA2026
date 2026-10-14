@@ -33,7 +33,9 @@ def fact_examples():
 
 
 if __name__ == "__main__":
-    tasks = all_tasks(); t0 = time.time()
+    import argparse
+    ap = argparse.ArgumentParser(); ap.add_argument("--suite", default="all"); a = ap.parse_args()
+    tasks = all_tasks(suite=a.suite); t0 = time.time()
     with ThreadPoolExecutor(6) as ex:
         results = list(ex.map(check, tasks))
     bad = [r for r in results if not r[1]]
@@ -41,7 +43,7 @@ if __name__ == "__main__":
         print("FAIL", r[0], r[2])
     print(f"{len(results) - len(bad)}/{len(results)} reference solutions pass ({time.time() - t0:.0f}s)")
     out = ROOT / "data/processed"; out.mkdir(parents=True, exist_ok=True)
-    (out / "tasks_manifest.jsonl").write_text("".join(json.dumps(manifest_record(t)) + "\n" for t in tasks))
-    (out / "g1_validation.json").write_text(json.dumps({"n_tasks": len(tasks), "n_pass": len(results) - len(bad),
+    (out / f"tasks_manifest_{a.suite}.jsonl").write_text("".join(json.dumps(manifest_record(t)) + "\n" for t in tasks))
+    (out / f"g1_validation_{a.suite}.json").write_text(json.dumps({"n_tasks": len(tasks), "n_pass": len(results) - len(bad),
         "failures": bad, "manifest_sha256": manifest_hash(tasks)}, indent=1))
     sys.exit(1 if bad else 0)

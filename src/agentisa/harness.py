@@ -55,8 +55,10 @@ def grade(program, task, timeout=60.0) -> Evaluation:
 
 
 def task_prompt(task, docs):
-    ops = ", ".join(("element-wise ops (" + "add/subtract/multiply/divide/maximum/minimum/negate/exponential/sqrt/rsqrt/abs" + ")")
-                    if o == "elementwise" else o for o in task["ops"])
+    label = {"elementwise": "element-wise ops (add/subtract/multiply/divide/maximum/minimum/negate/exponential/sqrt/rsqrt/abs)",
+             "math": "math ops (tanh/log/log_plus_one/exponential_minus_one/logistic/power/floor/sign)",
+             "logical": "logical ops (and/or/not)", "erf": "chlo.erf/chlo.erfc"}
+    ops = ", ".join(label.get(o, o) for o in task["ops"])
     body = (f"Task: write a StableHLO program whose entry function has exactly this signature:\n"
             f"{task['header']}\n\nIt must compute: {task['spec']}\n\n"
             f"Relevant operations: {ops}.\n\nReply with the complete program in a single ```mlir code block.")
@@ -74,8 +76,8 @@ def run_trial(client, task, condition, budget, trial=0):
     docs = r["content"]
     user = task_prompt(task, docs)
     tools = None
-    if condition in ("interactive", "interactive_forced"):
-        user = interactive_preamble(r["available_ops"]).format(max_calls=budget["max_tool_calls"]) + "\n\n" + user
+    if condition in ("interactive", "interactive_forced", "interactive_core"):
+        user = interactive_preamble(r["available_ops"], condition == "interactive_core").format(max_calls=budget["max_tool_calls"]) + "\n\n" + user
         tools = TOOL_SPEC
     msgs = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}]
     log = dict(task_id=task["task_id"], template=task["template"], family=task["family"], split=task["split"],

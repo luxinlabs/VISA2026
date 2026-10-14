@@ -8,7 +8,8 @@ import json, os, re, subprocess, sys, tempfile
 from pathlib import Path
 import numpy as np
 
-ALLOWED_NON_STABLEHLO = {"func.func", "func.return", "func.call", "builtin.module"}
+ALLOWED_NON_STABLEHLO = {"func.func", "func.return", "func.call", "builtin.module",
+                         "chlo.erf", "chlo.erfc", "chlo.square"}  # CHLO ops documented in the fact inventory / used by references
 FORBIDDEN = {"stablehlo.custom_call", "stablehlo.infeed", "stablehlo.outfeed", "stablehlo.send",
              "stablehlo.recv", "stablehlo.rng", "stablehlo.rng_bit_generator"}
 
@@ -28,6 +29,7 @@ def classify_static_error(msg: str) -> str:
 
 def _worker(req_path: str, out_path: str):
     import jax, jax.extend  # noqa: F401
+    jax.config.update("jax_enable_x64", True)  # never downcast i64/f64 inputs when transferring to the device
     from jax._src.interpreters import mlir as jmlir
     from jax._src.lib import xla_client as xc
     from jaxlib.mlir import ir

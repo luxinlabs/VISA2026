@@ -28,6 +28,11 @@ OP_SUMMARY = {
     "clamp": "Clamp between min and max",
     "reverse": "Reverse along dimensions",
     "dynamic_slice": "Slice with runtime start indices",
+    "math": "tanh, log, log_plus_one, exponential_minus_one, logistic, power, floor, sign",
+    "logical": "and, or, not on booleans",
+    "erf": "CHLO erf / erfc (Gauss error function)",
+    "convolution": "N-d convolution with strides, padding, dilations, feature groups",
+    "reduce_window": "Windowed reductions (pooling, cumulative sums)",
 }
 
 
@@ -47,8 +52,8 @@ FACTS = [
       "op := `%r = \"stablehlo.NAME\"(operands) {attrs}? : (operand_types) -> result_type`",
       "operations"),
     F("MOD.SYN.3", "module", "syntax",
-      "Integer-list attributes are written like `array<i64: 0, 1>` and a single integer attribute is written like `1 : i64`.",
-      "int_list_attr := `array<i64: d0, d1, ...>`; int_attr := `N : i64`",
+      "One-dimensional integer-list attributes (dimensions, permutation, strides, slice and padding lists) are written like `array<i64: 0, 1>`, never in the older `dense<[0, 1]> : tensor<2xi64>` form; a single integer attribute is written like `1 : i64`; the only two-dimensional attribute used here is the `padding` of convolution and reduce_window, written `dense<[[lo0, hi0], [lo1, hi1]]> : tensor<2x2xi64>`.",
+      "int_list_attr := `array<i64: d0, d1, ...>` (NOT `dense<[...]> : tensor<Nxi64>`); int_attr := `N : i64`; padding (convolution, reduce_window) := `dense<[[lo, hi], ...]> : tensor<Rx2xi64>`",
       "operations"),
     F("MOD.TYP.1", "module", "type",
       "A tensor type is written with its dimension sizes and element type, such as `tensor<4x3xf32>`, and a scalar is a rank-0 tensor such as `tensor<f32>`; the element types used here are f32, i32, i64 and i1 (boolean).",
@@ -363,6 +368,107 @@ FACTS = [
       "Before slicing, each start index is clamped into the range 0 to dimension size minus slice size, so an out-of-range start never fails but shifts the window inside the tensor.",
       "adjusted = clamp(0, start_indices, shape(operand) - slice_sizes); result[i] = operand[adjusted + i]",
       "dynamic_slice"),
+    # ---------------- math (unary/binary transcendental) ----------------
+    F("MATH.SYN.1", "math", "syntax",
+      "Further element-wise math operations are written like `%r = stablehlo.tanh %a : tensor<4xf32>` (likewise log, log_plus_one, exponential_minus_one, logistic, floor, sign) and `%r = stablehlo.power %a, %b : tensor<4xf32>`.",
+      "unary := `%r = stablehlo.{tanh|log|log_plus_one|exponential_minus_one|logistic|floor|sign} %a : T`; binary := `%r = stablehlo.power %a, %b : T`",
+      "tanh"),
+    F("MATH.SEM.1", "math", "semantics",
+      "logistic computes 1 / (1 + exp(-x)), log_plus_one computes log(1 + x), exponential_minus_one computes exp(x) - 1, and power raises each lhs element to the corresponding rhs element, so both operands must already have the same shape.",
+      "logistic(x) = 1/(1+e^{-x}); log_plus_one(x) = log(1+x); exponential_minus_one(x) = e^x - 1; power(a,b)[i] = a[i]^{b[i]}, shape(a) = shape(b)",
+      "logistic"),
+    # ---------------- logical ----------------
+    F("LOG.SYN.1", "logical", "syntax",
+      "Logical operations on booleans are written `%r = stablehlo.and %a, %b : tensor<4xi1>` (likewise or) and `%r = stablehlo.not %a : tensor<4xi1>`.",
+      "`%r = stablehlo.{and|or} %a, %b : tensor<...xi1>`; `%r = stablehlo.not %a : tensor<...xi1>`",
+      "and"),
+    F("LOG.TYP.1", "logical", "type",
+      "and, or and not require operands of boolean or integer type with identical types, and act bitwise on integers.",
+      "type(lhs) = type(rhs) = type(result) ∧ is_boolean_or_integer(element_type)",
+      "and (C1)"),
+    # ---------------- erf (CHLO) ----------------
+    F("ERF.SYN.1", "erf", "syntax",
+      "The error function is available as a CHLO operation written `%r = chlo.erf %a : tensor<4xf32> -> tensor<4xf32>` (likewise chlo.erfc); it is accepted by this toolchain alongside StableHLO.",
+      "`%r = chlo.{erf|erfc} %a : T -> T`",
+      "chlo"),
+    F("ERF.SEM.1", "erf", "semantics",
+      "chlo.erf computes the Gauss error function element-wise and chlo.erfc computes 1 - erf(x).",
+      "erf(x) = (2/√π)∫₀ˣ e^{-t²} dt; erfc(x) = 1 - erf(x)",
+      "chlo"),
+    # ---------------- variadic reduce ----------------
+    F("RED.SEM.2", "reduce", "semantics",
+      "reduce can reduce several inputs at once: with N inputs and N init values the body takes 2N rank-0 arguments (the N accumulators, then the N elements) and returns N values, which is how an argmax carries a value together with its index.",
+      "reduce(inputs[0..N), inits[0..N)) with body: (tensor<E0>,...,tensor<EN-1>, tensor<E0>,...,tensor<EN-1>) -> (tensor<E0>,...,tensor<EN-1>)",
+      "reduce (C3, C6)"),
+    # ---------------- convolution ----------------
+    F("CONV.SYN.1", "convolution", "syntax",
+      "convolution is written `%r = \"stablehlo.convolution\"(%x, %w) {window_strides = array<i64: 1, 1>, padding = dense<[[1, 1], [1, 1]]> : tensor<2x2xi64>, lhs_dilation = array<i64: 1, 1>, rhs_dilation = array<i64: 1, 1>, dimension_numbers = #stablehlo.conv<[b, f, 0, 1]x[o, i, 0, 1]->[b, f, 0, 1]>, feature_group_count = 1 : i64, batch_group_count = 1 : i64} : (tensor<2x3x8x8xf32>, tensor<4x3x3x3xf32>) -> tensor<2x4x8x8xf32>`.",
+      "`%r = \"stablehlo.convolution\"(%lhs, %rhs) {window_strides = array<i64: ...>, padding = dense<[[lo, hi], ...]> : tensor<(N-2)x2xi64>, lhs_dilation = array<i64: ...>, rhs_dilation = array<i64: ...>, dimension_numbers = #stablehlo.conv<[...]x[...]->[...]>, feature_group_count = G : i64, batch_group_count = 1 : i64} : (T_lhs, T_rhs) -> T_out`",
+      "convolution"),
+    F("CONV.SHP.1", "convolution", "shape",
+      "dimension_numbers lists the role of each dimension: in the input and output b is batch, f is feature and 0, 1, ... are spatial dimensions; in the kernel o is output feature, i is input feature and 0, 1, ... are spatial; for example `[b, f, 0, 1]x[o, i, 0, 1]->[b, f, 0, 1]` is the NCHW / OIHW layout.",
+      "dimension_numbers := [input dims]x[kernel dims]->[output dims]; input/output ∋ {b, f, 0..N-3}; kernel ∋ {o, i, 0..N-3}",
+      "convolution (C12-C20)"),
+    F("CONV.SHP.2", "convolution", "shape",
+      "window_strides, lhs_dilation and rhs_dilation each have one positive entry per spatial dimension, and padding has one [low, high] pair per spatial dimension.",
+      "size(window_strides) = size(lhs_dilation) = size(rhs_dilation) = N - 2 ∧ shape(padding) = [N - 2, 2] ∧ 0 < window_strides, lhs_dilation, rhs_dilation",
+      "convolution (C2-C8)"),
+    F("CONV.SHP.3", "convolution", "shape",
+      "Each output spatial size is floor((low + (n - 1) * lhs_dilation + 1 + high - ((k - 1) * rhs_dilation + 1)) / stride) + 1, where n is the input size and k the kernel size along that dimension.",
+      "out = floor((lo + (n-1)·lhs_dilation + 1 + hi - ((k-1)·rhs_dilation + 1)) / stride) + 1",
+      "convolution (C25)"),
+    F("CONV.SHP.4", "convolution", "shape",
+      "The kernel's input-feature size equals the input feature size divided by feature_group_count, and the kernel's output-feature size, which becomes the output feature size, must be divisible by feature_group_count.",
+      "dim(rhs, i) = dim(lhs, f) / feature_group_count ∧ dim(rhs, o) % feature_group_count = 0 ∧ dim(result, f) = dim(rhs, o)",
+      "convolution (C11, C14, C16, C25)"),
+    F("CONV.TYP.1", "convolution", "type",
+      "The input, kernel and result have the same element type.",
+      "element_type(lhs) = element_type(rhs) = element_type(result)",
+      "convolution (C27)"),
+    F("CONV.SEM.1", "convolution", "semantics",
+      "convolution computes a cross-correlation without flipping the kernel; rhs_dilation spaces out kernel taps (dilated convolution), lhs_dilation inserts lhs_dilation - 1 zeros between input elements (used for transposed convolution together with a spatially reversed kernel), and feature_group_count splits the features into independent groups (grouped or depthwise convolution).",
+      "result = Σ windows(pad(lhs, padding, interior = lhs_dilation - 1), dilation = rhs_dilation, stride = window_strides) · rhs; no kernel flip; groups split features",
+      "convolution"),
+    # ---------------- reduce_window ----------------
+    F("RW.SYN.1", "reduce_window", "syntax",
+      "reduce_window is written with a body region, for example `%r = \"stablehlo.reduce_window\"(%x, %init) ({ ^bb0(%a: tensor<f32>, %b: tensor<f32>): %m = stablehlo.maximum %a, %b : tensor<f32> stablehlo.return %m : tensor<f32> }) {window_dimensions = array<i64: 1, 1, 2, 2>, window_strides = array<i64: 1, 1, 2, 2>, padding = dense<0> : tensor<4x2xi64>} : (tensor<2x3x8x8xf32>, tensor<f32>) -> tensor<2x3x4x4xf32>`.",
+      "`%r = \"stablehlo.reduce_window\"(%x, %init) ({ ^bb0(%a: tensor<E>, %b: tensor<E>): ... stablehlo.return %v : tensor<E> }) {window_dimensions = array<i64: ...>, window_strides = array<i64: ...>, base_dilations = array<i64: ...>?, window_dilations = array<i64: ...>?, padding = dense<[[lo, hi], ...]> : tensor<Rx2xi64>?} : (T_in, tensor<E>) -> T_out`",
+      "reduce_window"),
+    F("RW.SHP.1", "reduce_window", "shape",
+      "window_dimensions, window_strides, base_dilations and window_dilations each have one positive entry for every input dimension, including non-spatial ones, and padding has one [low, high] pair for every input dimension.",
+      "size(window_dimensions) = size(window_strides) = size(base_dilations) = size(window_dilations) = rank(input) ∧ shape(padding) = [rank(input), 2]",
+      "reduce_window (C4-C12)"),
+    F("RW.SHP.2", "reduce_window", "shape",
+      "Each output size is floor((low + (n - 1) * base_dilation + 1 + high - ((w - 1) * window_dilation + 1)) / stride) + 1, where n is the input size and w the window size along that dimension.",
+      "out = floor((lo + (n-1)·base_dilation + 1 + hi - ((w-1)·window_dilation + 1)) / stride) + 1",
+      "reduce_window (C15)"),
+    F("RW.TYP.1", "reduce_window", "type",
+      "The init value is a rank-0 tensor of the input's element type, and the body takes and returns rank-0 tensors of that type.",
+      "type(init) = tensor<element_type(input)>; body: (tensor<E>, tensor<E>) -> tensor<E>",
+      "reduce_window (C3, C13)"),
+    F("RW.SEM.1", "reduce_window", "semantics",
+      "Each output element reduces one window of the padded input with the body; padded positions hold the init value, so they participate in the reduction and an average must divide by the intended element count explicitly.",
+      "result[i] = reduce(slice(pad(input, init, padding), i·strides, window), init, body); padded positions = init",
+      "reduce_window"),
+
 ]
+
+
+# ---------------- v2 renderings: syntax facts carry the same schema AND the same instance in both renderings
+def _equalize_syntax(f):
+    if f["category"] != "syntax":
+        return f
+    import re as _re
+    codes = [c for c in _re.findall(r"`([^`]+)`", f["nl"]) if "%" in c or "func.func" in c or "array<" in c]
+    example = " ".join(f"`{c}`" for c in codes)
+    schema = f["formal"]
+    f = dict(f)
+    f["nl_v1"], f["formal_v1"] = f["nl"], f["formal"]
+    f["nl"] = f["nl"].rstrip(".") + f". In general form: {schema}."
+    f["formal"] = f"{schema}; example: {example}" if example else schema
+    return f
+
+
+FACTS = [_equalize_syntax(f) for f in FACTS]
 
 FACTS_BY_ID = {f["id"]: f for f in FACTS}

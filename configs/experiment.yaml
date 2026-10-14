@@ -1,24 +1,27 @@
-study: agentisa-bench
-status: FROZEN_2026-10-13  # frozen before the evaluation split was run; see docs/PREREGISTRATION.md
-seed: 20261013
-primary_contrast: structured_minus_prose
-primary_outcome: first_attempt_semantic_correct
+study: agentisa-bench-v2
+status: DRAFT_2026-10-14  # frozen (with hashes) before any eval-split trial of v2; v1 config in releases/v1/configs
+seed: 20261014
+primary_outcome: first_attempt_semantic_correct   # Track A
 model:
-  temperature: 0           # one trial per (task, condition); repeats at T=0 would be near-duplicates
+  temperature: 0
   max_output_tokens: 2048
 budget:
-  repair_attempts: 2
-  max_tool_calls: 6
-  max_model_calls: 12      # hard cap on model calls per trial (tool turns + attempts)
+  repair_attempts: 2          # Track A
+  max_tool_calls: 6           # Track A (get_facts)
+  max_model_calls: 12         # Track A
+  agent_max_tool_calls: 15    # Track B (get_facts + verify + run_example + submit)
+  agent_max_model_calls: 20   # Track B
   execution_timeout_seconds: 60
-conditions: [none, minimal, syntax_only_structured, prose, structured, interactive]
-negative_controls: [syntax_only_structured]
-splits:
-  dev: instance 0 of each of 38 templates (38 tasks; prompt/harness debugging only)
-  eval: instances 1-3 of each template (114 tasks; 38 template clusters)
+tracks:
+  A:
+    conditions: [none, minimal, syntax_only_structured, prose, structured, interactive, interactive_forced, interactive_core]
+  B:
+    conditions: [none, prose, structured, interactive, interactive_core]
+suites:
+  synthetic: 38 templates x 4 instances (dev = instance 0; eval = 114 tasks, 38 clusters)
+  kernelbench: KernelBench level 1-2 converted to StableHLO (176 validated; dev = 10% hash split; each task its own cluster)
 analysis:
   bootstrap_replicates: 10000
   confidence_level: 0.95
   cluster_key: template
-  secondary_cluster_key: task_id
-  multiplicity: holm over the 5 pre-specified contrasts
+  multiplicity: holm within model x track x outcome

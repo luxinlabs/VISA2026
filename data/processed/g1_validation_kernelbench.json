@@ -1,0 +1,12 @@
+{
+ "n_tasks": 176,
+ "n_pass": 175,
+ "failures": [
+  [
+   "kb_1_95",
+   false,
+   "runtime_error: INVALID_ARGUMENT: E0102: RuntimeProgramInputMismatch:\nExecutable(jit__lambda) expected parameter 1 of size 48 (s64[6]{0}) but got buffer with incompatible size 24 (s32[6]{0})\nSee https://openxla.org/xla/errors/error_0102 for more details."
+  ]
+ ],
+ "manifest_sha256": "f8782edad265a865fd57f026d931a501f842e83082f3f945271901758f25e07d"
+}

@@ -17,33 +17,80 @@ OUT = ROOT / "data/processed/kernelbench"
 SMALL = [6, 7, 8, 9, 10, 5, 11, 12, 13]
 
 
-def shrink_source(src):
+def _distinct_small(v, vals):
+    if v not in vals:
+        vals[v] = SMALL[len(vals) % len(SMALL)]
+    return vals[v]
+
+
+def _pow2_div(limit):
+    def f(v, vals):  # divide by the smallest power of two that brings v to <= limit (keeps divisibility)
+        w = v
+        while w > limit and w % 2 == 0:
+            w //= 2
+        vals[v] = w if w <= limit else limit
+        return vals[v]
+    return f
+
+
+STRATEGIES = {"distinct_small": _distinct_small, "pow2_le16": _pow2_div(16), "pow2_le8": _pow2_div(8),
+              "pow2_le32": _pow2_div(32)}
+
+
+def shrink_source(src, strategy="distinct_small"):
+    """Replace every integer literal > 16 on top-level (unindented) statement lines, including inside
+    expressions and tuples (e.g. `N = 2048 * 2`, `shape = (4096,)`). Equal originals map to equal small values,
+    so equalities such as height == width are preserved; derived globals recompute at exec time."""
     vals = {}
 
-    def sv(v):
-        v = int(v)
+    def sv(m):
+        v = int(m.group(1))
         if v <= 16:
-            return str(v)
-        if v not in vals:
-            vals[v] = SMALL[len(vals) % len(SMALL)]
-        return str(vals[v])
+            return m.group(1)
+        return str(STRATEGIES[strategy](v, vals))
     lines = []
     for line in src.splitlines():
-        m = re.match(r"^((?:\w+\s*=\s*)+)(\d+)\s*(#.*)?$", line)
-        lines.append(f"{m.group(1)}{sv(m.group(2))}" if m else line)
+        top = line and not line[0].isspace() and not re.match(r"(def|class|import|from|@|#|return)\b", line)
+        lines.append(re.sub(r"(?<![\w.])(\d+)(?![\w.])", sv, line) if top else line)
     return "\n".join(lines) + "\n", vals
 
 
+MAX_ELEMS, MAX_TOTAL = 65536, 262144
+
+
 def convert_one(path, task_id, outdir):
+    reasons = []
+    for strat in STRATEGIES:
+        res = _convert_one(path, task_id, outdir, strat)
+        if res["status"] == "converted" or "stochastic" in res["reason"] or "non-tensor" in res["reason"]:
+            res["shrink_strategy"] = strat
+            if reasons: res["earlier_attempts"] = reasons
+            return res
+        reasons.append(f"{strat}: {res['reason'][:160]}")
+    return {"status": "excluded", "reason": " || ".join(reasons)}
+
+
+def _convert_one(path, task_id, outdir, strategy):
     import numpy as np, torch, jax
+    jax.config.update("jax_enable_x64", True)  # keep int64 (argmax/argmin/targets) as i64 in the lowering
     from torchax.export import exported_program_to_jax
     src = Path(path).read_text()
     if re.search(r"dropout|Dropout|torch\.rand\w*\(.*\)\s*\*|bernoulli|multinomial", src.split("def get_inputs")[0]):
         return {"status": "excluded", "reason": "stochastic op in forward (dropout/random)"}
-    small, mapping = shrink_source(src)
-    mod = types.ModuleType("kb"); exec(compile(small, str(path), "exec"), mod.__dict__)
+    small, mapping = shrink_source(src, strategy)
+    mod = types.ModuleType("kb")
+    try:
+        exec(compile(small, str(path), "exec"), mod.__dict__)
+    except Exception as e:
+        return {"status": "excluded", "reason": f"source exec failed: {type(e).__name__}: {str(e)[:160]}"}
     cases, outs = [], []
     for k in range(3):
+        torch.manual_seed(1000 + k)
+        try:
+            model = mod.Model(*mod.get_init_inputs())
+            _ = mod.get_inputs()
+        except Exception as e:
+            return {"status": "excluded", "reason": f"model build failed: {type(e).__name__}: {str(e)[:160]}"}
         torch.manual_seed(1000 + k)
         model = mod.Model(*mod.get_init_inputs())
         params = dict(model.named_parameters())
@@ -52,17 +99,26 @@ def convert_one(path, task_id, outdir):
             return {"status": "excluded", "reason": "non-tensor forward inputs"}
         names = list(params)
         args = [p.detach().clone() for p in params.values()] + [x.clone() for x in inputs]
-        with torch.no_grad():
-            y = torch.func.functional_call(model, dict(zip(names, args[:len(names)])), tuple(args[len(names):]))
+        try:
+            with torch.no_grad():
+                y = torch.func.functional_call(model, dict(zip(names, args[:len(names)])), tuple(args[len(names):]))
+        except Exception as e:
+            return {"status": "excluded", "reason": f"forward failed: {type(e).__name__}: {str(e)[:160]}"}
         if not isinstance(y, torch.Tensor):
             return {"status": "excluded", "reason": "multiple or non-tensor outputs"}
         cases.append([a.numpy().copy() for a in args]); outs.append(y.detach().numpy().copy())
+    sizes = [a.size for a in cases[0]] + [outs[0].size]
+    if max(sizes) > MAX_ELEMS or sum(sizes) > MAX_TOTAL:
+        return {"status": "excluded", "reason": f"too large after shrinking: max {max(sizes)}, total {sum(sizes)} elements"}
     if any(a.dtype not in (np.float32, np.int64, np.int32, np.bool_) for a in cases[0]) or outs[0].dtype not in (np.float32, np.int64, np.int32, np.bool_):
         return {"status": "excluded", "reason": f"unsupported dtype {[str(a.dtype) for a in cases[0]]} -> {outs[0].dtype}"}
 
     class Fn(torch.nn.Module):
+        def __init__(self):
+            super().__init__(); self.m = model
+
         def forward(self, *flat):
-            return torch.func.functional_call(model, dict(zip(names, flat[:len(names)])), tuple(flat[len(names):]))
+            return torch.func.functional_call(self.m, dict(zip(names, flat[:len(names)])), tuple(flat[len(names):]), strict=False)
     targs = tuple(torch.from_numpy(a) for a in cases[0])
     try:
         ep = torch.export.export(Fn(), targs)
@@ -97,9 +153,14 @@ if __name__ == "__main__":
     from concurrent.futures import ThreadPoolExecutor
     files = [(lvl, p) for lvl in ("level1", "level2") for p in sorted((KB / lvl).glob("*.py"))]
 
+    (OUT / "results").mkdir(exist_ok=True)
+
     def run(item):
         lvl, p = item
         tid = f"kb_{lvl[-1]}_{p.stem.split('_')[0]}"
+        done = OUT / "results" / f"{tid}.json"
+        if done.exists():
+            return json.loads(done.read_text())
         try:
             r = subprocess.run([sys.executable, __file__, str(p), tid, str(OUT)], capture_output=True, text=True, timeout=300)
             line = [l for l in r.stdout.splitlines() if l.startswith("@@RESULT@@")]
@@ -107,6 +168,7 @@ if __name__ == "__main__":
         except subprocess.TimeoutExpired:
             res = {"status": "excluded", "reason": "conversion timeout"}
         res.update(task_id=tid, level=int(lvl[-1]), upstream_file=p.name)
+        done.write_text(json.dumps(res))
         return res
     with ThreadPoolExecutor(6) as ex:
         results = list(ex.map(run, files))

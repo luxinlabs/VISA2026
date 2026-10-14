@@ -1,0 +1,62 @@
+{
+ "n_tasks": 328,
+ "all_passed": true,
+ "doc_tokens_o200k": {
+  "none": {
+   "mean": 0,
+   "min": 0,
+   "max": 0
+  },
+  "minimal": {
+   "mean": 950.8,
+   "min": 452,
+   "max": 2262
+  },
+  "syntax_only_structured": {
+   "mean": 849.6,
+   "min": 352,
+   "max": 2203
+  },
+  "prose": {
+   "mean": 1454.6,
+   "min": 588,
+   "max": 3710
+  },
+  "structured": {
+   "mean": 1469.0,
+   "min": 487,
+   "max": 4023
+  },
+  "interactive": {
+   "mean": 0,
+   "min": 0,
+   "max": 0
+  },
+  "interactive_forced": {
+   "mean": 0,
+   "min": 0,
+   "max": 0
+  },
+  "interactive_core": {
+   "mean": 362,
+   "min": 362,
+   "max": 362
+  },
+  "n_facts": {
+   "mean": 23.0,
+   "min": 7,
+   "max": 60
+  }
+ },
+ "structured_over_prose_token_ratio": 0.98,
+ "inventory": {
+  "n_facts": 96,
+  "n_op_groups": 23,
+  "by_category": {
+   "syntax": 25,
+   "type": 16,
+   "shape": 32,
+   "semantics": 23
+  }
+ }
+}

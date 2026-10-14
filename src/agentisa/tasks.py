@@ -6,10 +6,12 @@ a numpy reference (the oracle; it never looks at StableHLO) and a hand-written r
 solution used only to validate the task (gate G1). Instances of one template share a cluster id.
 """
 import hashlib, json
+from pathlib import Path
 import numpy as np
 
 F32, I32 = "f32", "i32"
-NP = {F32: np.float32, I32: np.int32, "i1": np.bool_}
+NP = {F32: np.float32, I32: np.int32, "i1": np.bool_, "i64": np.int64}
+MLIR_DT = {"float32": F32, "int32": I32, "int64": "i64", "bool": "i1"}
 
 
 def T(shape, dt=F32):
@@ -502,12 +504,60 @@ def build_task(template, instance, base_seed=20261013):
     return t
 
 
-def all_tasks(split=None):
-    ts = [build_task(tp, i) for tp in TEMPLATES for i in range(N_INSTANCES)]
+# ------------------------------------------------------------------ KernelBench-derived tasks
+KB_DIR = Path(__file__).resolve().parents[2] / "data/processed/kernelbench"
+# reference ops -> documented op groups; torchax lowering artifacts (while, dynamic_update_slice, gather) are not listed
+OP_GROUP = {**{o: "elementwise" for o in ["add", "subtract", "multiply", "divide", "maximum", "minimum", "negate",
+                                          "exponential", "sqrt", "rsqrt", "abs", "square"]},
+            **{o: "math" for o in ["tanh", "log", "log_plus_one", "exponential_minus_one", "logistic", "power", "floor", "sign"]},
+            **{o: "logical" for o in ["and", "or", "not"]}, "erf": "erf", "erfc": "erf",
+            **{o: o for o in ["constant", "broadcast_in_dim", "reduce", "dot_general", "transpose", "reshape", "slice",
+                              "pad", "concatenate", "iota", "compare", "select", "convert", "clamp", "reverse",
+                              "dynamic_slice", "convolution", "reduce_window"]}}
+GROUP_ORDER = ["constant", "elementwise", "math", "logical", "erf", "broadcast_in_dim", "reshape", "transpose",
+               "convolution", "dot_general", "reduce", "reduce_window", "compare", "select", "convert", "clamp", "iota",
+               "slice", "pad", "concatenate", "reverse", "dynamic_slice"]
+
+
+def _kb_task(r):
+    z = np.load(KB_DIR / f"{r['task_id']}.npz")
+    n = len(r["arg_shapes"])
+    names = [f"arg{i}" for i in range(n)]
+    args = [(names[i], r["arg_shapes"][i], MLIR_DT[r["arg_dtypes"][i]]) for i in range(n)]
+    out = (r["out_shape"], MLIR_DT[r["out_dtype"]])
+    groups = {OP_GROUP[o.split(".")[1]] for o in r["reference_ops"] if o.split(".")[1] in OP_GROUP}
+    mapping = "; ".join(f"%{names[i]} = " + (f"parameter `{r['arg_names'][i]}`" if i < r["n_params"]
+                                              else f"forward input {i - r['n_params']}") for i in range(n))
+    spec = (f"the forward output of the PyTorch module below (the module is used as constructed, i.e. in training "
+            f"mode, so normalization layers use batch statistics; its parameters are passed as arguments). "
+            f"Argument mapping: {mapping}.\n```python\n{r['pytorch_source'].strip()}\n```")
+    t = dict(task_id=r["task_id"], template=r["task_id"], instance=0, seed=0, source="kernelbench",
+             upstream_file=r["source_file"], family=f"kb_level{r['level']}", args=args, out=out, spec=spec,
+             ops=[g for g in GROUP_ORDER if g in groups], sol=r["sol"], tol=(1e-3, 1e-4),
+             split="dev" if int(hashlib.sha256(r["task_id"].encode()).hexdigest(), 16) % 10 == 0 else "eval")
+    t["cases"] = [[z[f"c{c}_a{i}"] for i in range(n)] for c in range(N_CASES)]
+    t["expected"] = [z[f"y{c}"] for c in range(N_CASES)]
+    t["signature"], t["header"] = signature(t), header(t)
+    return t
+
+
+def kb_tasks():
+    rs = [json.loads(p.read_text()) for p in sorted((KB_DIR / "results").glob("*.json"))]
+    return [_kb_task(r) for r in rs if r["status"] == "converted"]
+
+
+def all_tasks(split=None, suite="synthetic"):
+    ts = []
+    if suite in ("synthetic", "all"):
+        ts += [dict(build_task(tp, i), source="synthetic") for tp in TEMPLATES for i in range(N_INSTANCES)]
+    if suite in ("kernelbench", "all"):
+        ts += kb_tasks()
     return [t for t in ts if split is None or t["split"] == split]
 
 
 def expected_outputs(task):
+    if "expected" in task:
+        return [np.asarray(e) for e in task["expected"]]
     return [np.asarray(task["ref"](*case)).astype(NP[task["out"][1]]) for case in task["cases"]]
 
 
@@ -519,7 +569,8 @@ def compare(actual, expected, task):
     if actual.dtype != expected.dtype:
         return False, f"result dtype {actual.dtype} but expected {expected.dtype}"
     if expected.dtype == np.float32:
-        ok = np.allclose(actual, expected, rtol=1e-4, atol=1e-5, equal_nan=False)
+        rtol, atol = task.get("tol", (1e-4, 1e-5))
+        ok = np.allclose(actual, expected, rtol=rtol, atol=atol, equal_nan=False)
     else:
         ok = np.array_equal(actual, expected)
     if ok:
@@ -531,8 +582,8 @@ def compare(actual, expected, task):
 
 
 def manifest_record(task):
-    return {k: task[k] for k in ("task_id", "template", "instance", "split", "family", "ops", "spec",
-                                 "signature", "header", "seed")}
+    return {k: task.get(k) for k in ("task_id", "template", "instance", "split", "family", "ops", "spec",
+                                     "signature", "header", "seed", "source")}
 
 
 def manifest_hash(tasks):

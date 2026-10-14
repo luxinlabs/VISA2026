@@ -7,7 +7,8 @@ Conditions (all receive the identical task statement, signature and list of rele
   prose                   all facts, natural-language paragraphs (fact.nl), no IDs
   structured              all facts, JSON contract (fact.formal) keyed by category, with IDs
   interactive             no facts upfront; the same structured facts are retrievable through a bounded tool
-  interactive_forced      POST-HOC exploratory (added 2026-10-13 after observing zero tool use): as interactive,
+  interactive_core        v2: cross-cutting 'module' facts delivered upfront (structured), operation facts on demand
+  interactive_forced      (v1: POST-HOC exploratory; v2: pre-registered) (added 2026-10-13 after observing zero tool use): as interactive,
                           but the first model turn is required to call the tool (tool_choice="required")
 The fact set for a task is the 'module' facts plus the facts of the task's relevant operations.
 """
@@ -15,6 +16,9 @@ import json
 from .fact_inventory import FACTS, OP_SUMMARY
 
 CONDITIONS = ["none", "minimal", "syntax_only_structured", "prose", "structured", "interactive"]
+# v2 (pre-registered 2026-10-14): forced first retrieval becomes a planned condition, plus core-upfront hybrid
+CONDITIONS_V2 = CONDITIONS + ["interactive_forced", "interactive_core"]
+INTERACTIVE = ("interactive", "interactive_forced", "interactive_core")
 CATEGORIES = ["syntax", "type", "shape", "semantics"]
 
 
@@ -49,7 +53,8 @@ def render_structured(facts):
         if not ops or ops[-1]["operation"] != _title(f["op"]):
             ops.append({"operation": _title(f["op"])})
         ops[-1].setdefault(f["category"], []).append({"id": f["id"], "rule": f["formal"]})
-    return json.dumps({"stablehlo_contract": ops}, indent=1, ensure_ascii=False)
+    # v2: compact JSON so the structured rendering is length-matched to prose (v1 used indent=1, +31% tokens)
+    return json.dumps({"stablehlo_contract": ops}, ensure_ascii=False, separators=(",", ":"))
 
 
 def render(task, condition):
@@ -67,6 +72,11 @@ def render(task, condition):
     if condition == "structured":
         facts = select_facts(ops)
         return {"condition": condition, "fact_ids": [f["id"] for f in facts], "content": render_structured(facts)}
+    if condition == "interactive_core":
+        core = select_facts(["module"])
+        return {"condition": condition, "fact_ids": [f["id"] for f in select_facts(ops)],
+                "content": render_structured(core), "upfront_fact_ids": [f["id"] for f in core],
+                "available_ops": [o for o in ops if o != "module"]}
     if condition in ("interactive", "interactive_forced"):
         # available (not delivered) facts; delivered facts are logged per trial from tool calls
         return {"condition": condition, "fact_ids": [f["id"] for f in select_facts(ops)], "content": "",
@@ -104,9 +114,11 @@ def tool_get_facts(available_ops, operation, category="all"):
     return json.loads(render_structured(facts)), [f["id"] for f in facts]
 
 
-def interactive_preamble(available_ops):
+def interactive_preamble(available_ops, core_upfront=False):
     lines = "\n".join(f"- {o}: {OP_SUMMARY[o]}" for o in available_ops)
-    return ("Documentation is not included in this message. You can look it up with the get_facts tool "
+    head = ("The program-structure and syntax rules that apply to every operation are included below; documentation "
+            "for the individual operations is not. " if core_upfront else "Documentation is not included in this message. ")
+    return (head + "You can look it up with the get_facts tool "
             "(arguments: operation, and optionally category = syntax | type | shape | semantics | all). "
             f"Documentation is available for these operation groups:\n{lines}\n"
             "You may make at most {max_calls} tool calls in total for this task.")
@@ -131,5 +143,5 @@ def audit_equivalence(task, tokenizer=None):
             raise ValueError(f"{fid}: fact ID leaked into prose")
     out = {"n_facts": len(p["fact_ids"]), "matching_fact_ids": True, "human_semantic_audit_required": True}
     if tokenizer is not None:
-        out.update({c: len(tokenizer.encode(render(task, c)["content"])) for c in CONDITIONS})
+        out.update({c: len(tokenizer.encode(render(task, c)["content"])) for c in CONDITIONS_V2})
     return out

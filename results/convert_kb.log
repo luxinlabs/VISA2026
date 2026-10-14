@@ -1,0 +1,24 @@
+Counter({'converted': 177, 'excluded': 23})
+kb_1_50 50_conv_standard_2D__square_input__square_kernel.py | distinct_small: too large after shrinking: max 1742400, total 2680512 elements || pow2_le16: too large after shrinking: max 4646400, total 7089792 ele
+kb_1_58 58_conv_transposed_3D__asymmetric_input__asymmetric_kernel.py | distinct_small: too large after shrinking: max 599040, total 673632 elements || pow2_le16: too large after shrinking: max 2027520, total 3102976 eleme
+kb_1_5 5_Matrix_scalar_multiplication.py | non-tensor forward inputs
+kb_1_68 68_conv_transposed_3D__square_input__asymmetric_kernel.py | distinct_small: too large after shrinking: max 121968, total 158046 elements || pow2_le16: too large after shrinking: max 1843200, total 2910976 eleme
+kb_1_72 72_conv_transposed_3D_asymmetric_input_asymmetric_kernel___strided_padded_grouped_.py | distinct_small: model build failed: ValueError: in_channels must be divisible by groups || pow2_le16: too large after shrinking: max 1769472, total 19
+kb_1_77 77_conv_transposed_3D_square_input_square_kernel___padded____dilated____strided__.py | distinct_small: too large after shrinking: max 624624, total 681054 elements || pow2_le16: too large after shrinking: max 9199872, total 10255360 elem
+kb_1_80 80_conv_standard_2D_square_input_asymmetric_kernel___dilated____padded__.py | distinct_small: forward failed: RuntimeError: Calculated padded input size per channel: (12 x 16). Kernel size: (9 x 25). Kernel size can't be greater
+kb_1_81 81_conv_transposed_2D_asymmetric_input_square_kernel___dilated____padded____strided__.py | distinct_small: too large after shrinking: max 140448, total 146202 elements || pow2_le16: too large after shrinking: max 1557504, total 1625344 eleme
+kb_2_100 100_ConvTranspose3d_Clamp_Min_Divide.py | distinct_small: too large after shrinking: max 485520, total 548869 elements || pow2_le16: too large after shrinking: max 3114752, total 3564048 eleme
+kb_2_13 13_ConvTranspose3d_Mean_Add_Softmax_Tanh_Scaling.py | distinct_small: too large after shrinking: max 114688, total 123436 elements || pow2_le16: too large after shrinking: max 1048576, total 1121056 eleme
+kb_2_15 15_ConvTranspose3d_BatchNorm_Subtract.py | distinct_small: too large after shrinking: max 360096, total 510162 elements || pow2_le16: too large after shrinking: max 7626496, total 8682032 eleme
+kb_2_20 20_ConvTranspose3d_Sum_ResidualAdd_Multiply_ResidualAdd.py | distinct_small: too large after shrinking: max 516096, total 572540 elements || pow2_le16: too large after shrinking: max 8388608, total 9444128 eleme
+kb_2_23 23_Conv3d_GroupNorm_Mean.py | distinct_small: model build failed: ValueError: num_channels (7) must be divisible by num_groups (8) || pow2_le16: model build failed: ValueError: num
+kb_2_26 26_ConvTranspose3d_Add_HardSwish.py | distinct_small: too large after shrinking: max 1572864, total 3319288 elements || pow2_le16: too large after shrinking: max 8388608, total 17832736 el
+kb_2_34 34_ConvTranspose3d_LayerNorm_GELU_Scaling.py | distinct_small: forward failed: RuntimeError: Given normalized_shape=[7], expected input with shape [*, 7], but got input of size[6, 7, 32, 12, 12] ||
+kb_2_3 3_ConvTranspose3d_Sum_LayerNorm_AvgPool_GELU.py | distinct_small: forward failed: RuntimeError: Given normalized_shape=[7], expected input with shape [*, 7], but got input of size[6, 7, 32, 12, 12] ||
+kb_2_49 49_ConvTranspose3d_Softmax_Sigmoid.py | distinct_small: too large after shrinking: max 516096, total 572533 elements || pow2_le16: too large after shrinking: max 8388608, total 9444112 eleme
+kb_2_60 60_ConvTranspose3d_Swish_GroupNorm_HardSwish.py | distinct_small: too large after shrinking: max 502944, total 518400 elements || pow2_le16: too large after shrinking: max 7626496, total 7824448 eleme
+kb_2_61 61_ConvTranspose3d_ReLU_GroupNorm.py | distinct_small: model build failed: ValueError: num_channels (7) must be divisible by num_groups (8) || pow2_le16: too large after shrinking: max 1492
+kb_2_66 66_Matmul_Dropout_Softmax.py | stochastic op in forward (dropout/random)
+kb_2_74 74_ConvTranspose3d_LeakyReLU_Multiply_LeakyReLU_Max.py | distinct_small: too large after shrinking: max 147456, total 205356 elements || pow2_le16: too large after shrinking: max 1048576, total 2104096 eleme
+kb_2_77 77_ConvTranspose3d_Scale_BatchNorm_GlobalAvgPool.py | distinct_small: too large after shrinking: max 98304, total 103687 elements || pow2_le16: too large after shrinking: max 1048576, total 1080880 elemen
+kb_2_83 83_Conv3d_GroupNorm_Min_Clamp_Dropout.py | stochastic op in forward (dropout/random)

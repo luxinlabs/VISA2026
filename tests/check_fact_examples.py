@@ -9,6 +9,12 @@ from jaxlib.mlir import ir
 
 def wrap(code):
     code = code.strip()
+    if '"stablehlo.convolution"' in code:
+        return f"func.func @main(%x: tensor<2x3x8x8xf32>, %w: tensor<4x3x3x3xf32>) -> tensor<2x4x8x8xf32> {{\n  {code}\n  return %r : tensor<2x4x8x8xf32>\n}}"
+    if '"stablehlo.reduce_window"' in code:
+        return f"func.func @main(%x: tensor<2x3x8x8xf32>, %init: tensor<f32>) -> tensor<2x3x4x4xf32> {{\n  {code}\n  return %r : tensor<2x3x4x4xf32>\n}}"
+    if code.startswith("%r = chlo."):
+        return f"func.func @main(%a: tensor<4xf32>) -> tensor<4xf32> {{\n  {code}\n  return %r : tensor<4xf32>\n}}"
     if '"stablehlo.reduce"' in code:
         return f"func.func @main(%x: tensor<4x3xf32>, %init: tensor<f32>) -> tensor<4xf32> {{\n  {code}\n  return %r : tensor<4xf32>\n}}"
     if code.startswith("func.func"):
@@ -37,8 +43,8 @@ with jmlir.make_ir_context():
     for f in FACTS:
         if f["category"] not in ("syntax",) and f["id"] != "CONST.SEM.1":
             continue
-        for code in re.findall(r"`([^`]+)`", f["nl"]):
-            if "%" not in code and "dense" not in code or "stablehlo.NAME" in code:
+        for code in re.findall(r"`([^`]+)`", f.get("nl_v1", f["nl"])):
+            if "%" not in code and "dense" not in code or "stablehlo.NAME" in code or "lo0" in code or "dense<[0, 1]>" in code:
                 continue
             if code.startswith("dense<"):
                 code = f"%c = stablehlo.constant {code} : tensor<f32>"
