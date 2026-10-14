@@ -25,7 +25,7 @@ class ChatClient:
                 r = self.client.chat.completions.create(**kw)
                 break
             except Exception as e:  # rate limits / transient network errors
-                if attempt == 7:
+                if attempt == 7 or type(e).__name__ in ("AuthenticationError", "PermissionDeniedError", "NotFoundError", "BadRequestError"):
                     raise
                 time.sleep(min(60, 2 ** attempt + 1))
         m = r.choices[0].message

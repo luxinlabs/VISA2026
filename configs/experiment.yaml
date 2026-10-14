@@ -1,5 +1,5 @@
 study: agentisa-bench-v2
-status: DRAFT_2026-10-14  # frozen (with hashes) before any eval-split trial of v2; v1 config in releases/v1/configs
+status: FROZEN_2026-10-14  # frozen (with hashes) before any eval-split trial of v2; v1 config in releases/v1/configs
 seed: 20261014
 primary_outcome: first_attempt_semantic_correct   # Track A
 model:

@@ -4,7 +4,7 @@ Resumable: trials already present in --out are skipped. Writes trial records (JS
 Example:
   python scripts/run_experiment.py --provider openai --model gpt-4.1-mini-2025-04-14 --split eval --workers 8
 """
-import argparse, hashlib, json, random, sys, threading, time, traceback
+import argparse, hashlib, json, os, random, sys, threading, time, traceback
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]; sys.path.insert(0, str(ROOT / "src"))
@@ -28,8 +28,16 @@ p.add_argument("--workers", type=int, default=4)
 p.add_argument("--limit", type=int, default=0, help="first N tasks only (pilot)")
 p.add_argument("--templates", default="", help="comma-separated template names (pilot)")
 p.add_argument("--out", default=None)
+p.add_argument("--max-usd", type=float, default=0.0, help="hard stop once list-price spend of THIS run reaches this (0 = no paid calls allowed for openai)")
 a = p.parse_args()
 
+# API key: read from the project's .env (git-ignored); never from shell rc files
+_env = ROOT / ".env"
+if _env.exists():
+    for _line in _env.read_text().splitlines():
+        if "=" in _line and not _line.lstrip().startswith("#"):
+            _k, _v = _line.split("=", 1)
+            os.environ.setdefault(_k.strip().removeprefix("export ").strip(), _v.strip().strip("\"'"))
 cfg = yaml.safe_load((ROOT / "configs/experiment.yaml").read_text())
 lock = json.loads((ROOT / "data/versions.lock.json").read_text())
 budget = cfg["budget"]
@@ -49,17 +57,30 @@ if out.exists():
     for line in out.read_text().splitlines():
         if line.strip():
             r = json.loads(line); done.add((r["task_id"], r["condition"], r["trial"]))
-jobs = [(t, c, k) for t in tasks for c in conds for k in range(a.trials) if (t["task_id"], c, k) not in done]
-random.Random(cfg["seed"]).shuffle(jobs)
+# v2: task-blocked order (tasks shuffled; conditions shuffled within each task) so that a budget stop leaves
+# complete paired tasks rather than scattered missing cells
+rng = random.Random(cfg["seed"])
+order = list(tasks); rng.shuffle(order)
+jobs = []
+for t in order:
+    cs = list(conds); rng.shuffle(cs)
+    jobs += [(t, c, k) for c in cs for k in range(a.trials) if (t["task_id"], c, k) not in done]
 meta = dict(toolchain=lock, study="v2", track=a.track, manifest_sha256=manifest_hash(all_tasks(suite="all")),
             fact_inventory_sha256=hashlib.sha256(json.dumps(FACTS, sort_keys=True).encode()).hexdigest(),
             temperature=cfg["model"]["temperature"])
 client = ChatClient(a.provider, a.model, temperature=cfg["model"]["temperature"])
+PRICE = {"gpt-4.1-nano-2025-04-14": (0.10, 0.40), "gpt-4.1-mini-2025-04-14": (0.40, 1.60), "gpt-4.1-2025-04-14": (2.00, 8.00)}
+if a.provider == "openai":
+    if a.model not in PRICE: sys.exit(f"no price for {a.model}; add it before running")
+    if a.max_usd <= 0: sys.exit("refusing to make paid API calls without an explicit --max-usd budget")
+spent = 0.0; stop = threading.Event()
 wlock = threading.Lock(); n_ok = 0; t0 = time.time()
 print(f"{len(jobs)} trials to run ({len(done)} already done) -> {out}", flush=True)
 
 
 def job(t, c, k):
+    if stop.is_set():
+        return None, None
     fn = run_trial if a.track == "A" else run_agent_trial
     log, msgs = fn(client, t, c, dict(budget, max_output_tokens=cfg["model"]["max_output_tokens"]), trial=k)
     log.setdefault("source", t.get("source"))
@@ -67,7 +88,7 @@ def job(t, c, k):
     return log, msgs
 
 
-with ThreadPoolExecutor(a.workers) as ex:
+with ThreadPoolExecutor(a.workers, thread_name_prefix="w") as ex:
     futs = {ex.submit(job, *j): j for j in jobs}
     for i, f in enumerate(as_completed(futs), 1):
         t, c, k = futs[f]
@@ -75,6 +96,13 @@ with ThreadPoolExecutor(a.workers) as ex:
             log, msgs = f.result()
         except Exception:
             print(f"ERROR {t['task_id']} {c}: {traceback.format_exc()[-800:]}", flush=True); continue
+        if log is None:
+            continue
+        if a.provider == "openai":
+            pin, pout = PRICE[a.model]
+            spent += log["input_tokens"] / 1e6 * pin + log["output_tokens"] / 1e6 * pout
+            if spent >= a.max_usd and not stop.is_set():
+                stop.set(); print(f"BUDGET STOP: spent ${spent:.2f} >= ${a.max_usd:.2f}; remaining trials skipped", flush=True)
         with wlock:
             with out.open("a") as fh:
                 fh.write(json.dumps(log) + "\n")
@@ -83,4 +111,4 @@ with ThreadPoolExecutor(a.workers) as ex:
                                      "messages": msgs}) + "\n")
         n_ok += log.get("first_attempt_semantic_correct", log.get("semantic_correct", False))
         if i % 20 == 0 or i == len(jobs):
-            print(f"[{i}/{len(jobs)}] first-attempt correct so far {n_ok}/{i}  {time.time() - t0:.0f}s", flush=True)
+            print(f"[{i}/{len(jobs)}] correct so far {n_ok}/{i}  spent ${spent:.2f}  {time.time() - t0:.0f}s", flush=True)

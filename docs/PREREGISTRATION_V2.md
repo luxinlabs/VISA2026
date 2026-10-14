@@ -1,4 +1,4 @@
-# Study 2 (v2) protocol — DRAFT, to be frozen (hashes in results/v2/FREEZE.sha256) before any eval-split trial
+# Study 2 (v2) protocol — FROZEN 2026-10-14 before any eval-split trial (hashes in results/v2/FREEZE.sha256)
 
 Study 1 (v1, `releases/v1/`, results in `results/trials_*`) is complete and unchanged. Study 2 fixes the
 v1 design problems found in review and extends the task population. It is a new study, not a re-analysis.
@@ -36,9 +36,16 @@ run_example (one visible example with expected output), submit. Budget 15 tool c
 submitted program semantically correct on all oracle cases (2 never shown). Contrasts: structured-prose,
 interactive_core-structured, interactive-structured, prose-none (Holm within model). Secondary: tool usage, tokens.
 
+## Scope approved by the project owner (2026-10-14)
+Track A only, total API budget hard-capped at $35 (list price, enforced by the runner). Track B (closed-loop agent) is
+implemented and unit-tested but NOT run in this study; it is reported as a design, with no results.
+Dev-split pilot: 32 trials on gpt-4.1-nano ($0.04), plumbing only, not analysed.
+
 ## Models
-Pending owner approval of API spend. Candidates: gpt-4.1-nano/mini/2025-04-14 (continuity with v1).
-Temperature 0, one trial per cell, seeded random order, fresh conversation per trial.
+gpt-4.1-nano-2025-04-14 (cap $5), gpt-4.1-mini-2025-04-14 (cap $12), then gpt-4.1-2025-04-14 with the remaining budget.
+Temperature 0, one trial per cell, fresh conversation per trial. Task-blocked order: tasks shuffled (seed 20261014),
+conditions shuffled within task. If a cap stops a run early, only tasks with all 8 conditions are analysed for that
+model, and the number of completed tasks is reported (the stop point is outcome-blind: it depends only on spend).
 
 ## Statistics
 Paired differences; 95% cluster bootstrap (template for synthetic, task for KernelBench), exact McNemar on task-level

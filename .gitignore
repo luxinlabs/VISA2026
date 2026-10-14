@@ -8,3 +8,4 @@ paper/*.blg
 paper/*.out
 .DS_Store
 data/processed/kernelbench/
+.env
