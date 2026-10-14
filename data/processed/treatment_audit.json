@@ -1,0 +1,52 @@
+{
+ "n_tasks": 152,
+ "all_passed": true,
+ "doc_tokens_o200k": {
+  "none": {
+   "mean": 0,
+   "min": 0,
+   "max": 0
+  },
+  "minimal": {
+   "mean": 340.3,
+   "min": 208,
+   "max": 564
+  },
+  "syntax_only_structured": {
+   "mean": 370.5,
+   "min": 241,
+   "max": 628
+  },
+  "prose": {
+   "mean": 615.4,
+   "min": 344,
+   "max": 1068
+  },
+  "structured": {
+   "mean": 811.2,
+   "min": 424,
+   "max": 1459
+  },
+  "interactive": {
+   "mean": 0,
+   "min": 0,
+   "max": 0
+  },
+  "n_facts": {
+   "mean": 14.2,
+   "min": 8,
+   "max": 26
+  }
+ },
+ "structured_over_prose_token_ratio": 1.312,
+ "inventory": {
+  "n_facts": 77,
+  "n_op_groups": 18,
+  "by_category": {
+   "syntax": 20,
+   "type": 13,
+   "shape": 26,
+   "semantics": 18
+  }
+ }
+}

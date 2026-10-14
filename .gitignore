@@ -1,0 +1,10 @@
+.venv/
+data/vendor/
+__pycache__/
+*.pyc
+paper/*.aux
+paper/*.log
+paper/*.blg
+paper/*.out
+.DS_Store
+data/processed/kernelbench/

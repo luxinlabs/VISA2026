@@ -1,0 +1,2112 @@
+{
+ "models": {
+  "gpt-4.1-nano-2025-04-14": {
+   "conditions": {
+    "minimal": {
+     "n": 114,
+     "first_attempt": 0.3508771929824561,
+     "first_attempt_ci95": [
+      0.2694345470514746,
+      0.4420422088986628
+     ],
+     "after_repair": 0.40350877192982454,
+     "after_repair_ci95": [
+      0.3180200686346322,
+      0.4952884205095744
+     ],
+     "first_attempt_verified": 0.3508771929824561,
+     "mean_input_tokens": 2221.877192982456,
+     "mean_output_tokens": 932.4561403508771,
+     "mean_input_tokens_if_solved": 600.1086956521739,
+     "mean_tool_calls": 0,
+     "mean_attempts": 2.263157894736842,
+     "first_attempt_error_types": {
+      "none": 40,
+      "static_syntax": 36,
+      "static_shape": 27,
+      "static_type": 11
+     }
+    },
+    "none": {
+     "n": 114,
+     "first_attempt": 0.06140350877192982,
+     "first_attempt_ci95": [
+      0.030059281755610307,
+      0.12134294162714711
+     ],
+     "after_repair": 0.09649122807017543,
+     "after_repair_ci95": [
+      0.05473614880291978,
+      0.16455389670921705
+     ],
+     "first_attempt_verified": 0.06140350877192982,
+     "mean_input_tokens": 1685.342105263158,
+     "mean_output_tokens": 1020.6491228070175,
+     "mean_input_tokens_if_solved": 291.1818181818182,
+     "mean_tool_calls": 0,
+     "mean_attempts": 2.8421052631578947,
+     "first_attempt_error_types": {
+      "static_syntax": 54,
+      "static_type": 22,
+      "static_shape": 25,
+      "none": 7,
+      "static_other": 5,
+      "no_program": 1
+     }
+    },
+    "syntax_only_structured": {
+     "n": 114,
+     "first_attempt": 0.30701754385964913,
+     "first_attempt_ci95": [
+      0.22979102040741664,
+      0.39682595788099667
+     ],
+     "after_repair": 0.3684210526315789,
+     "after_repair_ci95": [
+      0.2855114084457602,
+      0.459909258569067
+     ],
+     "first_attempt_verified": 0.30701754385964913,
+     "mean_input_tokens": 2295.184210526316,
+     "mean_output_tokens": 874.8245614035088,
+     "mean_input_tokens_if_solved": 640.5,
+     "mean_tool_calls": 0,
+     "mean_attempts": 2.3421052631578947,
+     "first_attempt_error_types": {
+      "static_syntax": 43,
+      "static_shape": 28,
+      "none": 35,
+      "static_type": 7,
+      "static_other": 1
+     }
+    },
+    "structured": {
+     "n": 114,
+     "first_attempt": 0.07894736842105263,
+     "first_attempt_ci95": [
+      0.04208861436928512,
+      0.143257520078162
+     ],
+     "after_repair": 0.08771929824561403,
+     "after_repair_ci95": [
+      0.048345105187013314,
+      0.15397298479277866
+     ],
+     "first_attempt_verified": 0.07894736842105263,
+     "mean_input_tokens": 4053.1315789473683,
+     "mean_output_tokens": 1073.921052631579,
+     "mean_input_tokens_if_solved": 797.9,
+     "mean_tool_calls": 0,
+     "mean_attempts": 2.8333333333333335,
+     "first_attempt_error_types": {
+      "static_shape": 47,
+      "static_syntax": 46,
+      "static_other": 3,
+      "static_type": 8,
+      "none": 9,
+      "forbidden_op": 1
+     }
+    },
+    "interactive": {
+     "n": 114,
+     "first_attempt": 0.10526315789473684,
+     "first_attempt_ci95": [
+      0.0612468773024561,
+      0.17501512374202557
+     ],
+     "after_repair": 0.12280701754385964,
+     "after_repair_ci95": [
+      0.07458120749270626,
+      0.1956247046164651
+     ],
+     "first_attempt_verified": 0.10526315789473684,
+     "mean_input_tokens": 3777.0789473684213,
+     "mean_output_tokens": 887.780701754386,
+     "mean_input_tokens_if_solved": 1277.642857142857,
+     "mean_tool_calls": 2.43859649122807,
+     "mean_attempts": 2.7719298245614037,
+     "first_attempt_error_types": {
+      "none": 12,
+      "static_type": 8,
+      "static_shape": 71,
+      "static_syntax": 23
+     }
+    },
+    "prose": {
+     "n": 114,
+     "first_attempt": 0.47368421052631576,
+     "first_attempt_ci95": [
+      0.38438778550087227,
+      0.5646963479020932
+     ],
+     "after_repair": 0.5175438596491229,
+     "after_repair_ci95": [
+      0.4267504096973995,
+      0.6071935013672902
+     ],
+     "first_attempt_verified": 0.47368421052631576,
+     "mean_input_tokens": 2449.842105263158,
+     "mean_output_tokens": 727.5175438596491,
+     "mean_input_tokens_if_solved": 792.3220338983051,
+     "mean_tool_calls": 0,
+     "mean_attempts": 2.008771929824561,
+     "first_attempt_error_types": {
+      "static_shape": 18,
+      "none": 54,
+      "static_syntax": 40,
+      "static_type": 2
+     }
+    }
+   },
+   "families": {
+    "layout": {
+     "minimal": [
+      0.7333333333333333,
+      15
+     ],
+     "syntax_only_structured": [
+      0.4666666666666667,
+      15
+     ],
+     "none": [
+      0.2,
+      15
+     ],
+     "prose": [
+      0.7333333333333333,
+      15
+     ],
+     "interactive": [
+      0.13333333333333333,
+      15
+     ],
+     "structured": [
+      0,
+      15
+     ]
+    },
+    "dot": {
+     "minimal": [
+      0.5,
+      18
+     ],
+     "interactive": [
+      0,
+      18
+     ],
+     "none": [
+      0,
+      18
+     ],
+     "structured": [
+      0.1111111111111111,
+      18
+     ],
+     "syntax_only_structured": [
+      0.6666666666666666,
+      18
+     ],
+     "prose": [
+      0.6111111111111112,
+      18
+     ]
+    },
+    "mask_index": {
+     "none": [
+      0,
+      12
+     ],
+     "syntax_only_structured": [
+      0,
+      12
+     ],
+     "structured": [
+      0,
+      12
+     ],
+     "prose": [
+      0,
+      12
+     ],
+     "minimal": [
+      0,
+      12
+     ],
+     "interactive": [
+      0,
+      12
+     ]
+    },
+    "slice_pad": {
+     "structured": [
+      0.3333333333333333,
+      18
+     ],
+     "minimal": [
+      0.3333333333333333,
+      18
+     ],
+     "syntax_only_structured": [
+      0.3333333333333333,
+      18
+     ],
+     "prose": [
+      0.4444444444444444,
+      18
+     ],
+     "interactive": [
+      0.2777777777777778,
+      18
+     ],
+     "none": [
+      0.2222222222222222,
+      18
+     ]
+    },
+    "broadcast": {
+     "syntax_only_structured": [
+      0.3888888888888889,
+      18
+     ],
+     "none": [
+      0,
+      18
+     ],
+     "interactive": [
+      0,
+      18
+     ],
+     "structured": [
+      0,
+      18
+     ],
+     "minimal": [
+      0.5555555555555556,
+      18
+     ],
+     "prose": [
+      0.7777777777777778,
+      18
+     ]
+    },
+    "reduce": {
+     "structured": [
+      0,
+      12
+     ],
+     "syntax_only_structured": [
+      0,
+      12
+     ],
+     "interactive": [
+      0,
+      12
+     ],
+     "prose": [
+      0.3333333333333333,
+      12
+     ],
+     "minimal": [
+      0.08333333333333333,
+      12
+     ],
+     "none": [
+      0,
+      12
+     ]
+    },
+    "elementwise": {
+     "syntax_only_structured": [
+      0,
+      6
+     ],
+     "prose": [
+      0.5,
+      6
+     ],
+     "structured": [
+      0,
+      6
+     ],
+     "none": [
+      0,
+      6
+     ],
+     "minimal": [
+      0.16666666666666666,
+      6
+     ],
+     "interactive": [
+      0.5,
+      6
+     ]
+    },
+    "convert": {
+     "interactive": [
+      0.3333333333333333,
+      6
+     ],
+     "syntax_only_structured": [
+      0.5,
+      6
+     ],
+     "none": [
+      0,
+      6
+     ],
+     "minimal": [
+      0.3333333333333333,
+      6
+     ],
+     "structured": [
+      0.16666666666666666,
+      6
+     ],
+     "prose": [
+      0.5,
+      6
+     ]
+    },
+    "composite": {
+     "prose": [
+      0,
+      9
+     ],
+     "structured": [
+      0,
+      9
+     ],
+     "minimal": [
+      0,
+      9
+     ],
+     "interactive": [
+      0,
+      9
+     ],
+     "syntax_only_structured": [
+      0,
+      9
+     ],
+     "none": [
+      0,
+      9
+     ]
+    }
+   },
+   "retrieval": {
+    "n": 114,
+    "mean_tool_calls": 2.43859649122807,
+    "share_no_tool_call": 0,
+    "mean_fraction_available_facts_retrieved": 0.6348077767767497,
+    "query_categories": {
+     "all": 206,
+     "syntax": 61,
+     "type": 11
+    }
+   },
+   "contrasts": {
+    "first_attempt_semantic_correct": [
+     {
+      "model": "gpt-4.1-nano-2025-04-14",
+      "contrast": "structured - prose",
+      "outcome": "first_attempt_semantic_correct",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_prose": 0.47368421052631576,
+      "rate_structured": 0.07894736842105263,
+      "effect": -0.39473684210526316,
+      "ci95_cluster_bootstrap": [
+       -0.5263157894736842,
+       -0.2719298245614035
+      ],
+      "ci95_task_bootstrap": [
+       -0.4824561403508772,
+       -0.30701754385964913
+      ],
+      "discordant": {
+       "structured_only": 0,
+       "prose_only": 45
+      },
+      "mcnemar_exact_p": 5.684341886080802e-14,
+      "holm_p": 2.8421709430404007e-13
+     },
+     {
+      "model": "gpt-4.1-nano-2025-04-14",
+      "contrast": "interactive - structured",
+      "outcome": "first_attempt_semantic_correct",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_structured": 0.07894736842105263,
+      "rate_interactive": 0.10526315789473684,
+      "effect": 0.02631578947368421,
+      "ci95_cluster_bootstrap": [
+       -0.03508771929824561,
+       0.09649122807017543
+      ],
+      "ci95_task_bootstrap": [
+       -0.02631578947368421,
+       0.08771929824561403
+      ],
+      "discordant": {
+       "interactive_only": 7,
+       "structured_only": 4
+      },
+      "mcnemar_exact_p": 0.548828125,
+      "holm_p": 0.71856689453125
+     },
+     {
+      "model": "gpt-4.1-nano-2025-04-14",
+      "contrast": "prose - minimal",
+      "outcome": "first_attempt_semantic_correct",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_minimal": 0.3508771929824561,
+      "rate_prose": 0.47368421052631576,
+      "effect": 0.12280701754385964,
+      "ci95_cluster_bootstrap": [
+       0.017543859649122806,
+       0.22807017543859648
+      ],
+      "ci95_task_bootstrap": [
+       0.043859649122807015,
+       0.20175438596491227
+      ],
+      "discordant": {
+       "prose_only": 19,
+       "minimal_only": 5
+      },
+      "mcnemar_exact_p": 0.006610751152038574,
+      "holm_p": 0.019832253456115723
+     },
+     {
+      "model": "gpt-4.1-nano-2025-04-14",
+      "contrast": "minimal - none",
+      "outcome": "first_attempt_semantic_correct",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_none": 0.06140350877192982,
+      "rate_minimal": 0.3508771929824561,
+      "effect": 0.2894736842105263,
+      "ci95_cluster_bootstrap": [
+       0.15789473684210525,
+       0.4298245614035088
+      ],
+      "ci95_task_bootstrap": [
+       0.20175438596491227,
+       0.37719298245614036
+      ],
+      "discordant": {
+       "minimal_only": 34,
+       "none_only": 1
+      },
+      "mcnemar_exact_p": 2.0954757928848267e-09,
+      "holm_p": 8.381903171539307e-09
+     },
+     {
+      "model": "gpt-4.1-nano-2025-04-14",
+      "contrast": "syntax_only_structured - minimal",
+      "outcome": "first_attempt_semantic_correct",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_minimal": 0.3508771929824561,
+      "rate_syntax_only_structured": 0.30701754385964913,
+      "effect": -0.043859649122807015,
+      "ci95_cluster_bootstrap": [
+       -0.14035087719298245,
+       0.06140350877192982
+      ],
+      "ci95_task_bootstrap": [
+       -0.12280701754385964,
+       0.02631578947368421
+      ],
+      "discordant": {
+       "syntax_only_structured_only": 7,
+       "minimal_only": 12
+      },
+      "mcnemar_exact_p": 0.359283447265625,
+      "holm_p": 0.71856689453125
+     }
+    ],
+    "correct_after_repair": [
+     {
+      "model": "gpt-4.1-nano-2025-04-14",
+      "contrast": "structured - prose",
+      "outcome": "correct_after_repair",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_prose": 0.5175438596491229,
+      "rate_structured": 0.08771929824561403,
+      "effect": -0.4298245614035088,
+      "ci95_cluster_bootstrap": [
+       -0.5614035087719298,
+       -0.2982456140350877
+      ],
+      "ci95_task_bootstrap": [
+       -0.5175438596491229,
+       -0.34210526315789475
+      ],
+      "discordant": {
+       "structured_only": 0,
+       "prose_only": 49
+      },
+      "mcnemar_exact_p": 3.552713678800501e-15,
+      "holm_p": 1.7763568394002505e-14
+     },
+     {
+      "model": "gpt-4.1-nano-2025-04-14",
+      "contrast": "interactive - structured",
+      "outcome": "correct_after_repair",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_structured": 0.08771929824561403,
+      "rate_interactive": 0.12280701754385964,
+      "effect": 0.03508771929824561,
+      "ci95_cluster_bootstrap": [
+       -0.02631578947368421,
+       0.10526315789473684
+      ],
+      "ci95_task_bootstrap": [
+       -0.017543859649122806,
+       0.08771929824561403
+      ],
+      "discordant": {
+       "interactive_only": 7,
+       "structured_only": 3
+      },
+      "mcnemar_exact_p": 0.34375,
+      "holm_p": 0.6875
+     },
+     {
+      "model": "gpt-4.1-nano-2025-04-14",
+      "contrast": "prose - minimal",
+      "outcome": "correct_after_repair",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_minimal": 0.40350877192982454,
+      "rate_prose": 0.5175438596491229,
+      "effect": 0.11403508771929824,
+      "ci95_cluster_bootstrap": [
+       0.02631578947368421,
+       0.21052631578947367
+      ],
+      "ci95_task_bootstrap": [
+       0.03508771929824561,
+       0.19298245614035087
+      ],
+      "discordant": {
+       "prose_only": 17,
+       "minimal_only": 4
+      },
+      "mcnemar_exact_p": 0.007197380065917969,
+      "holm_p": 0.021592140197753906
+     },
+     {
+      "model": "gpt-4.1-nano-2025-04-14",
+      "contrast": "minimal - none",
+      "outcome": "correct_after_repair",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_none": 0.09649122807017543,
+      "rate_minimal": 0.40350877192982454,
+      "effect": 0.30701754385964913,
+      "ci95_cluster_bootstrap": [
+       0.16666666666666666,
+       0.4473684210526316
+      ],
+      "ci95_task_bootstrap": [
+       0.21929824561403508,
+       0.39473684210526316
+      ],
+      "discordant": {
+       "minimal_only": 37,
+       "none_only": 2
+      },
+      "mcnemar_exact_p": 2.841261448338628e-09,
+      "holm_p": 1.1365045793354511e-08
+     },
+     {
+      "model": "gpt-4.1-nano-2025-04-14",
+      "contrast": "syntax_only_structured - minimal",
+      "outcome": "correct_after_repair",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_minimal": 0.40350877192982454,
+      "rate_syntax_only_structured": 0.3684210526315789,
+      "effect": -0.03508771929824561,
+      "ci95_cluster_bootstrap": [
+       -0.12280701754385964,
+       0.043859649122807015
+      ],
+      "ci95_task_bootstrap": [
+       -0.10526315789473684,
+       0.03508771929824561
+      ],
+      "discordant": {
+       "syntax_only_structured_only": 7,
+       "minimal_only": 11
+      },
+      "mcnemar_exact_p": 0.480682373046875,
+      "holm_p": 0.6875
+     }
+    ]
+   }
+  },
+  "gpt-4.1-mini-2025-04-14": {
+   "conditions": {
+    "structured": {
+     "n": 114,
+     "first_attempt": 0.5087719298245614,
+     "first_attempt_ci95": [
+      0.4182240972114434,
+      0.5987478583209015
+     ],
+     "after_repair": 0.6666666666666666,
+     "after_repair_ci95": [
+      0.5759479558512033,
+      0.7465191992633489
+     ],
+     "first_attempt_verified": 0.5087719298245614,
+     "mean_input_tokens": 2482.5087719298244,
+     "mean_output_tokens": 468.44736842105266,
+     "mean_input_tokens_if_solved": 1204.9736842105262,
+     "mean_tool_calls": 0,
+     "mean_attempts": 1.868421052631579,
+     "first_attempt_error_types": {
+      "none": 58,
+      "static_syntax": 43,
+      "static_shape": 13
+     }
+    },
+    "minimal": {
+     "n": 114,
+     "first_attempt": 0.6403508771929824,
+     "first_attempt_ci95": [
+      0.5490091273019986,
+      0.7225421612155191
+     ],
+     "after_repair": 0.7807017543859649,
+     "after_repair_ci95": [
+      0.6962863373983317,
+      0.8468162396367035
+     ],
+     "first_attempt_verified": 0.6403508771929824,
+     "mean_input_tokens": 1241.4122807017543,
+     "mean_output_tokens": 383.5263157894737,
+     "mean_input_tokens_if_solved": 688.2921348314607,
+     "mean_tool_calls": 0,
+     "mean_attempts": 1.631578947368421,
+     "first_attempt_error_types": {
+      "none": 73,
+      "static_syntax": 33,
+      "static_shape": 7,
+      "static_other": 1
+     }
+    },
+    "syntax_only_structured": {
+     "n": 114,
+     "first_attempt": 0.49122807017543857,
+     "first_attempt_ci95": [
+      0.40125214167909845,
+      0.5817759027885566
+     ],
+     "after_repair": 0.6578947368421053,
+     "after_repair_ci95": [
+      0.566937222599592,
+      0.7385579769826155
+     ],
+     "first_attempt_verified": 0.49122807017543857,
+     "mean_input_tokens": 1545.1666666666667,
+     "mean_output_tokens": 450.280701754386,
+     "mean_input_tokens_if_solved": 719.7466666666667,
+     "mean_tool_calls": 0,
+     "mean_attempts": 1.868421052631579,
+     "first_attempt_error_types": {
+      "none": 56,
+      "static_syntax": 28,
+      "static_shape": 25,
+      "static_type": 4,
+      "static_other": 1
+     }
+    },
+    "none": {
+     "n": 114,
+     "first_attempt": 0.0,
+     "first_attempt_ci95": [
+      0.0,
+      0.03259853465634346
+     ],
+     "after_repair": 0.0,
+     "after_repair_ci95": [
+      0.0,
+      0.03259853465634346
+     ],
+     "first_attempt_verified": 0.0,
+     "mean_input_tokens": 1296.6052631578948,
+     "mean_output_tokens": 586.3684210526316,
+     "mean_input_tokens_if_solved": null,
+     "mean_tool_calls": 0,
+     "mean_attempts": 3,
+     "first_attempt_error_types": {
+      "static_type": 18,
+      "static_syntax": 67,
+      "static_shape": 29
+     }
+    },
+    "interactive": {
+     "n": 114,
+     "first_attempt": 0.18421052631578946,
+     "first_attempt_ci95": [
+      0.12376031411150552,
+      0.2652492867240798
+     ],
+     "after_repair": 0.23684210526315788,
+     "after_repair_ci95": [
+      0.16818266383392041,
+      0.3226586701957341
+     ],
+     "first_attempt_verified": 0.18421052631578946,
+     "mean_input_tokens": 3820.9473684210525,
+     "mean_output_tokens": 662.6754385964912,
+     "mean_input_tokens_if_solved": 1516.3333333333333,
+     "mean_tool_calls": 2.8508771929824563,
+     "mean_attempts": 2.5964912280701755,
+     "first_attempt_error_types": {
+      "static_syntax": 72,
+      "static_shape": 20,
+      "none": 21,
+      "static_type": 1
+     }
+    },
+    "prose": {
+     "n": 114,
+     "first_attempt": 0.6403508771929824,
+     "first_attempt_ci95": [
+      0.5490091273019986,
+      0.7225421612155191
+     ],
+     "after_repair": 0.7543859649122807,
+     "after_repair_ci95": [
+      0.6679340466169862,
+      0.8242526638210146
+     ],
+     "first_attempt_verified": 0.6403508771929824,
+     "mean_input_tokens": 1767.5438596491229,
+     "mean_output_tokens": 404.70175438596493,
+     "mean_input_tokens_if_solved": 948.5116279069767,
+     "mean_tool_calls": 0,
+     "mean_attempts": 1.631578947368421,
+     "first_attempt_error_types": {
+      "static_syntax": 30,
+      "none": 73,
+      "static_shape": 11
+     }
+    }
+   },
+   "families": {
+    "slice_pad": {
+     "structured": [
+      0.9444444444444444,
+      18
+     ],
+     "minimal": [
+      0.8888888888888888,
+      18
+     ],
+     "syntax_only_structured": [
+      0.7222222222222222,
+      18
+     ],
+     "prose": [
+      0.9444444444444444,
+      18
+     ],
+     "interactive": [
+      0.3333333333333333,
+      18
+     ],
+     "none": [
+      0,
+      18
+     ]
+    },
+    "layout": {
+     "minimal": [
+      1,
+      15
+     ],
+     "syntax_only_structured": [
+      0.8,
+      15
+     ],
+     "none": [
+      0,
+      15
+     ],
+     "prose": [
+      1,
+      15
+     ],
+     "interactive": [
+      0.06666666666666667,
+      15
+     ],
+     "structured": [
+      0.7333333333333333,
+      15
+     ]
+    },
+    "dot": {
+     "minimal": [
+      1,
+      18
+     ],
+     "none": [
+      0,
+      18
+     ],
+     "interactive": [
+      0.7777777777777778,
+      18
+     ],
+     "structured": [
+      0.9444444444444444,
+      18
+     ],
+     "syntax_only_structured": [
+      1,
+      18
+     ],
+     "prose": [
+      1,
+      18
+     ]
+    },
+    "mask_index": {
+     "syntax_only_structured": [
+      0.08333333333333333,
+      12
+     ],
+     "none": [
+      0,
+      12
+     ],
+     "structured": [
+      0.16666666666666666,
+      12
+     ],
+     "prose": [
+      0.5,
+      12
+     ],
+     "minimal": [
+      0.16666666666666666,
+      12
+     ],
+     "interactive": [
+      0,
+      12
+     ]
+    },
+    "elementwise": {
+     "syntax_only_structured": [
+      0.6666666666666666,
+      6
+     ],
+     "prose": [
+      0.5,
+      6
+     ],
+     "structured": [
+      1,
+      6
+     ],
+     "none": [
+      0,
+      6
+     ],
+     "minimal": [
+      0.3333333333333333,
+      6
+     ],
+     "interactive": [
+      0,
+      6
+     ]
+    },
+    "broadcast": {
+     "syntax_only_structured": [
+      0.3888888888888889,
+      18
+     ],
+     "none": [
+      0,
+      18
+     ],
+     "interactive": [
+      0,
+      18
+     ],
+     "structured": [
+      0.2777777777777778,
+      18
+     ],
+     "minimal": [
+      0.5555555555555556,
+      18
+     ],
+     "prose": [
+      0.2777777777777778,
+      18
+     ]
+    },
+    "reduce": {
+     "structured": [
+      0,
+      12
+     ],
+     "syntax_only_structured": [
+      0,
+      12
+     ],
+     "interactive": [
+      0,
+      12
+     ],
+     "prose": [
+      0.5833333333333334,
+      12
+     ],
+     "minimal": [
+      0.5,
+      12
+     ],
+     "none": [
+      0,
+      12
+     ]
+    },
+    "composite": {
+     "prose": [
+      0.1111111111111111,
+      9
+     ],
+     "structured": [
+      0,
+      9
+     ],
+     "minimal": [
+      0.3333333333333333,
+      9
+     ],
+     "interactive": [
+      0,
+      9
+     ],
+     "syntax_only_structured": [
+      0.1111111111111111,
+      9
+     ],
+     "none": [
+      0,
+      9
+     ]
+    },
+    "convert": {
+     "interactive": [
+      0,
+      6
+     ],
+     "none": [
+      0,
+      6
+     ],
+     "syntax_only_structured": [
+      0,
+      6
+     ],
+     "structured": [
+      0,
+      6
+     ],
+     "minimal": [
+      0.16666666666666666,
+      6
+     ],
+     "prose": [
+      0.16666666666666666,
+      6
+     ]
+    }
+   },
+   "retrieval": {
+    "n": 114,
+    "mean_tool_calls": 2.8508771929824563,
+    "share_no_tool_call": 0.02631578947368421,
+    "mean_fraction_available_facts_retrieved": 0.7767624820327068,
+    "query_categories": {
+     "all": 270,
+     "syntax": 41,
+     "type": 5,
+     "shape": 3,
+     "semantics": 6
+    }
+   },
+   "contrasts": {
+    "first_attempt_semantic_correct": [
+     {
+      "model": "gpt-4.1-mini-2025-04-14",
+      "contrast": "structured - prose",
+      "outcome": "first_attempt_semantic_correct",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_prose": 0.6403508771929824,
+      "rate_structured": 0.5087719298245614,
+      "effect": -0.13157894736842105,
+      "ci95_cluster_bootstrap": [
+       -0.2543859649122807,
+       -0.017324561403511962
+      ],
+      "ci95_task_bootstrap": [
+       -0.21052631578947367,
+       -0.05263157894736842
+      ],
+      "discordant": {
+       "structured_only": 5,
+       "prose_only": 20
+      },
+      "mcnemar_exact_p": 0.004077315330505371,
+      "holm_p": 0.008154630661010742
+     },
+     {
+      "model": "gpt-4.1-mini-2025-04-14",
+      "contrast": "interactive - structured",
+      "outcome": "first_attempt_semantic_correct",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_structured": 0.5087719298245614,
+      "rate_interactive": 0.18421052631578946,
+      "effect": -0.32456140350877194,
+      "ci95_cluster_bootstrap": [
+       -0.4649122807017544,
+       -0.19298245614035087
+      ],
+      "ci95_task_bootstrap": [
+       -0.41228070175438597,
+       -0.23684210526315788
+      ],
+      "discordant": {
+       "interactive_only": 1,
+       "structured_only": 38
+      },
+      "mcnemar_exact_p": 1.4551915228366852e-10,
+      "holm_p": 5.820766091346741e-10
+     },
+     {
+      "model": "gpt-4.1-mini-2025-04-14",
+      "contrast": "prose - minimal",
+      "outcome": "first_attempt_semantic_correct",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_minimal": 0.6403508771929824,
+      "rate_prose": 0.6403508771929824,
+      "effect": 0,
+      "ci95_cluster_bootstrap": [
+       -0.08771929824561403,
+       0.07894736842105263
+      ],
+      "ci95_task_bootstrap": [
+       -0.07017543859649122,
+       0.07017543859649122
+      ],
+      "discordant": {
+       "prose_only": 9,
+       "minimal_only": 9
+      },
+      "mcnemar_exact_p": 1.0,
+      "holm_p": 1.0
+     },
+     {
+      "model": "gpt-4.1-mini-2025-04-14",
+      "contrast": "minimal - none",
+      "outcome": "first_attempt_semantic_correct",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_none": 0,
+      "rate_minimal": 0.6403508771929824,
+      "effect": 0.6403508771929824,
+      "ci95_cluster_bootstrap": [
+       0.5,
+       0.7719298245614035
+      ],
+      "ci95_task_bootstrap": [
+       0.5526315789473685,
+       0.7280701754385965
+      ],
+      "discordant": {
+       "minimal_only": 73,
+       "none_only": 0
+      },
+      "mcnemar_exact_p": 2.117582368135751e-22,
+      "holm_p": 1.0587911840678754e-21
+     },
+     {
+      "model": "gpt-4.1-mini-2025-04-14",
+      "contrast": "syntax_only_structured - minimal",
+      "outcome": "first_attempt_semantic_correct",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_minimal": 0.6403508771929824,
+      "rate_syntax_only_structured": 0.49122807017543857,
+      "effect": -0.14912280701754385,
+      "ci95_cluster_bootstrap": [
+       -0.2631578947368421,
+       -0.043859649122807015
+      ],
+      "ci95_task_bootstrap": [
+       -0.23684210526315788,
+       -0.06140350877192982
+      ],
+      "discordant": {
+       "syntax_only_structured_only": 5,
+       "minimal_only": 22
+      },
+      "mcnemar_exact_p": 0.0015137195587158203,
+      "holm_p": 0.004541158676147461
+     }
+    ],
+    "correct_after_repair": [
+     {
+      "model": "gpt-4.1-mini-2025-04-14",
+      "contrast": "structured - prose",
+      "outcome": "correct_after_repair",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_prose": 0.7543859649122807,
+      "rate_structured": 0.6666666666666666,
+      "effect": -0.08771929824561403,
+      "ci95_cluster_bootstrap": [
+       -0.21052631578947367,
+       0.03508771929824561
+      ],
+      "ci95_task_bootstrap": [
+       -0.17543859649122806,
+       0.0
+      ],
+      "discordant": {
+       "structured_only": 9,
+       "prose_only": 19
+      },
+      "mcnemar_exact_p": 0.08715855330228806,
+      "holm_p": 0.1743171066045761
+     },
+     {
+      "model": "gpt-4.1-mini-2025-04-14",
+      "contrast": "interactive - structured",
+      "outcome": "correct_after_repair",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_structured": 0.6666666666666666,
+      "rate_interactive": 0.23684210526315788,
+      "effect": -0.4298245614035088,
+      "ci95_cluster_bootstrap": [
+       -0.5789473684210527,
+       -0.2807017543859649
+      ],
+      "ci95_task_bootstrap": [
+       -0.5263157894736842,
+       -0.3333333333333333
+      ],
+      "discordant": {
+       "interactive_only": 1,
+       "structured_only": 50
+      },
+      "mcnemar_exact_p": 4.618527782440651e-14,
+      "holm_p": 1.8474111129762605e-13
+     },
+     {
+      "model": "gpt-4.1-mini-2025-04-14",
+      "contrast": "prose - minimal",
+      "outcome": "correct_after_repair",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_minimal": 0.7807017543859649,
+      "rate_prose": 0.7543859649122807,
+      "effect": -0.02631578947368421,
+      "ci95_cluster_bootstrap": [
+       -0.14035087719298245,
+       0.08771929824561403
+      ],
+      "ci95_task_bootstrap": [
+       -0.11403508771929824,
+       0.06140350877192982
+      ],
+      "discordant": {
+       "prose_only": 11,
+       "minimal_only": 14
+      },
+      "mcnemar_exact_p": 0.6900379657745361,
+      "holm_p": 0.6900379657745361
+     },
+     {
+      "model": "gpt-4.1-mini-2025-04-14",
+      "contrast": "minimal - none",
+      "outcome": "correct_after_repair",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_none": 0,
+      "rate_minimal": 0.7807017543859649,
+      "effect": 0.7807017543859649,
+      "ci95_cluster_bootstrap": [
+       0.6578947368421053,
+       0.8947368421052632
+      ],
+      "ci95_task_bootstrap": [
+       0.7017543859649122,
+       0.8508771929824561
+      ],
+      "discordant": {
+       "minimal_only": 89,
+       "none_only": 0
+      },
+      "mcnemar_exact_p": 3.2311742677852644e-27,
+      "holm_p": 1.6155871338926322e-26
+     },
+     {
+      "model": "gpt-4.1-mini-2025-04-14",
+      "contrast": "syntax_only_structured - minimal",
+      "outcome": "correct_after_repair",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_minimal": 0.7807017543859649,
+      "rate_syntax_only_structured": 0.6578947368421053,
+      "effect": -0.12280701754385964,
+      "ci95_cluster_bootstrap": [
+       -0.22807017543859648,
+       -0.02631578947368421
+      ],
+      "ci95_task_bootstrap": [
+       -0.20175438596491227,
+       -0.043859649122807015
+      ],
+      "discordant": {
+       "syntax_only_structured_only": 5,
+       "minimal_only": 19
+      },
+      "mcnemar_exact_p": 0.006610751152038574,
+      "holm_p": 0.019832253456115723
+     }
+    ]
+   }
+  },
+  "gpt-4.1-2025-04-14": {
+   "conditions": {
+    "minimal": {
+     "n": 114,
+     "first_attempt": 0.7894736842105263,
+     "first_attempt_ci95": [
+      0.7058275298312257,
+      0.8542470027361545
+     ],
+     "after_repair": 0.8859649122807017,
+     "after_repair_ci95": [
+      0.8146312613588519,
+      0.9321347820643215
+     ],
+     "first_attempt_verified": 0.7894736842105263,
+     "mean_input_tokens": 978.859649122807,
+     "mean_output_tokens": 381.4824561403509,
+     "mean_input_tokens_if_solved": 645.5643564356436,
+     "mean_tool_calls": 0,
+     "mean_attempts": 1.3596491228070176,
+     "first_attempt_error_types": {
+      "none": 90,
+      "static_shape": 15,
+      "static_syntax": 8,
+      "static_type": 1
+     }
+    },
+    "structured": {
+     "n": 114,
+     "first_attempt": 0.9122807017543859,
+     "first_attempt_ci95": [
+      0.8460270152072212,
+      0.9516548948129867
+     ],
+     "after_repair": 0.9912280701754386,
+     "after_repair_ci95": [
+      0.9519796527339619,
+      0.99844985707735
+     ],
+     "first_attempt_verified": 0.9122807017543859,
+     "mean_input_tokens": 1204.2894736842106,
+     "mean_output_tokens": 258.7543859649123,
+     "mean_input_tokens_if_solved": 1143.5486725663716,
+     "mean_tool_calls": 0,
+     "mean_attempts": 1.105263157894737,
+     "first_attempt_error_types": {
+      "none": 104,
+      "static_syntax": 5,
+      "static_shape": 5
+     }
+    },
+    "syntax_only_structured": {
+     "n": 114,
+     "first_attempt": 0.8245614035087719,
+     "first_attempt_ci95": [
+      0.7444999439278812,
+      0.8834624107688783
+     ],
+     "after_repair": 0.9385964912280702,
+     "after_repair_ci95": [
+      0.8786570583728529,
+      0.9699407182443897
+     ],
+     "first_attempt_verified": 0.8245614035087719,
+     "mean_input_tokens": 920.6491228070175,
+     "mean_output_tokens": 318.10526315789474,
+     "mean_input_tokens_if_solved": 742.0280373831775,
+     "mean_tool_calls": 0,
+     "mean_attempts": 1.280701754385965,
+     "first_attempt_error_types": {
+      "none": 94,
+      "static_shape": 9,
+      "static_syntax": 11
+     }
+    },
+    "none": {
+     "n": 114,
+     "first_attempt": 0.2982456140350877,
+     "first_attempt_ci95": [
+      0.2219613542670869,
+      0.3876836684889815
+     ],
+     "after_repair": 0.34210526315789475,
+     "after_repair_ci95": [
+      0.2614420230173847,
+      0.433062777400408
+     ],
+     "first_attempt_verified": 0.2982456140350877,
+     "mean_input_tokens": 1029.1491228070176,
+     "mean_output_tokens": 542.4736842105264,
+     "mean_input_tokens_if_solved": 224.97435897435898,
+     "mean_tool_calls": 0,
+     "mean_attempts": 2.3684210526315788,
+     "first_attempt_error_types": {
+      "none": 34,
+      "static_syntax": 80
+     }
+    },
+    "prose": {
+     "n": 114,
+     "first_attempt": 0.8859649122807017,
+     "first_attempt_ci95": [
+      0.8146312613588519,
+      0.9321347820643215
+     ],
+     "after_repair": 0.9210526315789473,
+     "after_repair_ci95": [
+      0.856742479921838,
+      0.9579113856307149
+     ],
+     "first_attempt_verified": 0.8859649122807017,
+     "mean_input_tokens": 1150.0877192982457,
+     "mean_output_tokens": 323.6842105263158,
+     "mean_input_tokens_if_solved": 824.952380952381,
+     "mean_tool_calls": 0,
+     "mean_attempts": 1.2017543859649122,
+     "first_attempt_error_types": {
+      "none": 101,
+      "static_syntax": 6,
+      "static_shape": 6,
+      "static_type": 1
+     }
+    },
+    "interactive": {
+     "n": 114,
+     "first_attempt": 0.2894736842105263,
+     "first_attempt_ci95": [
+      0.21416645410776172,
+      0.37850661311596184
+     ],
+     "after_repair": 0.37719298245614036,
+     "after_repair_ci95": [
+      0.2935948076712588,
+      0.4687978148759133
+     ],
+     "first_attempt_verified": 0.2894736842105263,
+     "mean_input_tokens": 1458.657894736842,
+     "mean_output_tokens": 519.3771929824561,
+     "mean_input_tokens_if_solved": 553.9302325581396,
+     "mean_tool_calls": 0,
+     "mean_attempts": 2.3684210526315788,
+     "first_attempt_error_types": {
+      "none": 33,
+      "static_syntax": 79,
+      "static_shape": 2
+     }
+    }
+   },
+   "families": {
+    "layout": {
+     "minimal": [
+      1,
+      15
+     ],
+     "syntax_only_structured": [
+      1,
+      15
+     ],
+     "none": [
+      0.26666666666666666,
+      15
+     ],
+     "prose": [
+      1,
+      15
+     ],
+     "interactive": [
+      0.4,
+      15
+     ],
+     "structured": [
+      1,
+      15
+     ]
+    },
+    "slice_pad": {
+     "structured": [
+      1,
+      18
+     ],
+     "minimal": [
+      1,
+      18
+     ],
+     "syntax_only_structured": [
+      0.9444444444444444,
+      18
+     ],
+     "prose": [
+      1,
+      18
+     ],
+     "interactive": [
+      0.3333333333333333,
+      18
+     ],
+     "none": [
+      0.3333333333333333,
+      18
+     ]
+    },
+    "mask_index": {
+     "structured": [
+      0.6666666666666666,
+      12
+     ],
+     "none": [
+      0,
+      12
+     ],
+     "syntax_only_structured": [
+      0.25,
+      12
+     ],
+     "prose": [
+      0.4166666666666667,
+      12
+     ],
+     "minimal": [
+      0.25,
+      12
+     ],
+     "interactive": [
+      0,
+      12
+     ]
+    },
+    "broadcast": {
+     "syntax_only_structured": [
+      1,
+      18
+     ],
+     "none": [
+      0.8888888888888888,
+      18
+     ],
+     "interactive": [
+      0.8888888888888888,
+      18
+     ],
+     "structured": [
+      1,
+      18
+     ],
+     "minimal": [
+      1,
+      18
+     ],
+     "prose": [
+      1,
+      18
+     ]
+    },
+    "elementwise": {
+     "syntax_only_structured": [
+      0.8333333333333334,
+      6
+     ],
+     "prose": [
+      1,
+      6
+     ],
+     "structured": [
+      1,
+      6
+     ],
+     "none": [
+      0.8333333333333334,
+      6
+     ],
+     "minimal": [
+      0.5,
+      6
+     ],
+     "interactive": [
+      0.8333333333333334,
+      6
+     ]
+    },
+    "reduce": {
+     "structured": [
+      0.75,
+      12
+     ],
+     "syntax_only_structured": [
+      0.5833333333333334,
+      12
+     ],
+     "interactive": [
+      0,
+      12
+     ],
+     "prose": [
+      0.6666666666666666,
+      12
+     ],
+     "minimal": [
+      0.5,
+      12
+     ],
+     "none": [
+      0,
+      12
+     ]
+    },
+    "dot": {
+     "minimal": [
+      0.8333333333333334,
+      18
+     ],
+     "none": [
+      0,
+      18
+     ],
+     "interactive": [
+      0,
+      18
+     ],
+     "structured": [
+      1,
+      18
+     ],
+     "syntax_only_structured": [
+      0.9444444444444444,
+      18
+     ],
+     "prose": [
+      0.8888888888888888,
+      18
+     ]
+    },
+    "composite": {
+     "prose": [
+      1,
+      9
+     ],
+     "structured": [
+      1,
+      9
+     ],
+     "minimal": [
+      1,
+      9
+     ],
+     "interactive": [
+      0,
+      9
+     ],
+     "syntax_only_structured": [
+      1,
+      9
+     ],
+     "none": [
+      0,
+      9
+     ]
+    },
+    "convert": {
+     "interactive": [
+      0,
+      6
+     ],
+     "none": [
+      0.5,
+      6
+     ],
+     "syntax_only_structured": [
+      0.5,
+      6
+     ],
+     "structured": [
+      0.5,
+      6
+     ],
+     "minimal": [
+      0.5,
+      6
+     ],
+     "prose": [
+      1,
+      6
+     ]
+    }
+   },
+   "retrieval": {
+    "n": 114,
+    "mean_tool_calls": 0,
+    "share_no_tool_call": 1,
+    "mean_fraction_available_facts_retrieved": 0.0,
+    "query_categories": {}
+   },
+   "contrasts": {
+    "first_attempt_semantic_correct": [
+     {
+      "model": "gpt-4.1-2025-04-14",
+      "contrast": "structured - prose",
+      "outcome": "first_attempt_semantic_correct",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_prose": 0.8859649122807017,
+      "rate_structured": 0.9122807017543859,
+      "effect": 0.02631578947368421,
+      "ci95_cluster_bootstrap": [
+       -0.07017543859649122,
+       0.12280701754385964
+      ],
+      "ci95_task_bootstrap": [
+       -0.03508771929824561,
+       0.08771929824561403
+      ],
+      "discordant": {
+       "structured_only": 8,
+       "prose_only": 5
+      },
+      "mcnemar_exact_p": 0.5810546875,
+      "holm_p": 0.847900390625
+     },
+     {
+      "model": "gpt-4.1-2025-04-14",
+      "contrast": "interactive - structured",
+      "outcome": "first_attempt_semantic_correct",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_structured": 0.9122807017543859,
+      "rate_interactive": 0.2894736842105263,
+      "effect": -0.6228070175438597,
+      "ci95_cluster_bootstrap": [
+       -0.7631578947368421,
+       -0.47368421052631576
+      ],
+      "ci95_task_bootstrap": [
+       -0.7105263157894737,
+       -0.5350877192982456
+      ],
+      "discordant": {
+       "interactive_only": 0,
+       "structured_only": 71
+      },
+      "mcnemar_exact_p": 8.470329472543003e-22,
+      "holm_p": 4.235164736271502e-21
+     },
+     {
+      "model": "gpt-4.1-2025-04-14",
+      "contrast": "prose - minimal",
+      "outcome": "first_attempt_semantic_correct",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_minimal": 0.7894736842105263,
+      "rate_prose": 0.8859649122807017,
+      "effect": 0.09649122807017543,
+      "ci95_cluster_bootstrap": [
+       0.02631578947368421,
+       0.19298245614035087
+      ],
+      "ci95_task_bootstrap": [
+       0.043859649122807015,
+       0.15789473684210525
+      ],
+      "discordant": {
+       "prose_only": 11,
+       "minimal_only": 0
+      },
+      "mcnemar_exact_p": 0.0009765625,
+      "holm_p": 0.0029296875
+     },
+     {
+      "model": "gpt-4.1-2025-04-14",
+      "contrast": "minimal - none",
+      "outcome": "first_attempt_semantic_correct",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_none": 0.2982456140350877,
+      "rate_minimal": 0.7894736842105263,
+      "effect": 0.49122807017543857,
+      "ci95_cluster_bootstrap": [
+       0.3157894736842105,
+       0.6578947368421053
+      ],
+      "ci95_task_bootstrap": [
+       0.38596491228070173,
+       0.5877192982456141
+      ],
+      "discordant": {
+       "minimal_only": 59,
+       "none_only": 3
+      },
+      "mcnemar_exact_p": 1.724922288337538e-14,
+      "holm_p": 6.899689153350153e-14
+     },
+     {
+      "model": "gpt-4.1-2025-04-14",
+      "contrast": "syntax_only_structured - minimal",
+      "outcome": "first_attempt_semantic_correct",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_minimal": 0.7894736842105263,
+      "rate_syntax_only_structured": 0.8245614035087719,
+      "effect": 0.03508771929824561,
+      "ci95_cluster_bootstrap": [
+       -0.06140350877192982,
+       0.14035087719298245
+      ],
+      "ci95_task_bootstrap": [
+       -0.02631578947368421,
+       0.09649122807017543
+      ],
+      "discordant": {
+       "syntax_only_structured_only": 9,
+       "minimal_only": 5
+      },
+      "mcnemar_exact_p": 0.4239501953125,
+      "holm_p": 0.847900390625
+     }
+    ],
+    "correct_after_repair": [
+     {
+      "model": "gpt-4.1-2025-04-14",
+      "contrast": "structured - prose",
+      "outcome": "correct_after_repair",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_prose": 0.9210526315789473,
+      "rate_structured": 0.9912280701754386,
+      "effect": 0.07017543859649122,
+      "ci95_cluster_bootstrap": [
+       0.0,
+       0.15789473684210525
+      ],
+      "ci95_task_bootstrap": [
+       0.02631578947368421,
+       0.12280701754385964
+      ],
+      "discordant": {
+       "structured_only": 8,
+       "prose_only": 0
+      },
+      "mcnemar_exact_p": 0.0078125,
+      "holm_p": 0.0234375
+     },
+     {
+      "model": "gpt-4.1-2025-04-14",
+      "contrast": "interactive - structured",
+      "outcome": "correct_after_repair",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_structured": 0.9912280701754386,
+      "rate_interactive": 0.37719298245614036,
+      "effect": -0.6140350877192983,
+      "ci95_cluster_bootstrap": [
+       -0.7543859649122807,
+       -0.4649122807017544
+      ],
+      "ci95_task_bootstrap": [
+       -0.7017543859649122,
+       -0.5263157894736842
+      ],
+      "discordant": {
+       "interactive_only": 0,
+       "structured_only": 70
+      },
+      "mcnemar_exact_p": 1.6940658945086007e-21,
+      "holm_p": 8.470329472543003e-21
+     },
+     {
+      "model": "gpt-4.1-2025-04-14",
+      "contrast": "prose - minimal",
+      "outcome": "correct_after_repair",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_minimal": 0.8859649122807017,
+      "rate_prose": 0.9210526315789473,
+      "effect": 0.03508771929824561,
+      "ci95_cluster_bootstrap": [
+       -0.043859649122807015,
+       0.11403508771929824
+      ],
+      "ci95_task_bootstrap": [
+       -0.017543859649122806,
+       0.08771929824561403
+      ],
+      "discordant": {
+       "prose_only": 7,
+       "minimal_only": 3
+      },
+      "mcnemar_exact_p": 0.34375,
+      "holm_p": 0.34375
+     },
+     {
+      "model": "gpt-4.1-2025-04-14",
+      "contrast": "minimal - none",
+      "outcome": "correct_after_repair",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_none": 0.34210526315789475,
+      "rate_minimal": 0.8859649122807017,
+      "effect": 0.543859649122807,
+      "ci95_cluster_bootstrap": [
+       0.39473684210526316,
+       0.6844298245614003
+      ],
+      "ci95_task_bootstrap": [
+       0.4473684210526316,
+       0.6403508771929824
+      ],
+      "discordant": {
+       "minimal_only": 63,
+       "none_only": 1
+      },
+      "mcnemar_exact_p": 7.047314121155779e-18,
+      "holm_p": 2.8189256484623115e-17
+     },
+     {
+      "model": "gpt-4.1-2025-04-14",
+      "contrast": "syntax_only_structured - minimal",
+      "outcome": "correct_after_repair",
+      "paired_tasks": 114,
+      "clusters": 38,
+      "missing_unpaired_tasks": [],
+      "rate_minimal": 0.8859649122807017,
+      "rate_syntax_only_structured": 0.9385964912280702,
+      "effect": 0.05263157894736842,
+      "ci95_cluster_bootstrap": [
+       -0.017543859649122806,
+       0.14912280701754385
+      ],
+      "ci95_task_bootstrap": [
+       -0.008771929824561403,
+       0.11403508771929824
+      ],
+      "discordant": {
+       "syntax_only_structured_only": 9,
+       "minimal_only": 3
+      },
+      "mcnemar_exact_p": 0.14599609375,
+      "holm_p": 0.2919921875
+     }
+    ]
+   }
+  }
+ },
+ "completeness": {
+  "gpt-4.1-nano-2025-04-14": {
+   "none": 114,
+   "minimal": 114,
+   "syntax_only_structured": 114,
+   "prose": 114,
+   "structured": 114,
+   "interactive": 114
+  },
+  "gpt-4.1-mini-2025-04-14": {
+   "none": 114,
+   "minimal": 114,
+   "syntax_only_structured": 114,
+   "prose": 114,
+   "structured": 114,
+   "interactive": 114
+  },
+  "gpt-4.1-2025-04-14": {
+   "none": 114,
+   "minimal": 114,
+   "syntax_only_structured": 114,
+   "prose": 114,
+   "structured": 114,
+   "interactive": 114
+  }
+ },
+ "failure_classes": {
+  "gpt-4.1-nano-2025-04-14": {
+   "none": {
+    "syntax": 54,
+    "type/attr": 27,
+    "shape": 25,
+    "correct": 7,
+    "signature/format": 1
+   },
+   "minimal": {
+    "correct": 40,
+    "syntax": 36,
+    "shape": 27,
+    "type/attr": 11
+   },
+   "syntax_only_structured": {
+    "syntax": 43,
+    "shape": 28,
+    "correct": 35,
+    "type/attr": 8
+   },
+   "prose": {
+    "shape": 18,
+    "correct": 54,
+    "syntax": 40,
+    "type/attr": 2
+   },
+   "structured": {
+    "shape": 47,
+    "syntax": 46,
+    "type/attr": 11,
+    "correct": 9,
+    "runtime/other": 1
+   },
+   "interactive": {
+    "correct": 12,
+    "type/attr": 8,
+    "shape": 71,
+    "syntax": 23
+   }
+  },
+  "gpt-4.1-mini-2025-04-14": {
+   "none": {
+    "type/attr": 18,
+    "syntax": 67,
+    "shape": 29
+   },
+   "minimal": {
+    "correct": 73,
+    "syntax": 33,
+    "shape": 7,
+    "type/attr": 1
+   },
+   "syntax_only_structured": {
+    "correct": 56,
+    "syntax": 28,
+    "shape": 25,
+    "type/attr": 5
+   },
+   "prose": {
+    "syntax": 30,
+    "correct": 73,
+    "shape": 11
+   },
+   "structured": {
+    "correct": 58,
+    "syntax": 43,
+    "shape": 13
+   },
+   "interactive": {
+    "syntax": 72,
+    "shape": 20,
+    "correct": 21,
+    "type/attr": 1
+   }
+  },
+  "gpt-4.1-2025-04-14": {
+   "none": {
+    "correct": 34,
+    "syntax": 80
+   },
+   "minimal": {
+    "correct": 90,
+    "shape": 15,
+    "syntax": 8,
+    "type/attr": 1
+   },
+   "syntax_only_structured": {
+    "correct": 94,
+    "shape": 9,
+    "syntax": 11
+   },
+   "prose": {
+    "correct": 101,
+    "syntax": 6,
+    "shape": 6,
+    "type/attr": 1
+   },
+   "structured": {
+    "correct": 104,
+    "syntax": 5,
+    "shape": 5
+   },
+   "interactive": {
+    "correct": 33,
+    "syntax": 79,
+    "shape": 2
+   }
+  }
+ },
+ "api_cost_usd_estimate_list_price": {
+  "gpt-4.1-nano-2025-04-14": 0.44,
+  "gpt-4.1-mini-2025-04-14": 1.09,
+  "gpt-4.1-2025-04-14": 3.67
+ }
+}

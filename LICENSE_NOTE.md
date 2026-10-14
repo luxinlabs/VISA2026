@@ -1,0 +1,1 @@
+This archive contains newly authored research scaffolding only. It does not bundle upstream datasets, compiler binaries, model weights or third-party code. Verify upstream licensing and redistribution rights before adding datasets or releasing converted tasks.

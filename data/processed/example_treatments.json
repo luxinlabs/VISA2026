@@ -1,0 +1,97 @@
+{
+ "none": {
+  "condition": "none",
+  "fact_ids": [],
+  "content": ""
+ },
+ "minimal": {
+  "condition": "minimal",
+  "fact_ids": [
+   "MOD.SYN.1",
+   "MOD.SYN.2",
+   "MOD.SYN.3",
+   "BID.SYN.1",
+   "ELT.SYN.1"
+  ],
+  "content": "### Program structure and types\nA program is a single MLIR function named @main, written as `func.func @main(%x: tensor<4x3xf32>, %b: tensor<3xf32>) -> tensor<4x3xf32> { ... return %r : tensor<4x3xf32> }`, and every value is an SSA name that is defined exactly once. Any operation can be written in generic form as `%r = \"stablehlo.NAME\"(%a, %b) {attr = value} : (type_of_a, type_of_b) -> type_of_r`, where the trailing function type lists every operand type and the result type exactly. Integer-list attributes are written like `array<i64: 0, 1>` and a single integer attribute is written like `1 : i64`. \n### stablehlo.broadcast_in_dim\nbroadcast_in_dim is written `%r = \"stablehlo.broadcast_in_dim\"(%x) {broadcast_dimensions = array<i64: 1>} : (tensor<3xf32>) -> tensor<2x3xf32>`. \n### Element-wise operations\nBinary element-wise operations are written `%r = stablehlo.add %a, %b : tensor<4x3xf32>` (likewise subtract, multiply, divide, maximum, minimum) and unary ones are written `%r = stablehlo.exponential %a : tensor<4xf32>` (likewise negate, sqrt, rsqrt, abs)."
+ },
+ "syntax_only_structured": {
+  "condition": "syntax_only_structured",
+  "fact_ids": [
+   "MOD.SYN.1",
+   "MOD.SYN.2",
+   "MOD.SYN.3",
+   "BID.SYN.1",
+   "ELT.SYN.1"
+  ],
+  "content": "{\n \"stablehlo_contract\": [\n  {\n   \"operation\": \"Program structure and types\",\n   \"syntax\": [\n    {\n     \"id\": \"MOD.SYN.1\",\n     \"rule\": \"program := `func.func @main(%arg: T, ...) -> T_out { op* ; return %v : T_out }`; each %name defined once\"\n    },\n    {\n     \"id\": \"MOD.SYN.2\",\n     \"rule\": \"op := `%r = \\\"stablehlo.NAME\\\"(operands) {attrs}? : (operand_types) -> result_type`\"\n    },\n    {\n     \"id\": \"MOD.SYN.3\",\n     \"rule\": \"int_list_attr := `array<i64: d0, d1, ...>`; int_attr := `N : i64`\"\n    }\n   ]\n  },\n  {\n   \"operation\": \"stablehlo.broadcast_in_dim\",\n   \"syntax\": [\n    {\n     \"id\": \"BID.SYN.1\",\n     \"rule\": \"`%r = \\\"stablehlo.broadcast_in_dim\\\"(%x) {broadcast_dimensions = array<i64: ...>} : (T_in) -> T_out`\"\n    }\n   ]\n  },\n  {\n   \"operation\": \"Element-wise operations\",\n   \"syntax\": [\n    {\n     \"id\": \"ELT.SYN.1\",\n     \"rule\": \"binary := `%r = stablehlo.{add|subtract|multiply|divide|maximum|minimum} %a, %b : T`; unary := `%r = stablehlo.{exponential|negate|sqrt|rsqrt|abs} %a : T`\"\n    }\n   ]\n  }\n ]\n}"
+ },
+ "prose": {
+  "condition": "prose",
+  "fact_ids": [
+   "MOD.SYN.1",
+   "MOD.SYN.2",
+   "MOD.SYN.3",
+   "MOD.TYP.1",
+   "MOD.SEM.1",
+   "BID.SYN.1",
+   "BID.TYP.1",
+   "BID.SHP.1",
+   "BID.SHP.2",
+   "BID.SHP.3",
+   "BID.SEM.1",
+   "ELT.SYN.1",
+   "ELT.TYP.1",
+   "ELT.SHP.1",
+   "ELT.SEM.1"
+  ],
+  "content": "### Program structure and types\nA program is a single MLIR function named @main, written as `func.func @main(%x: tensor<4x3xf32>, %b: tensor<3xf32>) -> tensor<4x3xf32> { ... return %r : tensor<4x3xf32> }`, and every value is an SSA name that is defined exactly once. Any operation can be written in generic form as `%r = \"stablehlo.NAME\"(%a, %b) {attr = value} : (type_of_a, type_of_b) -> type_of_r`, where the trailing function type lists every operand type and the result type exactly. Integer-list attributes are written like `array<i64: 0, 1>` and a single integer attribute is written like `1 : i64`. A tensor type is written with its dimension sizes and element type, such as `tensor<4x3xf32>`, and a scalar is a rank-0 tensor such as `tensor<f32>`; the element types used here are f32, i32, i64 and i1 (boolean). StableHLO performs no implicit broadcasting, rank promotion or type promotion, so every operand must already have exactly the shape and element type that the operation requires. \n### stablehlo.broadcast_in_dim\nbroadcast_in_dim is written `%r = \"stablehlo.broadcast_in_dim\"(%x) {broadcast_dimensions = array<i64: 1>} : (tensor<3xf32>) -> tensor<2x3xf32>`. The result has the same element type as the operand. broadcast_dimensions must contain exactly one entry for each dimension of the operand. Each entry of broadcast_dimensions is a distinct result dimension index between 0 and the result rank minus one. Operand dimension d must either have size 1 or have the same size as result dimension broadcast_dimensions[d]. Operand dimension d is placed at result dimension broadcast_dimensions[d] and the data is copied along every other result dimension, while an operand dimension of size 1 is repeated across its whole result dimension. \n### Element-wise operations\nBinary element-wise operations are written `%r = stablehlo.add %a, %b : tensor<4x3xf32>` (likewise subtract, multiply, divide, maximum, minimum) and unary ones are written `%r = stablehlo.exponential %a : tensor<4xf32>` (likewise negate, sqrt, rsqrt, abs). All operands and the result of an element-wise operation must have the same element type. All operands and the result of an element-wise operation must have identical shapes, so a vector or scalar is never combined with a matrix without an explicit broadcast_in_dim first. Integer divide rounds toward zero, and exponential, sqrt and rsqrt are defined only for floating-point element types."
+ },
+ "structured": {
+  "condition": "structured",
+  "fact_ids": [
+   "MOD.SYN.1",
+   "MOD.SYN.2",
+   "MOD.SYN.3",
+   "MOD.TYP.1",
+   "MOD.SEM.1",
+   "BID.SYN.1",
+   "BID.TYP.1",
+   "BID.SHP.1",
+   "BID.SHP.2",
+   "BID.SHP.3",
+   "BID.SEM.1",
+   "ELT.SYN.1",
+   "ELT.TYP.1",
+   "ELT.SHP.1",
+   "ELT.SEM.1"
+  ],
+  "content": "{\n \"stablehlo_contract\": [\n  {\n   \"operation\": \"Program structure and types\",\n   \"syntax\": [\n    {\n     \"id\": \"MOD.SYN.1\",\n     \"rule\": \"program := `func.func @main(%arg: T, ...) -> T_out { op* ; return %v : T_out }`; each %name defined once\"\n    },\n    {\n     \"id\": \"MOD.SYN.2\",\n     \"rule\": \"op := `%r = \\\"stablehlo.NAME\\\"(operands) {attrs}? : (operand_types) -> result_type`\"\n    },\n    {\n     \"id\": \"MOD.SYN.3\",\n     \"rule\": \"int_list_attr := `array<i64: d0, d1, ...>`; int_attr := `N : i64`\"\n    }\n   ],\n   \"type\": [\n    {\n     \"id\": \"MOD.TYP.1\",\n     \"rule\": \"T := `tensor<d0 x ... x elem>`; scalar := `tensor<elem>`; elem ∈ {f32, i32, i64, i1}\"\n    }\n   ],\n   \"semantics\": [\n    {\n     \"id\": \"MOD.SEM.1\",\n     \"rule\": \"∀ op: no implicit broadcast; no implicit type promotion\"\n    }\n   ]\n  },\n  {\n   \"operation\": \"stablehlo.broadcast_in_dim\",\n   \"syntax\": [\n    {\n     \"id\": \"BID.SYN.1\",\n     \"rule\": \"`%r = \\\"stablehlo.broadcast_in_dim\\\"(%x) {broadcast_dimensions = array<i64: ...>} : (T_in) -> T_out`\"\n    }\n   ],\n   \"type\": [\n    {\n     \"id\": \"BID.TYP.1\",\n     \"rule\": \"element_type(result) = element_type(operand)\"\n    }\n   ],\n   \"shape\": [\n    {\n     \"id\": \"BID.SHP.1\",\n     \"rule\": \"size(broadcast_dimensions) = rank(operand)\"\n    },\n    {\n     \"id\": \"BID.SHP.2\",\n     \"rule\": \"0 <= broadcast_dimensions < rank(result) ∧ is_unique(broadcast_dimensions)\"\n    },\n    {\n     \"id\": \"BID.SHP.3\",\n     \"rule\": \"∀d: dim(operand,d) = 1 ∨ dim(operand,d) = dim(result, broadcast_dimensions[d])\"\n    }\n   ],\n   \"semantics\": [\n    {\n     \"id\": \"BID.SEM.1\",\n     \"rule\": \"result[i] = operand[j], j[d] = (dim(operand,d) = 1 ? 0 : i[broadcast_dimensions[d]])\"\n    }\n   ]\n  },\n  {\n   \"operation\": \"Element-wise operations\",\n   \"syntax\": [\n    {\n     \"id\": \"ELT.SYN.1\",\n     \"rule\": \"binary := `%r = stablehlo.{add|subtract|multiply|divide|maximum|minimum} %a, %b : T`; unary := `%r = stablehlo.{exponential|negate|sqrt|rsqrt|abs} %a : T`\"\n    }\n   ],\n   \"type\": [\n    {\n     \"id\": \"ELT.TYP.1\",\n     \"rule\": \"element_type(lhs) = element_type(rhs) = element_type(result)\"\n    }\n   ],\n   \"shape\": [\n    {\n     \"id\": \"ELT.SHP.1\",\n     \"rule\": \"shape(lhs) = shape(rhs) = shape(result)\"\n    }\n   ],\n   \"semantics\": [\n    {\n     \"id\": \"ELT.SEM.1\",\n     \"rule\": \"divide(int): trunc toward 0; {exponential, sqrt, rsqrt}: is_float(element_type)\"\n    }\n   ]\n  }\n ]\n}"
+ },
+ "interactive": {
+  "condition": "interactive",
+  "fact_ids": [
+   "MOD.SYN.1",
+   "MOD.SYN.2",
+   "MOD.SYN.3",
+   "MOD.TYP.1",
+   "MOD.SEM.1",
+   "BID.SYN.1",
+   "BID.TYP.1",
+   "BID.SHP.1",
+   "BID.SHP.2",
+   "BID.SHP.3",
+   "BID.SEM.1",
+   "ELT.SYN.1",
+   "ELT.TYP.1",
+   "ELT.SHP.1",
+   "ELT.SEM.1"
+  ],
+  "content": "",
+  "available_ops": [
+   "module",
+   "broadcast_in_dim",
+   "elementwise"
+  ]
+ }
+}

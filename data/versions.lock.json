@@ -1,0 +1,6 @@
+{"stablehlo_spec_commit": "23d2f926aefe39e15a07d9874ec6871bb671b437",
+ "stablehlo_spec_sha256": "ffe6cb3bab4b85dad8b26ec81d4df3b8101091a70328cf58d7f4d2c54973841f",
+ "verifier_executor": "jax/jaxlib 0.11.2 (MLIR StableHLO dialect, XLA:CPU), StableHLO version 1.20.0",
+ "python": "3.12.13", "platform": "Darwin arm64",
+ "kernelbench_commit": null, "tritonbench_commit": null,
+ "status": "PINNED"}

@@ -1,0 +1,163 @@
+{
+ "gpt-4.1-2025-04-14": {
+  "none": {
+   "correct": 34,
+   "assembly_syntax": 76,
+   "attr_encoding": 3,
+   "shape_type": 1
+  },
+  "minimal": {
+   "correct": 90,
+   "attr_encoding": 12,
+   "literal": 8,
+   "shape_type": 4
+  },
+  "syntax_only_structured": {
+   "correct": 94,
+   "shape_type": 13,
+   "literal": 6,
+   "attr_encoding": 1
+  },
+  "prose": {
+   "correct": 101,
+   "literal": 5,
+   "shape_type": 2,
+   "assembly_syntax": 1,
+   "attr_encoding": 5
+  },
+  "structured": {
+   "correct": 104,
+   "shape_type": 8,
+   "literal": 2
+  },
+  "interactive": {
+   "correct": 33,
+   "assembly_syntax": 76,
+   "shape_type": 2,
+   "unknown_op": 3
+  },
+  "interactive_forced": {
+   "correct": 57,
+   "assembly_syntax": 8,
+   "literal": 3,
+   "attr_encoding": 41,
+   "other": 1,
+   "shape_type": 4
+  }
+ },
+ "gpt-4.1-mini-2025-04-14": {
+  "none": {
+   "literal": 21,
+   "assembly_syntax": 57,
+   "attr_encoding": 33,
+   "unknown_op": 3
+  },
+  "minimal": {
+   "correct": 73,
+   "attr_encoding": 8,
+   "shape_type": 12,
+   "assembly_syntax": 17,
+   "literal": 2,
+   "unknown_op": 2
+  },
+  "syntax_only_structured": {
+   "correct": 56,
+   "shape_type": 12,
+   "literal": 23,
+   "assembly_syntax": 14,
+   "attr_encoding": 8,
+   "unknown_op": 1
+  },
+  "prose": {
+   "assembly_syntax": 12,
+   "correct": 73,
+   "attr_encoding": 6,
+   "literal": 7,
+   "shape_type": 14,
+   "unknown_op": 2
+  },
+  "structured": {
+   "correct": 58,
+   "assembly_syntax": 34,
+   "attr_encoding": 4,
+   "shape_type": 15,
+   "literal": 1,
+   "unknown_op": 2
+  },
+  "interactive": {
+   "assembly_syntax": 63,
+   "unknown_op": 4,
+   "attr_encoding": 13,
+   "correct": 21,
+   "literal": 7,
+   "shape_type": 6
+  },
+  "interactive_forced": {
+   "correct": 21,
+   "attr_encoding": 12,
+   "assembly_syntax": 64,
+   "literal": 8,
+   "shape_type": 5,
+   "unknown_op": 4
+  }
+ },
+ "gpt-4.1-nano-2025-04-14": {
+  "none": {
+   "unknown_op": 9,
+   "assembly_syntax": 47,
+   "literal": 23,
+   "shape_type": 13,
+   "attr_encoding": 14,
+   "correct": 7,
+   "signature_format": 1
+  },
+  "minimal": {
+   "correct": 40,
+   "assembly_syntax": 24,
+   "literal": 12,
+   "shape_type": 28,
+   "unknown_op": 4,
+   "attr_encoding": 6
+  },
+  "syntax_only_structured": {
+   "assembly_syntax": 40,
+   "attr_encoding": 15,
+   "correct": 35,
+   "shape_type": 10,
+   "literal": 7,
+   "unknown_op": 7
+  },
+  "prose": {
+   "attr_encoding": 15,
+   "correct": 54,
+   "assembly_syntax": 29,
+   "unknown_op": 3,
+   "shape_type": 11,
+   "literal": 2
+  },
+  "structured": {
+   "attr_encoding": 43,
+   "assembly_syntax": 43,
+   "unknown_op": 7,
+   "literal": 11,
+   "correct": 9,
+   "shape_type": 1
+  },
+  "interactive": {
+   "correct": 12,
+   "literal": 28,
+   "attr_encoding": 47,
+   "unknown_op": 3,
+   "assembly_syntax": 22,
+   "shape_type": 2
+  },
+  "interactive_forced": {
+   "correct": 13,
+   "literal": 28,
+   "assembly_syntax": 22,
+   "attr_encoding": 45,
+   "unknown_op": 4,
+   "shape_type": 2
+  }
+ }
+}
