@@ -56,3 +56,9 @@ The first launch of the nano/mini eval runs produced 0 trials: every call return
 revoked key inherited from the shell environment take precedence over the project `.env` key. `run_experiment.py`
 now lets `.env` override the environment (one-line change; no effect on prompts, tasks, grading or analysis). Its
 hash in FREEZE.sha256 was updated accordingly; no trial data existed at the time.
+
+## Addendum 2 (2026-10-14, during the eval runs; robustness only)
+The gpt-4.1-nano run stalled twice with worker threads blocked for >1 h in SSL reads on half-dead connections
+(the HTTP client timeout did not fire). The runner was restarted (resumable; completed trials kept, in-flight
+trials re-run) and `models.py` gained a 150 s hard watchdog per API call. No prompt, grading or analysis change.
+The gpt-4.1 run stopped at its budget cap after 733/2136 trials (task-blocked order, outcome-blind stop).

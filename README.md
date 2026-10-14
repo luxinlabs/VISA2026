@@ -1,7 +1,12 @@
 # AgentISA-Bench: What Makes a Virtual ISA Programmable by AI Agents?
 
 Controlled study of agent-facing documentation interfaces to one fixed virtual IR (StableHLO).
-Status (2026-10-13): implemented, validated and **run**. The paper draft is in `paper/main.pdf`.
+Status (2026-10-14): Study 1 (v1, exploratory, `releases/v1/`) complete; Study 2 (v2, pre-registered,
+`docs/PREREGISTRATION_V2.md`) fixes the v1 confounds, adds 176 KernelBench-derived tasks, and runs Track A.
+Track B (closed-loop agent, `src/agentisa/agent.py`) is implemented and tested but not run (budget decision).
+
+**All commands use the project virtual environment `.venv` (Python 3.12, `requirements.lock.txt`).**
+API key: put `OPENAI_API_KEY=...` in `.env` (git-ignored). The runner refuses paid calls without `--max-usd`.
 
 ## What is here
 | Path | Content |
@@ -26,7 +31,9 @@ uv venv .venv --python 3.12 && uv pip install --python .venv/bin/python -r requi
 .venv/bin/python -m pytest -q tests                 # unit tests
 .venv/bin/python scripts/audit_treatments.py        # prose/structured audit + token lengths
 .venv/bin/python scripts/mutation_test.py           # oracle sensitivity
-OPENAI_API_KEY=... .venv/bin/python scripts/run_experiment.py --provider openai --model gpt-4.1-mini-2025-04-14 --split eval --workers 6
+.venv/bin/python scripts/convert_kernelbench.py     # KernelBench -> StableHLO tasks (needs data/vendor/kernelbench)
+.venv/bin/python scripts/run_experiment.py --provider openai --model gpt-4.1-mini-2025-04-14 --split eval --suite all --track A --workers 6 --max-usd 12
+.venv/bin/python scripts/analyze_v2.py
 .venv/bin/python scripts/analyze_results.py         # analysis.json + paper tables/figures
 ```
 Main study cost about $5.20 and the post-hoc runs about $1.61 (list prices; 2,394 trials in total).

@@ -1,0 +1,6913 @@
+{
+ "n_raw_trials": 5005,
+ "complete_tasks": {
+  "gpt-4.1-nano-2025-04-14": 267,
+  "gpt-4.1-mini-2025-04-14": 267,
+  "gpt-4.1-2025-04-14": 91
+ },
+ "dropped_incomplete_trials": 5,
+ "overall": {
+  "models": {
+   "gpt-4.1-nano-2025-04-14": {
+    "conditions": {
+     "structured": {
+      "n": 267,
+      "first_attempt": 0.16853932584269662,
+      "first_attempt_ci95": [
+       0.12841112990672307,
+       0.2180700154426848
+      ],
+      "after_repair": 0.23220973782771537,
+      "after_repair_ci95": [
+       0.18557811192489304,
+       0.28643772866813144
+      ],
+      "first_attempt_verified": 0.17228464419475656,
+      "mean_input_tokens": 7351.771535580524,
+      "mean_output_tokens": 1959.7153558052435,
+      "mean_input_tokens_if_solved": 1548.4354838709678,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.6292134831460676,
+      "first_attempt_error_types": {
+       "none": 45,
+       "static_syntax": 146,
+       "static_shape": 54,
+       "static_type": 18,
+       "static_other": 2,
+       "semantic_mismatch": 1,
+       "forbidden_op": 1
+      }
+     },
+     "prose": {
+      "n": 267,
+      "first_attempt": 0.22846441947565543,
+      "first_attempt_ci95": [
+       0.18216672376254664,
+       0.28246472299261804
+      ],
+      "after_repair": 0.24719101123595505,
+      "after_repair_ci95": [
+       0.1992770330548003,
+       0.30227638288966335
+      ],
+      "first_attempt_verified": 0.23595505617977527,
+      "mean_input_tokens": 7282.191011235955,
+      "mean_output_tokens": 2036.5880149812733,
+      "mean_input_tokens_if_solved": 1229.590909090909,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.5355805243445695,
+      "first_attempt_error_types": {
+       "none": 61,
+       "static_syntax": 162,
+       "static_shape": 34,
+       "static_other": 2,
+       "static_type": 6,
+       "semantic_mismatch": 2
+      }
+     },
+     "minimal": {
+      "n": 267,
+      "first_attempt": 0.18352059925093633,
+      "first_attempt_ci95": [
+       0.14169085201124992,
+       0.23432786868959718
+      ],
+      "after_repair": 0.19850187265917604,
+      "after_repair_ci95": [
+       0.155082727100135,
+       0.25047356895215134
+      ],
+      "first_attempt_verified": 0.19101123595505617,
+      "mean_input_tokens": 6081.906367041199,
+      "mean_output_tokens": 2165.6853932584268,
+      "mean_input_tokens_if_solved": 931.0188679245283,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.6217228464419478,
+      "first_attempt_error_types": {
+       "none": 49,
+       "static_syntax": 152,
+       "static_shape": 48,
+       "static_other": 5,
+       "static_type": 11,
+       "semantic_mismatch": 2
+      }
+     },
+     "syntax_only_structured": {
+      "n": 267,
+      "first_attempt": 0.149812734082397,
+      "first_attempt_ci95": [
+       0.11198710885283844,
+       0.19757206730727048
+      ],
+      "after_repair": 0.17228464419475656,
+      "after_repair_ci95": [
+       0.13171995435024877,
+       0.22214558483701893
+      ],
+      "first_attempt_verified": 0.15355805243445692,
+      "mean_input_tokens": 5744.812734082397,
+      "mean_output_tokens": 2050.232209737828,
+      "mean_input_tokens_if_solved": 909.804347826087,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.6853932584269664,
+      "first_attempt_error_types": {
+       "none": 40,
+       "static_shape": 52,
+       "static_type": 14,
+       "static_syntax": 158,
+       "static_other": 2,
+       "semantic_mismatch": 1
+      }
+     },
+     "interactive_core": {
+      "n": 267,
+      "first_attempt": 0.03745318352059925,
+      "first_attempt_ci95": [
+       0.020468855513072336,
+       0.06755850551124265
+      ],
+      "after_repair": 0.0449438202247191,
+      "after_repair_ci95": [
+       0.025893862302080208,
+       0.07690228639795436
+      ],
+      "first_attempt_verified": 0.03745318352059925,
+      "mean_input_tokens": 5012.194756554307,
+      "mean_output_tokens": 1888.5018726591761,
+      "mean_input_tokens_if_solved": 961.4166666666666,
+      "mean_tool_calls": 0.018726591760299626,
+      "mean_attempts": 2.9213483146067416,
+      "first_attempt_error_types": {
+       "static_syntax": 111,
+       "static_shape": 72,
+       "static_type": 57,
+       "static_other": 17,
+       "none": 10
+      }
+     },
+     "none": {
+      "n": 267,
+      "first_attempt": 0.026217228464419477,
+      "first_attempt_ci95": [
+       0.012756463143721714,
+       0.053117716367013866
+      ],
+      "after_repair": 0.033707865168539325,
+      "after_repair_ci95": [
+       0.01783332324410047,
+       0.0628096439423547
+      ],
+      "first_attempt_verified": 0.026217228464419477,
+      "mean_input_tokens": 3327.434456928839,
+      "mean_output_tokens": 1935.880149812734,
+      "mean_input_tokens_if_solved": 256.8888888888889,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.940074906367041,
+      "first_attempt_error_types": {
+       "static_syntax": 155,
+       "static_type": 44,
+       "static_shape": 52,
+       "none": 7,
+       "static_other": 9
+      }
+     },
+     "interactive_forced": {
+      "n": 267,
+      "first_attempt": 0.14232209737827714,
+      "first_attempt_ci95": [
+       0.10547792659344295,
+       0.18931246189094636
+      ],
+      "after_repair": 0.15730337078651685,
+      "after_repair_ci95": [
+       0.11853181315044993,
+       0.20579615068537857
+      ],
+      "first_attempt_verified": 0.14232209737827714,
+      "mean_input_tokens": 7517.082397003745,
+      "mean_output_tokens": 1931.8576779026216,
+      "mean_input_tokens_if_solved": 1633.5238095238096,
+      "mean_tool_calls": 3.805243445692884,
+      "mean_attempts": 2.700374531835206,
+      "first_attempt_error_types": {
+       "none": 38,
+       "static_shape": 90,
+       "static_syntax": 104,
+       "static_type": 24,
+       "static_other": 6,
+       "no_program": 5
+      }
+     },
+     "interactive": {
+      "n": 267,
+      "first_attempt": 0.12734082397003746,
+      "first_attempt_ci95": [
+       0.09257553654363707,
+       0.17267727658931306
+      ],
+      "after_repair": 0.1348314606741573,
+      "after_repair_ci95": [
+       0.09900654089963704,
+       0.1810150599090327
+      ],
+      "first_attempt_verified": 0.1348314606741573,
+      "mean_input_tokens": 4849.958801498127,
+      "mean_output_tokens": 1707.2434456928838,
+      "mean_input_tokens_if_solved": 1517.2222222222222,
+      "mean_tool_calls": 1.3408239700374531,
+      "mean_attempts": 2.737827715355805,
+      "first_attempt_error_types": {
+       "static_shape": 60,
+       "static_syntax": 40,
+       "static_other": 96,
+       "static_type": 33,
+       "none": 34,
+       "semantic_mismatch": 2,
+       "forbidden_op": 1,
+       "no_program": 1
+      }
+     }
+    },
+    "families": {
+     "kb_level1": {
+      "structured": [
+       0.1686746987951807,
+       83
+      ],
+      "prose": [
+       0.18072289156626506,
+       83
+      ],
+      "minimal": [
+       0.14457831325301204,
+       83
+      ],
+      "syntax_only_structured": [
+       0.1686746987951807,
+       83
+      ],
+      "interactive_core": [
+       0.012048192771084338,
+       83
+      ],
+      "none": [
+       0.012048192771084338,
+       83
+      ],
+      "interactive_forced": [
+       0.0963855421686747,
+       83
+      ],
+      "interactive": [
+       0.03614457831325301,
+       83
+      ]
+     },
+     "mask_index": {
+      "interactive_core": [
+       0,
+       12
+      ],
+      "syntax_only_structured": [
+       0,
+       12
+      ],
+      "interactive": [
+       0,
+       12
+      ],
+      "structured": [
+       0,
+       12
+      ],
+      "interactive_forced": [
+       0,
+       12
+      ],
+      "minimal": [
+       0,
+       12
+      ],
+      "prose": [
+       0,
+       12
+      ],
+      "none": [
+       0,
+       12
+      ]
+     },
+     "slice_pad": {
+      "syntax_only_structured": [
+       0.3333333333333333,
+       18
+      ],
+      "structured": [
+       0.2777777777777778,
+       18
+      ],
+      "none": [
+       0.2222222222222222,
+       18
+      ],
+      "minimal": [
+       0.3888888888888889,
+       18
+      ],
+      "interactive_forced": [
+       0.3333333333333333,
+       18
+      ],
+      "prose": [
+       0.4444444444444444,
+       18
+      ],
+      "interactive_core": [
+       0.2777777777777778,
+       18
+      ],
+      "interactive": [
+       0.3333333333333333,
+       18
+      ]
+     },
+     "kb_level2": {
+      "syntax_only_structured": [
+       0,
+       70
+      ],
+      "interactive_forced": [
+       0,
+       70
+      ],
+      "minimal": [
+       0,
+       70
+      ],
+      "structured": [
+       0,
+       70
+      ],
+      "prose": [
+       0,
+       70
+      ],
+      "interactive": [
+       0,
+       70
+      ],
+      "interactive_core": [
+       0,
+       70
+      ],
+      "none": [
+       0,
+       70
+      ]
+     },
+     "dot": {
+      "interactive": [
+       0.5555555555555556,
+       18
+      ],
+      "interactive_core": [
+       0,
+       18
+      ],
+      "interactive_forced": [
+       0.6111111111111112,
+       18
+      ],
+      "none": [
+       0,
+       18
+      ],
+      "structured": [
+       0.5555555555555556,
+       18
+      ],
+      "syntax_only_structured": [
+       0.5,
+       18
+      ],
+      "prose": [
+       0.6666666666666666,
+       18
+      ],
+      "minimal": [
+       0.5,
+       18
+      ]
+     },
+     "composite": {
+      "syntax_only_structured": [
+       0,
+       9
+      ],
+      "interactive": [
+       0,
+       9
+      ],
+      "interactive_forced": [
+       0,
+       9
+      ],
+      "prose": [
+       0,
+       9
+      ],
+      "interactive_core": [
+       0,
+       9
+      ],
+      "structured": [
+       0,
+       9
+      ],
+      "minimal": [
+       0,
+       9
+      ],
+      "none": [
+       0,
+       9
+      ]
+     },
+     "layout": {
+      "interactive": [
+       0.6,
+       15
+      ],
+      "syntax_only_structured": [
+       0.3333333333333333,
+       15
+      ],
+      "minimal": [
+       0.7333333333333333,
+       15
+      ],
+      "interactive_forced": [
+       0.4666666666666667,
+       15
+      ],
+      "interactive_core": [
+       0.2,
+       15
+      ],
+      "structured": [
+       0.6,
+       15
+      ],
+      "none": [
+       0.13333333333333333,
+       15
+      ],
+      "prose": [
+       0.6666666666666666,
+       15
+      ]
+     },
+     "broadcast": {
+      "structured": [
+       0.1111111111111111,
+       18
+      ],
+      "minimal": [
+       0.3333333333333333,
+       18
+      ],
+      "interactive_core": [
+       0,
+       18
+      ],
+      "interactive_forced": [
+       0,
+       18
+      ],
+      "syntax_only_structured": [
+       0.16666666666666666,
+       18
+      ],
+      "prose": [
+       0.7222222222222222,
+       18
+      ],
+      "none": [
+       0,
+       18
+      ],
+      "interactive": [
+       0,
+       18
+      ]
+     },
+     "elementwise": {
+      "interactive": [
+       0.16666666666666666,
+       6
+      ],
+      "structured": [
+       0.3333333333333333,
+       6
+      ],
+      "none": [
+       0,
+       6
+      ],
+      "interactive_core": [
+       0,
+       6
+      ],
+      "prose": [
+       0,
+       6
+      ],
+      "minimal": [
+       0.16666666666666666,
+       6
+      ],
+      "syntax_only_structured": [
+       0.16666666666666666,
+       6
+      ],
+      "interactive_forced": [
+       0.3333333333333333,
+       6
+      ]
+     },
+     "convert": {
+      "interactive_core": [
+       0.16666666666666666,
+       6
+      ],
+      "none": [
+       0,
+       6
+      ],
+      "minimal": [
+       0.5,
+       6
+      ],
+      "structured": [
+       0,
+       6
+      ],
+      "prose": [
+       0.5,
+       6
+      ],
+      "interactive_forced": [
+       0.5,
+       6
+      ],
+      "syntax_only_structured": [
+       0,
+       6
+      ],
+      "interactive": [
+       0.5,
+       6
+      ]
+     },
+     "reduce": {
+      "none": [
+       0,
+       12
+      ],
+      "interactive_core": [
+       0,
+       12
+      ],
+      "structured": [
+       0.25,
+       12
+      ],
+      "interactive_forced": [
+       0.08333333333333333,
+       12
+      ],
+      "minimal": [
+       0,
+       12
+      ],
+      "syntax_only_structured": [
+       0.16666666666666666,
+       12
+      ],
+      "interactive": [
+       0.16666666666666666,
+       12
+      ],
+      "prose": [
+       0,
+       12
+      ]
+     }
+    },
+    "retrieval": {
+     "n": 267,
+     "mean_tool_calls": 1.3408239700374531,
+     "share_no_tool_call": 0.49063670411985016,
+     "mean_fraction_available_facts_retrieved": 0.34666503643304286,
+     "query_categories": {
+      "all": 293,
+      "syntax": 51,
+      "type": 10
+     }
+    },
+    "contrasts": {
+     "first_attempt_semantic_correct": [
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "structured - prose",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_prose": 0.22846441947565543,
+       "rate_structured": 0.16853932584269662,
+       "effect": -0.0599250936329588,
+       "ci95_cluster_bootstrap": [
+        -0.12544802867383512,
+        0.0
+       ],
+       "ci95_task_bootstrap": [
+        -0.10861423220973783,
+        -0.0149812734082397
+       ],
+       "discordant": {
+        "structured_only": 12,
+        "prose_only": 28
+       },
+       "mcnemar_exact_p": 0.01658900337497471,
+       "holm_p": 0.08294501687487355
+      },
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "interactive - structured",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_structured": 0.16853932584269662,
+       "rate_interactive": 0.12734082397003746,
+       "effect": -0.04119850187265917,
+       "ci95_cluster_bootstrap": [
+        -0.09019749416011892,
+        0.007434944237918215
+       ],
+       "ci95_task_bootstrap": [
+        -0.08239700374531835,
+        0.0
+       ],
+       "discordant": {
+        "interactive_only": 11,
+        "structured_only": 22
+       },
+       "mcnemar_exact_p": 0.08014331245794892,
+       "holm_p": 0.24042993737384677
+      },
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "interactive_forced - interactive",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_interactive": 0.12734082397003746,
+       "rate_interactive_forced": 0.14232209737827714,
+       "effect": 0.0149812734082397,
+       "ci95_cluster_bootstrap": [
+        -0.00796812749003984,
+        0.040892193308550186
+       ],
+       "ci95_task_bootstrap": [
+        -0.011235955056179775,
+        0.04119850187265917
+       ],
+       "discordant": {
+        "interactive_forced_only": 9,
+        "interactive_only": 5
+       },
+       "mcnemar_exact_p": 0.4239501953125,
+       "holm_p": 0.4239501953125
+      },
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "interactive_core - interactive",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_interactive": 0.12734082397003746,
+       "rate_interactive_core": 0.03745318352059925,
+       "effect": -0.0898876404494382,
+       "ci95_cluster_bootstrap": [
+        -0.14652014652014653,
+        -0.03773584905660377
+       ],
+       "ci95_task_bootstrap": [
+        -0.13108614232209737,
+        -0.052434456928838954
+       ],
+       "discordant": {
+        "interactive_core_only": 3,
+        "interactive_only": 27
+       },
+       "mcnemar_exact_p": 8.430331945419312e-06,
+       "holm_p": 5.058199167251587e-05
+      },
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "interactive_core - structured",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_structured": 0.16853932584269662,
+       "rate_interactive_core": 0.03745318352059925,
+       "effect": -0.13108614232209737,
+       "ci95_cluster_bootstrap": [
+        -0.19796292713932376,
+        -0.06563706563706563
+       ],
+       "ci95_task_bootstrap": [
+        -0.1797752808988764,
+        -0.08614232209737828
+       ],
+       "discordant": {
+        "interactive_core_only": 5,
+        "structured_only": 40
+       },
+       "mcnemar_exact_p": 7.878384167270269e-08,
+       "holm_p": 5.514868917089188e-07
+      },
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "prose - minimal",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_minimal": 0.18352059925093633,
+       "rate_prose": 0.22846441947565543,
+       "effect": 0.0449438202247191,
+       "ci95_cluster_bootstrap": [
+        0.0,
+        0.0912287372423454
+       ],
+       "ci95_task_bootstrap": [
+        0.00749063670411985,
+        0.08239700374531835
+       ],
+       "discordant": {
+        "prose_only": 18,
+        "minimal_only": 6
+       },
+       "mcnemar_exact_p": 0.022655844688415527,
+       "holm_p": 0.09062337875366211
+      },
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "minimal - none",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_none": 0.026217228464419477,
+       "rate_minimal": 0.18352059925093633,
+       "effect": 0.15730337078651685,
+       "ci95_cluster_bootstrap": [
+        0.10112359550561797,
+        0.21818181818181817
+       ],
+       "ci95_task_bootstrap": [
+        0.11235955056179775,
+        0.20224719101123595
+       ],
+       "discordant": {
+        "minimal_only": 43,
+        "none_only": 1
+       },
+       "mcnemar_exact_p": 5.115907697472721e-12,
+       "holm_p": 4.092726157978177e-11
+      },
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "syntax_only_structured - minimal",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_minimal": 0.18352059925093633,
+       "rate_syntax_only_structured": 0.149812734082397,
+       "effect": -0.033707865168539325,
+       "ci95_cluster_bootstrap": [
+        -0.08550185873605948,
+        0.015444015444015444
+       ],
+       "ci95_task_bootstrap": [
+        -0.0749063670411985,
+        0.00749063670411985
+       ],
+       "discordant": {
+        "syntax_only_structured_only": 11,
+        "minimal_only": 20
+       },
+       "mcnemar_exact_p": 0.14961278438568115,
+       "holm_p": 0.2992255687713623
+      }
+     ],
+     "correct_after_repair": [
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "structured - prose",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_prose": 0.24719101123595505,
+       "rate_structured": 0.23220973782771537,
+       "effect": -0.0149812734082397,
+       "ci95_cluster_bootstrap": [
+        -0.07773851590106007,
+        0.04633204633204633
+       ],
+       "ci95_task_bootstrap": [
+        -0.0599250936329588,
+        0.0299625468164794
+       ],
+       "discordant": {
+        "structured_only": 17,
+        "prose_only": 21
+       },
+       "mcnemar_exact_p": 0.6271025701571489,
+       "holm_p": 0.630340576171875
+      },
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "interactive - structured",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_structured": 0.23220973782771537,
+       "rate_interactive": 0.1348314606741573,
+       "effect": -0.09737827715355805,
+       "ci95_cluster_bootstrap": [
+        -0.155893536121673,
+        -0.04213758139941448
+       ],
+       "ci95_task_bootstrap": [
+        -0.14606741573033707,
+        -0.04868913857677903
+       ],
+       "discordant": {
+        "interactive_only": 10,
+        "structured_only": 36
+       },
+       "mcnemar_exact_p": 0.00015641720852954677,
+       "holm_p": 0.0007820860426477338
+      },
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "interactive_forced - interactive",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_interactive": 0.1348314606741573,
+       "rate_interactive_forced": 0.15730337078651685,
+       "effect": 0.02247191011235955,
+       "ci95_cluster_bootstrap": [
+        -0.0038314176245210726,
+        0.0498220640569395
+       ],
+       "ci95_task_bootstrap": [
+        -0.00749063670411985,
+        0.052434456928838954
+       ],
+       "discordant": {
+        "interactive_forced_only": 11,
+        "interactive_only": 5
+       },
+       "mcnemar_exact_p": 0.210113525390625,
+       "holm_p": 0.630340576171875
+      },
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "interactive_core - interactive",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_interactive": 0.1348314606741573,
+       "rate_interactive_core": 0.0449438202247191,
+       "effect": -0.0898876404494382,
+       "ci95_cluster_bootstrap": [
+        -0.14487895227711586,
+        -0.038314176245210725
+       ],
+       "ci95_task_bootstrap": [
+        -0.13108614232209737,
+        -0.04868913857677903
+       ],
+       "discordant": {
+        "interactive_core_only": 4,
+        "interactive_only": 28
+       },
+       "mcnemar_exact_p": 1.9301194697618484e-05,
+       "holm_p": 0.00011580716818571091
+      },
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "interactive_core - structured",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_structured": 0.23220973782771537,
+       "rate_interactive_core": 0.0449438202247191,
+       "effect": -0.18726591760299627,
+       "ci95_cluster_bootstrap": [
+        -0.25660377358490566,
+        -0.1198501872659176
+       ],
+       "ci95_task_bootstrap": [
+        -0.23595505617977527,
+        -0.13857677902621723
+       ],
+       "discordant": {
+        "interactive_core_only": 3,
+        "structured_only": 53
+       },
+       "mcnemar_exact_p": 8.137102103233929e-13,
+       "holm_p": 6.509681682587143e-12
+      },
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "prose - minimal",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_minimal": 0.19850187265917604,
+       "rate_prose": 0.24719101123595505,
+       "effect": 0.04868913857677903,
+       "ci95_cluster_bootstrap": [
+        0.0037174721189591076,
+        0.09665427509293681
+       ],
+       "ci95_task_bootstrap": [
+        0.011235955056179775,
+        0.08614232209737828
+       ],
+       "discordant": {
+        "prose_only": 19,
+        "minimal_only": 6
+       },
+       "mcnemar_exact_p": 0.01463329792022705,
+       "holm_p": 0.0585331916809082
+      },
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "minimal - none",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_none": 0.033707865168539325,
+       "rate_minimal": 0.19850187265917604,
+       "effect": 0.1647940074906367,
+       "ci95_cluster_bootstrap": [
+        0.10843373493975904,
+        0.22648683152534235
+       ],
+       "ci95_task_bootstrap": [
+        0.1198501872659176,
+        0.21348314606741572
+       ],
+       "discordant": {
+        "minimal_only": 45,
+        "none_only": 1
+       },
+       "mcnemar_exact_p": 1.3358203432289883e-12,
+       "holm_p": 9.350742402602918e-12
+      },
+      {
+       "model": "gpt-4.1-nano-2025-04-14",
+       "contrast": "syntax_only_structured - minimal",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_minimal": 0.19850187265917604,
+       "rate_syntax_only_structured": 0.17228464419475656,
+       "effect": -0.026217228464419477,
+       "ci95_cluster_bootstrap": [
+        -0.07434944237918216,
+        0.022304832713754646
+       ],
+       "ci95_task_bootstrap": [
+        -0.06367041198501873,
+        0.011235955056179775
+       ],
+       "discordant": {
+        "syntax_only_structured_only": 10,
+        "minimal_only": 17
+       },
+       "mcnemar_exact_p": 0.24778856337070465,
+       "holm_p": 0.630340576171875
+      }
+     ]
+    }
+   },
+   "gpt-4.1-mini-2025-04-14": {
+    "conditions": {
+     "prose": {
+      "n": 267,
+      "first_attempt": 0.41198501872659177,
+      "first_attempt_ci95": [
+       0.3546028323880595,
+       0.47186391242223535
+      ],
+      "after_repair": 0.4868913857677903,
+      "after_repair_ci95": [
+       0.4275504008166513,
+       0.5466042207508395
+      ],
+      "first_attempt_verified": 0.41947565543071164,
+      "mean_input_tokens": 6216.033707865168,
+      "mean_output_tokens": 1685.883895131086,
+      "mean_input_tokens_if_solved": 1694.5153846153846,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.1161048689138577,
+      "first_attempt_error_types": {
+       "none": 110,
+       "static_syntax": 108,
+       "static_shape": 45,
+       "static_other": 2,
+       "semantic_mismatch": 2
+      }
+     },
+     "structured": {
+      "n": 267,
+      "first_attempt": 0.3333333333333333,
+      "first_attempt_ci95": [
+       0.27950595895787195,
+       0.3918885152573671
+      ],
+      "after_repair": 0.3970037453183521,
+      "after_repair_ci95": [
+       0.3401762606397608,
+       0.45675290881909486
+      ],
+      "first_attempt_verified": 0.33707865168539325,
+      "mean_input_tokens": 6773.307116104869,
+      "mean_output_tokens": 1815.8951310861423,
+      "mean_input_tokens_if_solved": 1393.2075471698113,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.2771535580524342,
+      "first_attempt_error_types": {
+       "none": 89,
+       "static_syntax": 111,
+       "static_shape": 58,
+       "static_other": 7,
+       "static_type": 1,
+       "semantic_mismatch": 1
+      }
+     },
+     "interactive_forced": {
+      "n": 267,
+      "first_attempt": 0.2209737827715356,
+      "first_attempt_ci95": [
+       0.1753605868216666,
+       0.2745020722577785
+      ],
+      "after_repair": 0.23595505617977527,
+      "after_repair_ci95": [
+       0.18899492307495833,
+       0.29040531135592595
+      ],
+      "first_attempt_verified": 0.2209737827715356,
+      "mean_input_tokens": 7531.411985018726,
+      "mean_output_tokens": 1947.0149812734082,
+      "mean_input_tokens_if_solved": 1808.6190476190477,
+      "mean_tool_calls": 3.385767790262172,
+      "mean_attempts": 2.546816479400749,
+      "first_attempt_error_types": {
+       "none": 59,
+       "static_syntax": 154,
+       "static_shape": 37,
+       "static_other": 10,
+       "static_type": 6,
+       "forbidden_op": 1
+      }
+     },
+     "syntax_only_structured": {
+      "n": 267,
+      "first_attempt": 0.3258426966292135,
+      "first_attempt_ci95": [
+       0.27244010208045427,
+       0.38418558445906525
+      ],
+      "after_repair": 0.40823970037453183,
+      "after_repair_ci95": [
+       0.3509909769153141,
+       0.4680913740571209
+      ],
+      "first_attempt_verified": 0.3295880149812734,
+      "mean_input_tokens": 5110.086142322098,
+      "mean_output_tokens": 1773.3408239700375,
+      "mean_input_tokens_if_solved": 1223.605504587156,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.299625468164794,
+      "first_attempt_error_types": {
+       "none": 87,
+       "static_syntax": 108,
+       "static_shape": 69,
+       "semantic_mismatch": 1,
+       "static_other": 2
+      }
+     },
+     "minimal": {
+      "n": 267,
+      "first_attempt": 0.3295880149812734,
+      "first_attempt_ci95": [
+       0.2759710539941805,
+       0.38803902638319876
+      ],
+      "after_repair": 0.4044943820224719,
+      "after_repair_ci95": [
+       0.34738258639960184,
+       0.46431537073497336
+      ],
+      "first_attempt_verified": 0.3333333333333333,
+      "mean_input_tokens": 5315.5842696629215,
+      "mean_output_tokens": 1793.6179775280898,
+      "mean_input_tokens_if_solved": 1162.898148148148,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.2883895131086143,
+      "first_attempt_error_types": {
+       "none": 88,
+       "static_syntax": 106,
+       "static_shape": 69,
+       "static_type": 3,
+       "semantic_mismatch": 1
+      }
+     },
+     "interactive_core": {
+      "n": 267,
+      "first_attempt": 0.20599250936329588,
+      "first_attempt_ci95": [
+       0.16181769683291594,
+       0.25850738689508995
+      ],
+      "after_repair": 0.34831460674157305,
+      "after_repair_ci95": [
+       0.2936844646665977,
+       0.4072475849000806
+      ],
+      "first_attempt_verified": 0.20599250936329588,
+      "mean_input_tokens": 6967.883895131086,
+      "mean_output_tokens": 1997.0486891385767,
+      "mean_input_tokens_if_solved": 3207.5806451612902,
+      "mean_tool_calls": 1.9850187265917603,
+      "mean_attempts": 2.5280898876404496,
+      "first_attempt_error_types": {
+       "static_syntax": 88,
+       "static_shape": 117,
+       "none": 55,
+       "static_type": 3,
+       "static_other": 4
+      }
+     },
+     "none": {
+      "n": 267,
+      "first_attempt": 0.003745318352059925,
+      "first_attempt_ci95": [
+       0.0006614468767139685,
+       0.020906369606862818
+      ],
+      "after_repair": 0.00749063670411985,
+      "after_repair_ci95": [
+       0.002056612050907983,
+       0.026895598270528603
+      ],
+      "first_attempt_verified": 0.003745318352059925,
+      "mean_input_tokens": 3159.179775280899,
+      "mean_output_tokens": 1740.8314606741574,
+      "mean_input_tokens_if_solved": 693.5,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.9887640449438204,
+      "first_attempt_error_types": {
+       "static_shape": 46,
+       "static_syntax": 182,
+       "static_type": 38,
+       "none": 1
+      }
+     },
+     "interactive": {
+      "n": 267,
+      "first_attempt": 0.19850187265917604,
+      "first_attempt_ci95": [
+       0.155082727100135,
+       0.25047356895215134
+      ],
+      "after_repair": 0.21722846441947566,
+      "after_repair_ci95": [
+       0.17196603331843577,
+       0.27051223192314955
+      ],
+      "first_attempt_verified": 0.20224719101123595,
+      "mean_input_tokens": 6230.6591760299625,
+      "mean_output_tokens": 1807.3970037453184,
+      "mean_input_tokens_if_solved": 1681.655172413793,
+      "mean_tool_calls": 2.4232209737827715,
+      "mean_attempts": 2.595505617977528,
+      "first_attempt_error_types": {
+       "static_syntax": 157,
+       "none": 53,
+       "static_shape": 42,
+       "static_other": 5,
+       "static_type": 9,
+       "semantic_mismatch": 1
+      }
+     }
+    },
+    "families": {
+     "kb_level1": {
+      "prose": [
+       0.26506024096385544,
+       83
+      ],
+      "structured": [
+       0.1927710843373494,
+       83
+      ],
+      "interactive_forced": [
+       0.14457831325301204,
+       83
+      ],
+      "syntax_only_structured": [
+       0.1686746987951807,
+       83
+      ],
+      "minimal": [
+       0.18072289156626506,
+       83
+      ],
+      "interactive_core": [
+       0.060240963855421686,
+       83
+      ],
+      "none": [
+       0.012048192771084338,
+       83
+      ],
+      "interactive": [
+       0.07228915662650602,
+       83
+      ]
+     },
+     "mask_index": {
+      "interactive_forced": [
+       0,
+       12
+      ],
+      "interactive_core": [
+       0.08333333333333333,
+       12
+      ],
+      "minimal": [
+       0.3333333333333333,
+       12
+      ],
+      "syntax_only_structured": [
+       0.25,
+       12
+      ],
+      "interactive": [
+       0,
+       12
+      ],
+      "structured": [
+       0.16666666666666666,
+       12
+      ],
+      "none": [
+       0,
+       12
+      ],
+      "prose": [
+       0.4166666666666667,
+       12
+      ]
+     },
+     "slice_pad": {
+      "minimal": [
+       0.9444444444444444,
+       18
+      ],
+      "syntax_only_structured": [
+       0.9444444444444444,
+       18
+      ],
+      "structured": [
+       0.9444444444444444,
+       18
+      ],
+      "interactive_forced": [
+       0.6666666666666666,
+       18
+      ],
+      "prose": [
+       0.9444444444444444,
+       18
+      ],
+      "interactive_core": [
+       0.9444444444444444,
+       18
+      ],
+      "interactive": [
+       0.6666666666666666,
+       18
+      ],
+      "none": [
+       0,
+       18
+      ]
+     },
+     "kb_level2": {
+      "syntax_only_structured": [
+       0,
+       70
+      ],
+      "minimal": [
+       0,
+       70
+      ],
+      "structured": [
+       0,
+       70
+      ],
+      "prose": [
+       0.02857142857142857,
+       70
+      ],
+      "interactive_forced": [
+       0,
+       70
+      ],
+      "interactive": [
+       0,
+       70
+      ],
+      "interactive_core": [
+       0,
+       70
+      ],
+      "none": [
+       0,
+       70
+      ]
+     },
+     "dot": {
+      "interactive": [
+       0.8333333333333334,
+       18
+      ],
+      "interactive_forced": [
+       0.7777777777777778,
+       18
+      ],
+      "none": [
+       0,
+       18
+      ],
+      "minimal": [
+       1,
+       18
+      ],
+      "syntax_only_structured": [
+       1,
+       18
+      ],
+      "structured": [
+       1,
+       18
+      ],
+      "prose": [
+       1,
+       18
+      ],
+      "interactive_core": [
+       0.2222222222222222,
+       18
+      ]
+     },
+     "composite": {
+      "syntax_only_structured": [
+       0.4444444444444444,
+       9
+      ],
+      "prose": [
+       0.6666666666666666,
+       9
+      ],
+      "interactive_forced": [
+       0,
+       9
+      ],
+      "interactive": [
+       0,
+       9
+      ],
+      "none": [
+       0,
+       9
+      ],
+      "minimal": [
+       0.2222222222222222,
+       9
+      ],
+      "interactive_core": [
+       0.5555555555555556,
+       9
+      ],
+      "structured": [
+       0.5555555555555556,
+       9
+      ]
+     },
+     "layout": {
+      "interactive_forced": [
+       1,
+       15
+      ],
+      "interactive_core": [
+       0.9333333333333333,
+       15
+      ],
+      "structured": [
+       1,
+       15
+      ],
+      "syntax_only_structured": [
+       1,
+       15
+      ],
+      "interactive": [
+       0.9333333333333333,
+       15
+      ],
+      "minimal": [
+       1,
+       15
+      ],
+      "prose": [
+       1,
+       15
+      ],
+      "none": [
+       0,
+       15
+      ]
+     },
+     "broadcast": {
+      "structured": [
+       0.3888888888888889,
+       18
+      ],
+      "minimal": [
+       0.3888888888888889,
+       18
+      ],
+      "interactive_core": [
+       0.1111111111111111,
+       18
+      ],
+      "interactive_forced": [
+       0,
+       18
+      ],
+      "prose": [
+       0.5555555555555556,
+       18
+      ],
+      "syntax_only_structured": [
+       0.5,
+       18
+      ],
+      "none": [
+       0,
+       18
+      ],
+      "interactive": [
+       0,
+       18
+      ]
+     },
+     "elementwise": {
+      "interactive": [
+       0.5,
+       6
+      ],
+      "none": [
+       0,
+       6
+      ],
+      "structured": [
+       0.5,
+       6
+      ],
+      "prose": [
+       0.6666666666666666,
+       6
+      ],
+      "interactive_core": [
+       0.16666666666666666,
+       6
+      ],
+      "minimal": [
+       0.5,
+       6
+      ],
+      "syntax_only_structured": [
+       0.6666666666666666,
+       6
+      ],
+      "interactive_forced": [
+       0.3333333333333333,
+       6
+      ]
+     },
+     "convert": {
+      "none": [
+       0,
+       6
+      ],
+      "interactive_forced": [
+       0.5,
+       6
+      ],
+      "prose": [
+       0.5,
+       6
+      ],
+      "structured": [
+       0.5,
+       6
+      ],
+      "minimal": [
+       0.5,
+       6
+      ],
+      "interactive_core": [
+       0.5,
+       6
+      ],
+      "interactive": [
+       0.3333333333333333,
+       6
+      ],
+      "syntax_only_structured": [
+       0.5,
+       6
+      ]
+     },
+     "reduce": {
+      "interactive_core": [
+       0.25,
+       12
+      ],
+      "structured": [
+       0.25,
+       12
+      ],
+      "none": [
+       0,
+       12
+      ],
+      "minimal": [
+       0.3333333333333333,
+       12
+      ],
+      "syntax_only_structured": [
+       0,
+       12
+      ],
+      "interactive_forced": [
+       0.08333333333333333,
+       12
+      ],
+      "prose": [
+       0.6666666666666666,
+       12
+      ],
+      "interactive": [
+       0.08333333333333333,
+       12
+      ]
+     }
+    },
+    "retrieval": {
+     "n": 267,
+     "mean_tool_calls": 2.4232209737827715,
+     "share_no_tool_call": 0.21348314606741572,
+     "mean_fraction_available_facts_retrieved": 0.5164714517988916,
+     "query_categories": {
+      "all": 539,
+      "syntax": 82,
+      "type": 8,
+      "shape": 9,
+      "semantics": 9
+     }
+    },
+    "contrasts": {
+     "first_attempt_semantic_correct": [
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "structured - prose",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_prose": 0.41198501872659177,
+       "rate_structured": 0.3333333333333333,
+       "effect": -0.07865168539325842,
+       "ci95_cluster_bootstrap": [
+        -0.1263537906137184,
+        -0.03663003663003663
+       ],
+       "ci95_task_bootstrap": [
+        -0.11610486891385768,
+        -0.04119850187265917
+       ],
+       "discordant": {
+        "structured_only": 4,
+        "prose_only": 25
+       },
+       "mcnemar_exact_p": 0.00010371580719947815,
+       "holm_p": 0.0004148632287979126
+      },
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "interactive - structured",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_structured": 0.3333333333333333,
+       "rate_interactive": 0.19850187265917604,
+       "effect": -0.1348314606741573,
+       "ci95_cluster_bootstrap": [
+        -0.19305019305019305,
+        -0.07984374289912599
+       ],
+       "ci95_task_bootstrap": [
+        -0.18352059925093633,
+        -0.0898876404494382
+       ],
+       "discordant": {
+        "interactive_only": 4,
+        "structured_only": 40
+       },
+       "mcnemar_exact_p": 1.7051434042514302e-08,
+       "holm_p": 1.193600382976001e-07
+      },
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "interactive_forced - interactive",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_interactive": 0.19850187265917604,
+       "rate_interactive_forced": 0.2209737827715356,
+       "effect": 0.02247191011235955,
+       "ci95_cluster_bootstrap": [
+        -0.010830324909747292,
+        0.055350553505535055
+       ],
+       "ci95_task_bootstrap": [
+        -0.011235955056179775,
+        0.056179775280898875
+       ],
+       "discordant": {
+        "interactive_forced_only": 14,
+        "interactive_only": 8
+       },
+       "mcnemar_exact_p": 0.28627872467041016,
+       "holm_p": 0.8588361740112305
+      },
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "interactive_core - interactive",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_interactive": 0.19850187265917604,
+       "rate_interactive_core": 0.20599250936329588,
+       "effect": 0.00749063670411985,
+       "ci95_cluster_bootstrap": [
+        -0.05818181818181818,
+        0.0695970695970696
+       ],
+       "ci95_task_bootstrap": [
+        -0.04119850187265917,
+        0.056179775280898875
+       ],
+       "discordant": {
+        "interactive_core_only": 22,
+        "interactive_only": 20
+       },
+       "mcnemar_exact_p": 0.8776143287523155,
+       "holm_p": 1.0
+      },
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "interactive_core - structured",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_structured": 0.3333333333333333,
+       "rate_interactive_core": 0.20599250936329588,
+       "effect": -0.12734082397003746,
+       "ci95_cluster_bootstrap": [
+        -0.18587360594795538,
+        -0.0717127715552883
+       ],
+       "ci95_task_bootstrap": [
+        -0.17228464419475656,
+        -0.08614232209737828
+       ],
+       "discordant": {
+        "interactive_core_only": 4,
+        "structured_only": 38
+       },
+       "mcnemar_exact_p": 5.65314621780999e-08,
+       "holm_p": 3.391887730685994e-07
+      },
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "prose - minimal",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_minimal": 0.3295880149812734,
+       "rate_prose": 0.41198501872659177,
+       "effect": 0.08239700374531835,
+       "ci95_cluster_bootstrap": [
+        0.03717472118959108,
+        0.13307984790874525
+       ],
+       "ci95_task_bootstrap": [
+        0.0449438202247191,
+        0.1198501872659176
+       ],
+       "discordant": {
+        "prose_only": 26,
+        "minimal_only": 4
+       },
+       "mcnemar_exact_p": 5.947612226009369e-05,
+       "holm_p": 0.00029738061130046844
+      },
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "minimal - none",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_none": 0.003745318352059925,
+       "rate_minimal": 0.3295880149812734,
+       "effect": 0.3258426966292135,
+       "ci95_cluster_bootstrap": [
+        0.24313725490196078,
+        0.4046863246577403
+       ],
+       "ci95_task_bootstrap": [
+        0.2696629213483146,
+        0.38202247191011235
+       ],
+       "discordant": {
+        "minimal_only": 87,
+        "none_only": 0
+       },
+       "mcnemar_exact_p": 1.2924697071141057e-26,
+       "holm_p": 1.0339757656912846e-25
+      },
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "syntax_only_structured - minimal",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_minimal": 0.3295880149812734,
+       "rate_syntax_only_structured": 0.3258426966292135,
+       "effect": -0.003745318352059925,
+       "ci95_cluster_bootstrap": [
+        -0.04150943396226415,
+        0.03180212014134275
+       ],
+       "ci95_task_bootstrap": [
+        -0.033707865168539325,
+        0.026217228464419477
+       ],
+       "discordant": {
+        "syntax_only_structured_only": 8,
+        "minimal_only": 9
+       },
+       "mcnemar_exact_p": 1.0,
+       "holm_p": 1.0
+      }
+     ],
+     "correct_after_repair": [
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "structured - prose",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_prose": 0.4868913857677903,
+       "rate_structured": 0.3970037453183521,
+       "effect": -0.0898876404494382,
+       "ci95_cluster_bootstrap": [
+        -0.1387900355871886,
+        -0.04597701149425287
+       ],
+       "ci95_task_bootstrap": [
+        -0.13108614232209737,
+        -0.052434456928838954
+       ],
+       "discordant": {
+        "structured_only": 4,
+        "prose_only": 28
+       },
+       "mcnemar_exact_p": 1.9301194697618484e-05,
+       "holm_p": 9.650597348809242e-05
+      },
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "interactive - structured",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_structured": 0.3970037453183521,
+       "rate_interactive": 0.21722846441947566,
+       "effect": -0.1797752808988764,
+       "ci95_cluster_bootstrap": [
+        -0.24727272727272728,
+        -0.11336032388663968
+       ],
+       "ci95_task_bootstrap": [
+        -0.23220973782771537,
+        -0.13108614232209737
+       ],
+       "discordant": {
+        "interactive_only": 4,
+        "structured_only": 52
+       },
+       "mcnemar_exact_p": 1.1008055578187737e-11,
+       "holm_p": 7.705638904731416e-11
+      },
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "interactive_forced - interactive",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_interactive": 0.21722846441947566,
+       "rate_interactive_forced": 0.23595505617977527,
+       "effect": 0.018726591760299626,
+       "ci95_cluster_bootstrap": [
+        -0.011764705882352941,
+        0.050980392156862744
+       ],
+       "ci95_task_bootstrap": [
+        -0.0149812734082397,
+        0.052434456928838954
+       ],
+       "discordant": {
+        "interactive_forced_only": 14,
+        "interactive_only": 9
+       },
+       "mcnemar_exact_p": 0.4048728942871094,
+       "holm_p": 0.8097457885742188
+      },
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "interactive_core - interactive",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_interactive": 0.21722846441947566,
+       "rate_interactive_core": 0.34831460674157305,
+       "effect": 0.13108614232209737,
+       "ci95_cluster_bootstrap": [
+        0.05791505791505792,
+        0.2037735849056604
+       ],
+       "ci95_task_bootstrap": [
+        0.07865168539325842,
+        0.18726591760299627
+       ],
+       "discordant": {
+        "interactive_core_only": 47,
+        "interactive_only": 12
+       },
+       "mcnemar_exact_p": 5.1256292496887346e-06,
+       "holm_p": 3.075377549813241e-05
+      },
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "interactive_core - structured",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_structured": 0.3970037453183521,
+       "rate_interactive_core": 0.34831460674157305,
+       "effect": -0.04868913857677903,
+       "ci95_cluster_bootstrap": [
+        -0.1010840465663408,
+        0.0
+       ],
+       "ci95_task_bootstrap": [
+        -0.09363295880149813,
+        -0.003745318352059925
+       ],
+       "discordant": {
+        "interactive_core_only": 12,
+        "structured_only": 25
+       },
+       "mcnemar_exact_p": 0.04703102743951604,
+       "holm_p": 0.1410930823185481
+      },
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "prose - minimal",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_minimal": 0.4044943820224719,
+       "rate_prose": 0.4868913857677903,
+       "effect": 0.08239700374531835,
+       "ci95_cluster_bootstrap": [
+        0.038910505836575876,
+        0.12927756653992395
+       ],
+       "ci95_task_bootstrap": [
+        0.04119850187265917,
+        0.12359550561797752
+       ],
+       "discordant": {
+        "prose_only": 27,
+        "minimal_only": 5
+       },
+       "mcnemar_exact_p": 0.00011307420209050179,
+       "holm_p": 0.00045229680836200714
+      },
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "minimal - none",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_none": 0.00749063670411985,
+       "rate_minimal": 0.4044943820224719,
+       "effect": 0.3970037453183521,
+       "ci95_cluster_bootstrap": [
+        0.3117408906882591,
+        0.4767066544216125
+       ],
+       "ci95_task_bootstrap": [
+        0.33707865168539325,
+        0.45692883895131087
+       ],
+       "discordant": {
+        "minimal_only": 107,
+        "none_only": 1
+       },
+       "mcnemar_exact_p": 6.717643646022679e-31,
+       "holm_p": 5.374114916818143e-30
+      },
+      {
+       "model": "gpt-4.1-mini-2025-04-14",
+       "contrast": "syntax_only_structured - minimal",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 267,
+       "clusters": 191,
+       "missing_unpaired_tasks": [],
+       "rate_minimal": 0.4044943820224719,
+       "rate_syntax_only_structured": 0.40823970037453183,
+       "effect": 0.003745318352059925,
+       "ci95_cluster_bootstrap": [
+        -0.04727272727272727,
+        0.052830188679245285
+       ],
+       "ci95_task_bootstrap": [
+        -0.03745318352059925,
+        0.04119850187265917
+       ],
+       "discordant": {
+        "syntax_only_structured_only": 15,
+        "minimal_only": 14
+       },
+       "mcnemar_exact_p": 1.0,
+       "holm_p": 1.0
+      }
+     ]
+    }
+   },
+   "gpt-4.1-2025-04-14": {
+    "conditions": {
+     "structured": {
+      "n": 91,
+      "first_attempt": 0.43956043956043955,
+      "first_attempt_ci95": [
+       0.34208833898116514,
+       0.5419286286008322
+      ],
+      "after_repair": 0.5384615384615384,
+      "after_repair_ci95": [
+       0.43656172257790354,
+       0.6372456616880979
+      ],
+      "first_attempt_verified": 0.43956043956043955,
+      "mean_input_tokens": 6927.472527472528,
+      "mean_output_tokens": 2026.0549450549452,
+      "mean_input_tokens_if_solved": 1959.6938775510205,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.076923076923077,
+      "first_attempt_error_types": {
+       "none": 40,
+       "static_syntax": 26,
+       "static_shape": 23,
+       "static_other": 1,
+       "static_type": 1
+      }
+     },
+     "prose": {
+      "n": 91,
+      "first_attempt": 0.5604395604395604,
+      "first_attempt_ci95": [
+       0.45807137139916765,
+       0.6579116610188348
+      ],
+      "after_repair": 0.6043956043956044,
+      "after_repair_ci95": [
+       0.5016661476781359,
+       0.6986681810438683
+      ],
+      "first_attempt_verified": 0.5604395604395604,
+      "mean_input_tokens": 6008.604395604396,
+      "mean_output_tokens": 1862.7252747252746,
+      "mean_input_tokens_if_solved": 1638.3818181818183,
+      "mean_tool_calls": 0,
+      "mean_attempts": 1.8461538461538463,
+      "first_attempt_error_types": {
+       "none": 51,
+       "static_syntax": 30,
+       "static_other": 1,
+       "static_shape": 9
+      }
+     },
+     "minimal": {
+      "n": 91,
+      "first_attempt": 0.4175824175824176,
+      "first_attempt_ci95": [
+       0.32161298050569015,
+       0.5202283389243064
+      ],
+      "after_repair": 0.4835164835164835,
+      "after_repair_ci95": [
+       0.38360857976418883,
+       0.5847596841218105
+      ],
+      "first_attempt_verified": 0.42857142857142855,
+      "mean_input_tokens": 5476.7692307692305,
+      "mean_output_tokens": 2103.4835164835163,
+      "mean_input_tokens_if_solved": 1126.3181818181818,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.10989010989011,
+      "first_attempt_error_types": {
+       "none": 38,
+       "static_syntax": 27,
+       "static_shape": 25,
+       "semantic_mismatch": 1
+      }
+     },
+     "syntax_only_structured": {
+      "n": 91,
+      "first_attempt": 0.3956043956043956,
+      "first_attempt_ci95": [
+       0.3013318189561316,
+       0.498333852321864
+      ],
+      "after_repair": 0.4725274725274725,
+      "after_repair_ci95": [
+       0.373158035616828,
+       0.5741224041931707
+      ],
+      "first_attempt_verified": 0.3956043956043956,
+      "mean_input_tokens": 5308.67032967033,
+      "mean_output_tokens": 2032.4175824175825,
+      "mean_input_tokens_if_solved": 1101.4186046511627,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.1538461538461537,
+      "first_attempt_error_types": {
+       "none": 36,
+       "static_syntax": 24,
+       "static_shape": 31
+      }
+     },
+     "interactive_forced": {
+      "n": 91,
+      "first_attempt": 0.2967032967032967,
+      "first_attempt_ci95": [
+       0.21263490213534614,
+       0.39724035245864553
+      ],
+      "after_repair": 0.31868131868131866,
+      "after_repair_ci95": [
+       0.23196000093871888,
+       0.42009090180727365
+      ],
+      "first_attempt_verified": 0.2967032967032967,
+      "mean_input_tokens": 7438.615384615385,
+      "mean_output_tokens": 2136.78021978022,
+      "mean_input_tokens_if_solved": 2666.896551724138,
+      "mean_tool_calls": 3.934065934065934,
+      "mean_attempts": 2.3956043956043955,
+      "first_attempt_error_types": {
+       "none": 27,
+       "static_syntax": 15,
+       "static_shape": 47,
+       "static_type": 2
+      }
+     },
+     "interactive_core": {
+      "n": 91,
+      "first_attempt": 0.2967032967032967,
+      "first_attempt_ci95": [
+       0.21263490213534614,
+       0.39724035245864553
+      ],
+      "after_repair": 0.37362637362637363,
+      "after_repair_ci95": [
+       0.281249674486415,
+       0.4762403486395798
+      ],
+      "first_attempt_verified": 0.2967032967032967,
+      "mean_input_tokens": 4905.285714285715,
+      "mean_output_tokens": 2301.4065934065934,
+      "mean_input_tokens_if_solved": 1133.5,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.3626373626373627,
+      "first_attempt_error_types": {
+       "static_syntax": 45,
+       "none": 27,
+       "static_shape": 17,
+       "static_other": 2
+      }
+     },
+     "none": {
+      "n": 91,
+      "first_attempt": 0.14285714285714285,
+      "first_attempt_ci95": [
+       0.08542758101829258,
+       0.22921813651169295
+      ],
+      "after_repair": 0.1978021978021978,
+      "after_repair_ci95": [
+       0.12894460012751696,
+       0.2911402377824708
+      ],
+      "first_attempt_verified": 0.14285714285714285,
+      "mean_input_tokens": 3339.8571428571427,
+      "mean_output_tokens": 2036.2527472527472,
+      "mean_input_tokens_if_solved": 348.94444444444446,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.67032967032967,
+      "first_attempt_error_types": {
+       "static_syntax": 74,
+       "none": 13,
+       "static_shape": 4
+      }
+     },
+     "interactive": {
+      "n": 91,
+      "first_attempt": 0.12087912087912088,
+      "first_attempt_ci95": [
+       0.06885508454706783,
+       0.2036149848309168
+      ],
+      "after_repair": 0.16483516483516483,
+      "after_repair_ci95": [
+       0.1025143089492137,
+       0.2543070567327727
+      ],
+      "first_attempt_verified": 0.12087912087912088,
+      "mean_input_tokens": 4158.615384615385,
+      "mean_output_tokens": 2211.2747252747254,
+      "mean_input_tokens_if_solved": 623.6,
+      "mean_tool_calls": 0,
+      "mean_attempts": 2.7362637362637363,
+      "first_attempt_error_types": {
+       "static_syntax": 62,
+       "none": 11,
+       "static_shape": 18
+      }
+     }
+    },
+    "families": {
+     "kb_level1": {
+      "structured": [
+       0.3,
+       20
+      ],
+      "prose": [
+       0.65,
+       20
+      ],
+      "minimal": [
+       0.3,
+       20
+      ],
+      "syntax_only_structured": [
+       0.2,
+       20
+      ],
+      "interactive_forced": [
+       0.25,
+       20
+      ],
+      "interactive_core": [
+       0,
+       20
+      ],
+      "none": [
+       0,
+       20
+      ],
+      "interactive": [
+       0,
+       20
+      ]
+     },
+     "mask_index": {
+      "interactive": [
+       0,
+       4
+      ],
+      "syntax_only_structured": [
+       0.5,
+       4
+      ],
+      "interactive_forced": [
+       0.5,
+       4
+      ],
+      "minimal": [
+       0.5,
+       4
+      ],
+      "structured": [
+       0.75,
+       4
+      ],
+      "interactive_core": [
+       0,
+       4
+      ],
+      "none": [
+       0,
+       4
+      ],
+      "prose": [
+       0.75,
+       4
+      ]
+     },
+     "slice_pad": {
+      "minimal": [
+       1,
+       6
+      ],
+      "syntax_only_structured": [
+       1,
+       6
+      ],
+      "structured": [
+       1,
+       6
+      ],
+      "interactive_core": [
+       1,
+       6
+      ],
+      "interactive_forced": [
+       1,
+       6
+      ],
+      "prose": [
+       1,
+       6
+      ],
+      "none": [
+       0.6666666666666666,
+       6
+      ],
+      "interactive": [
+       0.6666666666666666,
+       6
+      ]
+     },
+     "kb_level2": {
+      "interactive_forced": [
+       0,
+       32
+      ],
+      "syntax_only_structured": [
+       0,
+       32
+      ],
+      "structured": [
+       0,
+       32
+      ],
+      "interactive": [
+       0,
+       32
+      ],
+      "none": [
+       0,
+       32
+      ],
+      "minimal": [
+       0,
+       32
+      ],
+      "interactive_core": [
+       0,
+       32
+      ],
+      "prose": [
+       0.09375,
+       32
+      ]
+     },
+     "dot": {
+      "interactive": [
+       0,
+       5
+      ],
+      "interactive_core": [
+       0,
+       5
+      ],
+      "minimal": [
+       1,
+       5
+      ],
+      "none": [
+       0,
+       5
+      ],
+      "syntax_only_structured": [
+       1,
+       5
+      ],
+      "structured": [
+       1,
+       5
+      ],
+      "interactive_forced": [
+       0.6,
+       5
+      ],
+      "prose": [
+       1,
+       5
+      ]
+     },
+     "composite": {
+      "syntax_only_structured": [
+       1,
+       4
+      ],
+      "prose": [
+       1,
+       4
+      ],
+      "interactive_forced": [
+       0.5,
+       4
+      ],
+      "interactive_core": [
+       1,
+       4
+      ],
+      "structured": [
+       0.75,
+       4
+      ],
+      "minimal": [
+       1,
+       4
+      ],
+      "interactive": [
+       0,
+       4
+      ],
+      "none": [
+       0,
+       4
+      ]
+     },
+     "layout": {
+      "interactive": [
+       0,
+       5
+      ],
+      "interactive_core": [
+       1,
+       5
+      ],
+      "structured": [
+       1,
+       5
+      ],
+      "syntax_only_structured": [
+       1,
+       5
+      ],
+      "minimal": [
+       1,
+       5
+      ],
+      "prose": [
+       1,
+       5
+      ],
+      "interactive_forced": [
+       1,
+       5
+      ],
+      "none": [
+       0,
+       5
+      ]
+     },
+     "broadcast": {
+      "structured": [
+       0.6666666666666666,
+       6
+      ],
+      "minimal": [
+       0.6666666666666666,
+       6
+      ],
+      "interactive_core": [
+       0.8333333333333334,
+       6
+      ],
+      "syntax_only_structured": [
+       0.6666666666666666,
+       6
+      ],
+      "prose": [
+       0.6666666666666666,
+       6
+      ],
+      "none": [
+       0.8333333333333334,
+       6
+      ],
+      "interactive": [
+       0.8333333333333334,
+       6
+      ],
+      "interactive_forced": [
+       0,
+       6
+      ]
+     },
+     "elementwise": {
+      "interactive": [
+       0.6666666666666666,
+       3
+      ],
+      "none": [
+       1,
+       3
+      ],
+      "structured": [
+       1,
+       3
+      ],
+      "interactive_core": [
+       1,
+       3
+      ],
+      "prose": [
+       1,
+       3
+      ],
+      "interactive_forced": [
+       1,
+       3
+      ],
+      "syntax_only_structured": [
+       0.6666666666666666,
+       3
+      ],
+      "minimal": [
+       0.6666666666666666,
+       3
+      ]
+     },
+     "convert": {
+      "none": [
+       0.5,
+       2
+      ],
+      "interactive_core": [
+       0.5,
+       2
+      ],
+      "interactive_forced": [
+       0.5,
+       2
+      ],
+      "minimal": [
+       0.5,
+       2
+      ],
+      "structured": [
+       0.5,
+       2
+      ],
+      "interactive": [
+       0,
+       2
+      ],
+      "prose": [
+       0.5,
+       2
+      ],
+      "syntax_only_structured": [
+       0.5,
+       2
+      ]
+     },
+     "reduce": {
+      "interactive_core": [
+       0.75,
+       4
+      ],
+      "none": [
+       0,
+       4
+      ],
+      "structured": [
+       1,
+       4
+      ],
+      "minimal": [
+       0.75,
+       4
+      ],
+      "syntax_only_structured": [
+       0.75,
+       4
+      ],
+      "prose": [
+       1,
+       4
+      ],
+      "interactive_forced": [
+       0,
+       4
+      ],
+      "interactive": [
+       0,
+       4
+      ]
+     }
+    },
+    "retrieval": {
+     "n": 91,
+     "mean_tool_calls": 0,
+     "share_no_tool_call": 1,
+     "mean_fraction_available_facts_retrieved": 0.0,
+     "query_categories": {}
+    },
+    "contrasts": {
+     "first_attempt_semantic_correct": [
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "structured - prose",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_prose": 0.5604395604395604,
+       "rate_structured": 0.43956043956043955,
+       "effect": -0.12087912087912088,
+       "ci95_cluster_bootstrap": [
+        -0.19148936170212766,
+        -0.05745493730407547
+       ],
+       "ci95_task_bootstrap": [
+        -0.18681318681318682,
+        -0.054945054945054944
+       ],
+       "discordant": {
+        "structured_only": 0,
+        "prose_only": 11
+       },
+       "mcnemar_exact_p": 0.0009765625,
+       "holm_p": 0.00390625
+      },
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "interactive - structured",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_structured": 0.43956043956043955,
+       "rate_interactive": 0.12087912087912088,
+       "effect": -0.31868131868131866,
+       "ci95_cluster_bootstrap": [
+        -0.4421052631578947,
+        -0.19047619047619047
+       ],
+       "ci95_task_bootstrap": [
+        -0.42857142857142855,
+        -0.21978021978021978
+       ],
+       "discordant": {
+        "interactive_only": 2,
+        "structured_only": 31
+       },
+       "mcnemar_exact_p": 1.3085082173347473e-07,
+       "holm_p": 1.0468065738677979e-06
+      },
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "interactive_forced - interactive",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_interactive": 0.12087912087912088,
+       "rate_interactive_forced": 0.2967032967032967,
+       "effect": 0.17582417582417584,
+       "ci95_cluster_bootstrap": [
+        0.0449438202247191,
+        0.3058823529411765
+       ],
+       "ci95_task_bootstrap": [
+        0.07692307692307693,
+        0.2857142857142857
+       ],
+       "discordant": {
+        "interactive_forced_only": 21,
+        "interactive_only": 5
+       },
+       "mcnemar_exact_p": 0.002493917942047119,
+       "holm_p": 0.007049560546875
+      },
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "interactive_core - interactive",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_interactive": 0.12087912087912088,
+       "rate_interactive_core": 0.2967032967032967,
+       "effect": 0.17582417582417584,
+       "ci95_cluster_bootstrap": [
+        0.07228915662650602,
+        0.2872340425531915
+       ],
+       "ci95_task_bootstrap": [
+        0.0989010989010989,
+        0.26373626373626374
+       ],
+       "discordant": {
+        "interactive_core_only": 17,
+        "interactive_only": 1
+       },
+       "mcnemar_exact_p": 0.00014495849609375,
+       "holm_p": 0.0008697509765625
+      },
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "interactive_core - structured",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_structured": 0.43956043956043955,
+       "rate_interactive_core": 0.2967032967032967,
+       "effect": -0.14285714285714285,
+       "ci95_cluster_bootstrap": [
+        -0.2441860465116279,
+        -0.053763440860215055
+       ],
+       "ci95_task_bootstrap": [
+        -0.23076923076923078,
+        -0.06593406593406594
+       ],
+       "discordant": {
+        "interactive_core_only": 2,
+        "structured_only": 15
+       },
+       "mcnemar_exact_p": 0.002349853515625,
+       "holm_p": 0.007049560546875
+      },
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "prose - minimal",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_minimal": 0.4175824175824176,
+       "rate_prose": 0.5604395604395604,
+       "effect": 0.14285714285714285,
+       "ci95_cluster_bootstrap": [
+        0.07526881720430108,
+        0.21839080459770116
+       ],
+       "ci95_task_bootstrap": [
+        0.07692307692307693,
+        0.21978021978021978
+       ],
+       "discordant": {
+        "prose_only": 13,
+        "minimal_only": 0
+       },
+       "mcnemar_exact_p": 0.000244140625,
+       "holm_p": 0.001220703125
+      },
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "minimal - none",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_none": 0.14285714285714285,
+       "rate_minimal": 0.4175824175824176,
+       "effect": 0.27472527472527475,
+       "ci95_cluster_bootstrap": [
+        0.15217391304347827,
+        0.3958384900990098
+       ],
+       "ci95_task_bootstrap": [
+        0.17582417582417584,
+        0.38461538461538464
+       ],
+       "discordant": {
+        "minimal_only": 27,
+        "none_only": 2
+       },
+       "mcnemar_exact_p": 1.6242265701293945e-06,
+       "holm_p": 1.1369585990905762e-05
+      },
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "syntax_only_structured - minimal",
+       "outcome": "first_attempt_semantic_correct",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_minimal": 0.4175824175824176,
+       "rate_syntax_only_structured": 0.3956043956043956,
+       "effect": -0.02197802197802198,
+       "ci95_cluster_bootstrap": [
+        -0.06818181818181818,
+        0.021052631578947368
+       ],
+       "ci95_task_bootstrap": [
+        -0.06593406593406594,
+        0.02197802197802198
+       ],
+       "discordant": {
+        "syntax_only_structured_only": 1,
+        "minimal_only": 3
+       },
+       "mcnemar_exact_p": 0.625,
+       "holm_p": 0.625
+      }
+     ],
+     "correct_after_repair": [
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "structured - prose",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_prose": 0.6043956043956044,
+       "rate_structured": 0.5384615384615384,
+       "effect": -0.06593406593406594,
+       "ci95_cluster_bootstrap": [
+        -0.13636363636363635,
+        0.0
+       ],
+       "ci95_task_bootstrap": [
+        -0.13186813186813187,
+        0.0
+       ],
+       "discordant": {
+        "structured_only": 2,
+        "prose_only": 8
+       },
+       "mcnemar_exact_p": 0.109375,
+       "holm_p": 0.21875
+      },
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "interactive - structured",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_structured": 0.5384615384615384,
+       "rate_interactive": 0.16483516483516483,
+       "effect": -0.37362637362637363,
+       "ci95_cluster_bootstrap": [
+        -0.4845360824742268,
+        -0.26136363636363635
+       ],
+       "ci95_task_bootstrap": [
+        -0.4725274725274725,
+        -0.27472527472527475
+       ],
+       "discordant": {
+        "interactive_only": 0,
+        "structured_only": 34
+       },
+       "mcnemar_exact_p": 1.1641532182693481e-10,
+       "holm_p": 9.313225746154785e-10
+      },
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "interactive_forced - interactive",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_interactive": 0.16483516483516483,
+       "rate_interactive_forced": 0.31868131868131866,
+       "effect": 0.15384615384615385,
+       "ci95_cluster_bootstrap": [
+        0.03333333333333333,
+        0.27472527472527475
+       ],
+       "ci95_task_bootstrap": [
+        0.054945054945054944,
+        0.25274725274725274
+       ],
+       "discordant": {
+        "interactive_forced_only": 19,
+        "interactive_only": 5
+       },
+       "mcnemar_exact_p": 0.006610751152038574,
+       "holm_p": 0.019832253456115723
+      },
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "interactive_core - interactive",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_interactive": 0.16483516483516483,
+       "rate_interactive_core": 0.37362637362637363,
+       "effect": 0.2087912087912088,
+       "ci95_cluster_bootstrap": [
+        0.11494252873563218,
+        0.30612244897959184
+       ],
+       "ci95_task_bootstrap": [
+        0.13186813186813187,
+        0.2967032967032967
+       ],
+       "discordant": {
+        "interactive_core_only": 19,
+        "interactive_only": 0
+       },
+       "mcnemar_exact_p": 3.814697265625e-06,
+       "holm_p": 2.288818359375e-05
+      },
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "interactive_core - structured",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_structured": 0.5384615384615384,
+       "rate_interactive_core": 0.37362637362637363,
+       "effect": -0.16483516483516483,
+       "ci95_cluster_bootstrap": [
+        -0.25555555555555554,
+        -0.08508715713919536
+       ],
+       "ci95_task_bootstrap": [
+        -0.24175824175824176,
+        -0.08791208791208792
+       ],
+       "discordant": {
+        "interactive_core_only": 0,
+        "structured_only": 15
+       },
+       "mcnemar_exact_p": 6.103515625e-05,
+       "holm_p": 0.00030517578125
+      },
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "prose - minimal",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_minimal": 0.4835164835164835,
+       "rate_prose": 0.6043956043956044,
+       "effect": 0.12087912087912088,
+       "ci95_cluster_bootstrap": [
+        0.05747126436781609,
+        0.1935483870967742
+       ],
+       "ci95_task_bootstrap": [
+        0.054945054945054944,
+        0.18681318681318682
+       ],
+       "discordant": {
+        "prose_only": 11,
+        "minimal_only": 0
+       },
+       "mcnemar_exact_p": 0.0009765625,
+       "holm_p": 0.00390625
+      },
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "minimal - none",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_none": 0.1978021978021978,
+       "rate_minimal": 0.4835164835164835,
+       "effect": 0.2857142857142857,
+       "ci95_cluster_bootstrap": [
+        0.1744186046511628,
+        0.3978494623655914
+       ],
+       "ci95_task_bootstrap": [
+        0.18681318681318682,
+        0.38461538461538464
+       ],
+       "discordant": {
+        "minimal_only": 27,
+        "none_only": 1
+       },
+       "mcnemar_exact_p": 2.1606683731079102e-07,
+       "holm_p": 1.5124678611755371e-06
+      },
+      {
+       "model": "gpt-4.1-2025-04-14",
+       "contrast": "syntax_only_structured - minimal",
+       "outcome": "correct_after_repair",
+       "paired_tasks": 91,
+       "clusters": 77,
+       "missing_unpaired_tasks": [],
+       "rate_minimal": 0.4835164835164835,
+       "rate_syntax_only_structured": 0.4725274725274725,
+       "effect": -0.01098901098901099,
+       "ci95_cluster_bootstrap": [
+        -0.05884103641456581,
+        0.034482758620689655
+       ],
+       "ci95_task_bootstrap": [
+        -0.054945054945054944,
+        0.03296703296703297
+       ],
+       "discordant": {
+        "syntax_only_structured_only": 2,
+        "minimal_only": 3
+       },
+       "mcnemar_exact_p": 1.0,
+       "holm_p": 1.0
+      }
+     ]
+    }
+   }
+  }
+ },
+ "by_suite": {
+  "synthetic": {
+   "models": {
+    "gpt-4.1-nano-2025-04-14": {
+     "conditions": {
+      "interactive_core": {
+       "n": 114,
+       "first_attempt": 0.07894736842105263,
+       "first_attempt_ci95": [
+        0.04208861436928512,
+        0.143257520078162
+       ],
+       "after_repair": 0.09649122807017543,
+       "after_repair_ci95": [
+        0.05473614880291978,
+        0.16455389670921705
+       ],
+       "first_attempt_verified": 0.07894736842105263,
+       "mean_input_tokens": 3252.9473684210525,
+       "mean_output_tokens": 935.359649122807,
+       "mean_input_tokens_if_solved": 964.8181818181819,
+       "mean_tool_calls": 0.043859649122807015,
+       "mean_attempts": 2.8333333333333335,
+       "first_attempt_error_types": {
+        "static_shape": 38,
+        "static_type": 29,
+        "static_syntax": 36,
+        "none": 9,
+        "static_other": 2
+       }
+      },
+      "syntax_only_structured": {
+       "n": 114,
+       "first_attempt": 0.22807017543859648,
+       "first_attempt_ci95": [
+        0.16066092191031436,
+        0.31320845658699514
+       ],
+       "after_repair": 0.2719298245614035,
+       "after_repair_ci95": [
+        0.19868457011755578,
+        0.3600445860414781
+       ],
+       "first_attempt_verified": 0.22807017543859648,
+       "mean_input_tokens": 2907.657894736842,
+       "mean_output_tokens": 898.9649122807018,
+       "mean_input_tokens_if_solved": 854.2258064516129,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.517543859649123,
+       "first_attempt_error_types": {
+        "static_shape": 22,
+        "static_type": 9,
+        "static_syntax": 57,
+        "none": 26
+       }
+      },
+      "interactive": {
+       "n": 114,
+       "first_attempt": 0.2719298245614035,
+       "first_attempt_ci95": [
+        0.19868457011755578,
+        0.3600445860414781
+       ],
+       "after_repair": 0.2894736842105263,
+       "after_repair_ci95": [
+        0.21416645410776172,
+        0.37850661311596184
+       ],
+       "first_attempt_verified": 0.2894736842105263,
+       "mean_input_tokens": 3866.938596491228,
+       "mean_output_tokens": 794.438596491228,
+       "mean_input_tokens_if_solved": 1469.6969696969697,
+       "mean_tool_calls": 2.4473684210526314,
+       "mean_attempts": 2.43859649122807,
+       "first_attempt_error_types": {
+        "static_shape": 49,
+        "static_syntax": 23,
+        "none": 31,
+        "static_other": 2,
+        "static_type": 7,
+        "semantic_mismatch": 2
+       }
+      },
+      "structured": {
+       "n": 114,
+       "first_attempt": 0.2719298245614035,
+       "first_attempt_ci95": [
+        0.19868457011755578,
+        0.3600445860414781
+       ],
+       "after_repair": 0.40350877192982454,
+       "after_repair_ci95": [
+        0.3180200686346322,
+        0.4952884205095744
+       ],
+       "first_attempt_verified": 0.2719298245614035,
+       "mean_input_tokens": 3511.754385964912,
+       "mean_output_tokens": 732.3421052631579,
+       "mean_input_tokens_if_solved": 1550.7608695652175,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.3947368421052633,
+       "first_attempt_error_types": {
+        "static_syntax": 52,
+        "static_shape": 23,
+        "none": 31,
+        "static_type": 7,
+        "forbidden_op": 1
+       }
+      },
+      "interactive_forced": {
+       "n": 114,
+       "first_attempt": 0.2631578947368421,
+       "first_attempt_ci95": [
+        0.19099959934419697,
+        0.35075760128249195
+       ],
+       "after_repair": 0.2982456140350877,
+       "after_repair_ci95": [
+        0.2219613542670869,
+        0.3876836684889815
+       ],
+       "first_attempt_verified": 0.2631578947368421,
+       "mean_input_tokens": 3779.1403508771928,
+       "mean_output_tokens": 801.7280701754386,
+       "mean_input_tokens_if_solved": 1531.3235294117646,
+       "mean_tool_calls": 2.4473684210526314,
+       "mean_attempts": 2.43859649122807,
+       "first_attempt_error_types": {
+        "static_shape": 50,
+        "static_syntax": 22,
+        "static_type": 10,
+        "none": 30,
+        "static_other": 2
+       }
+      },
+      "minimal": {
+       "n": 114,
+       "first_attempt": 0.32456140350877194,
+       "first_attempt_ci95": [
+        0.24555146179457762,
+        0.4150094275585253
+       ],
+       "after_repair": 0.3508771929824561,
+       "after_repair_ci95": [
+        0.2694345470514746,
+        0.4420422088986628
+       ],
+       "first_attempt_verified": 0.32456140350877194,
+       "mean_input_tokens": 3068.6754385964914,
+       "mean_output_tokens": 962.078947368421,
+       "mean_input_tokens_if_solved": 816.025,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.324561403508772,
+       "first_attempt_error_types": {
+        "static_syntax": 57,
+        "static_shape": 13,
+        "none": 37,
+        "static_type": 6,
+        "static_other": 1
+       }
+      },
+      "prose": {
+       "n": 114,
+       "first_attempt": 0.40350877192982454,
+       "first_attempt_ci95": [
+        0.3180200686346322,
+        0.4952884205095744
+       ],
+       "after_repair": 0.43859649122807015,
+       "after_repair_ci95": [
+        0.35098380909333193,
+        0.5302125021802542
+       ],
+       "first_attempt_verified": 0.40350877192982454,
+       "mean_input_tokens": 3475.2105263157896,
+       "mean_output_tokens": 802.0701754385965,
+       "mean_input_tokens_if_solved": 1117.2,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.175438596491228,
+       "first_attempt_error_types": {
+        "static_syntax": 53,
+        "static_shape": 14,
+        "none": 46,
+        "static_type": 1
+       }
+      },
+      "none": {
+       "n": 114,
+       "first_attempt": 0.05263157894736842,
+       "first_attempt_ci95": [
+        0.024342161365469836,
+        0.11008810648494273
+       ],
+       "after_repair": 0.07017543859649122,
+       "after_repair_ci95": [
+        0.03598534324391345,
+        0.1323888356711888
+       ],
+       "first_attempt_verified": 0.05263157894736842,
+       "mean_input_tokens": 1617.2543859649122,
+       "mean_output_tokens": 939.438596491228,
+       "mean_input_tokens_if_solved": 244,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.8771929824561404,
+       "first_attempt_error_types": {
+        "static_type": 24,
+        "static_shape": 24,
+        "none": 6,
+        "static_syntax": 55,
+        "static_other": 5
+       }
+      }
+     },
+     "families": {
+      "mask_index": {
+       "interactive_core": [
+        0,
+        12
+       ],
+       "syntax_only_structured": [
+        0,
+        12
+       ],
+       "interactive": [
+        0,
+        12
+       ],
+       "structured": [
+        0,
+        12
+       ],
+       "interactive_forced": [
+        0,
+        12
+       ],
+       "minimal": [
+        0,
+        12
+       ],
+       "prose": [
+        0,
+        12
+       ],
+       "none": [
+        0,
+        12
+       ]
+      },
+      "slice_pad": {
+       "syntax_only_structured": [
+        0.3333333333333333,
+        18
+       ],
+       "structured": [
+        0.2777777777777778,
+        18
+       ],
+       "none": [
+        0.2222222222222222,
+        18
+       ],
+       "minimal": [
+        0.3888888888888889,
+        18
+       ],
+       "interactive_forced": [
+        0.3333333333333333,
+        18
+       ],
+       "prose": [
+        0.4444444444444444,
+        18
+       ],
+       "interactive_core": [
+        0.2777777777777778,
+        18
+       ],
+       "interactive": [
+        0.3333333333333333,
+        18
+       ]
+      },
+      "dot": {
+       "interactive": [
+        0.5555555555555556,
+        18
+       ],
+       "interactive_core": [
+        0,
+        18
+       ],
+       "interactive_forced": [
+        0.6111111111111112,
+        18
+       ],
+       "none": [
+        0,
+        18
+       ],
+       "structured": [
+        0.5555555555555556,
+        18
+       ],
+       "syntax_only_structured": [
+        0.5,
+        18
+       ],
+       "prose": [
+        0.6666666666666666,
+        18
+       ],
+       "minimal": [
+        0.5,
+        18
+       ]
+      },
+      "composite": {
+       "syntax_only_structured": [
+        0,
+        9
+       ],
+       "interactive": [
+        0,
+        9
+       ],
+       "interactive_forced": [
+        0,
+        9
+       ],
+       "prose": [
+        0,
+        9
+       ],
+       "interactive_core": [
+        0,
+        9
+       ],
+       "structured": [
+        0,
+        9
+       ],
+       "minimal": [
+        0,
+        9
+       ],
+       "none": [
+        0,
+        9
+       ]
+      },
+      "layout": {
+       "interactive": [
+        0.6,
+        15
+       ],
+       "syntax_only_structured": [
+        0.3333333333333333,
+        15
+       ],
+       "minimal": [
+        0.7333333333333333,
+        15
+       ],
+       "interactive_forced": [
+        0.4666666666666667,
+        15
+       ],
+       "interactive_core": [
+        0.2,
+        15
+       ],
+       "structured": [
+        0.6,
+        15
+       ],
+       "none": [
+        0.13333333333333333,
+        15
+       ],
+       "prose": [
+        0.6666666666666666,
+        15
+       ]
+      },
+      "broadcast": {
+       "structured": [
+        0.1111111111111111,
+        18
+       ],
+       "minimal": [
+        0.3333333333333333,
+        18
+       ],
+       "interactive_core": [
+        0,
+        18
+       ],
+       "interactive_forced": [
+        0,
+        18
+       ],
+       "syntax_only_structured": [
+        0.16666666666666666,
+        18
+       ],
+       "prose": [
+        0.7222222222222222,
+        18
+       ],
+       "none": [
+        0,
+        18
+       ],
+       "interactive": [
+        0,
+        18
+       ]
+      },
+      "elementwise": {
+       "interactive": [
+        0.16666666666666666,
+        6
+       ],
+       "structured": [
+        0.3333333333333333,
+        6
+       ],
+       "none": [
+        0,
+        6
+       ],
+       "interactive_core": [
+        0,
+        6
+       ],
+       "prose": [
+        0,
+        6
+       ],
+       "minimal": [
+        0.16666666666666666,
+        6
+       ],
+       "syntax_only_structured": [
+        0.16666666666666666,
+        6
+       ],
+       "interactive_forced": [
+        0.3333333333333333,
+        6
+       ]
+      },
+      "convert": {
+       "interactive_core": [
+        0.16666666666666666,
+        6
+       ],
+       "none": [
+        0,
+        6
+       ],
+       "minimal": [
+        0.5,
+        6
+       ],
+       "structured": [
+        0,
+        6
+       ],
+       "prose": [
+        0.5,
+        6
+       ],
+       "interactive_forced": [
+        0.5,
+        6
+       ],
+       "syntax_only_structured": [
+        0,
+        6
+       ],
+       "interactive": [
+        0.5,
+        6
+       ]
+      },
+      "reduce": {
+       "none": [
+        0,
+        12
+       ],
+       "interactive_core": [
+        0,
+        12
+       ],
+       "structured": [
+        0.25,
+        12
+       ],
+       "interactive_forced": [
+        0.08333333333333333,
+        12
+       ],
+       "minimal": [
+        0,
+        12
+       ],
+       "syntax_only_structured": [
+        0.16666666666666666,
+        12
+       ],
+       "interactive": [
+        0.16666666666666666,
+        12
+       ],
+       "prose": [
+        0,
+        12
+       ]
+      }
+     },
+     "retrieval": {
+      "n": 114,
+      "mean_tool_calls": 2.4473684210526314,
+      "share_no_tool_call": 0,
+      "mean_fraction_available_facts_retrieved": 0.666438094069673,
+      "query_categories": {
+       "all": 220,
+       "syntax": 51,
+       "type": 8
+      }
+     },
+     "contrasts": {
+      "first_attempt_semantic_correct": [
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "structured - prose",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_prose": 0.40350877192982454,
+        "rate_structured": 0.2719298245614035,
+        "effect": -0.13157894736842105,
+        "ci95_cluster_bootstrap": [
+         -0.2719298245614035,
+         0.0
+        ],
+        "ci95_task_bootstrap": [
+         -0.22807017543859648,
+         -0.043859649122807015
+        ],
+        "discordant": {
+         "structured_only": 8,
+         "prose_only": 23
+        },
+        "mcnemar_exact_p": 0.010673840530216694,
+        "holm_p": 0.05336920265108347
+       },
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "interactive - structured",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_structured": 0.2719298245614035,
+        "rate_interactive": 0.2719298245614035,
+        "effect": 0,
+        "ci95_cluster_bootstrap": [
+         -0.09649122807017543,
+         0.10526315789473684
+        ],
+        "ci95_task_bootstrap": [
+         -0.07894736842105263,
+         0.07894736842105263
+        ],
+        "discordant": {
+         "interactive_only": 10,
+         "structured_only": 10
+        },
+        "mcnemar_exact_p": 1.0,
+        "holm_p": 1.0
+       },
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "interactive_forced - interactive",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_interactive": 0.2719298245614035,
+        "rate_interactive_forced": 0.2631578947368421,
+        "effect": -0.008771929824561403,
+        "ci95_cluster_bootstrap": [
+         -0.05263157894736842,
+         0.03508771929824561
+        ],
+        "ci95_task_bootstrap": [
+         -0.06140350877192982,
+         0.043859649122807015
+        ],
+        "discordant": {
+         "interactive_forced_only": 4,
+         "interactive_only": 5
+        },
+        "mcnemar_exact_p": 1.0,
+        "holm_p": 1.0
+       },
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "interactive_core - interactive",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_interactive": 0.2719298245614035,
+        "rate_interactive_core": 0.07894736842105263,
+        "effect": -0.19298245614035087,
+        "ci95_cluster_bootstrap": [
+         -0.3157894736842105,
+         -0.07894736842105263
+        ],
+        "ci95_task_bootstrap": [
+         -0.2719298245614035,
+         -0.11403508771929824
+        ],
+        "discordant": {
+         "interactive_core_only": 2,
+         "interactive_only": 24
+        },
+        "mcnemar_exact_p": 1.049041748046875e-05,
+        "holm_p": 7.343292236328125e-05
+       },
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "interactive_core - structured",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_structured": 0.2719298245614035,
+        "rate_interactive_core": 0.07894736842105263,
+        "effect": -0.19298245614035087,
+        "ci95_cluster_bootstrap": [
+         -0.3333333333333333,
+         -0.05263157894736842
+        ],
+        "ci95_task_bootstrap": [
+         -0.2807017543859649,
+         -0.10526315789473684
+        ],
+        "discordant": {
+         "interactive_core_only": 4,
+         "structured_only": 26
+        },
+        "mcnemar_exact_p": 5.947612226009369e-05,
+        "holm_p": 0.00035685673356056213
+       },
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "prose - minimal",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_minimal": 0.32456140350877194,
+        "rate_prose": 0.40350877192982454,
+        "effect": 0.07894736842105263,
+        "ci95_cluster_bootstrap": [
+         -0.017543859649122806,
+         0.17543859649122806
+        ],
+        "ci95_task_bootstrap": [
+         0.008771929824561403,
+         0.14912280701754385
+        ],
+        "discordant": {
+         "prose_only": 14,
+         "minimal_only": 5
+        },
+        "mcnemar_exact_p": 0.063568115234375,
+        "holm_p": 0.190704345703125
+       },
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "minimal - none",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_none": 0.05263157894736842,
+        "rate_minimal": 0.32456140350877194,
+        "effect": 0.2719298245614035,
+        "ci95_cluster_bootstrap": [
+         0.15789473684210525,
+         0.39473684210526316
+        ],
+        "ci95_task_bootstrap": [
+         0.18421052631578946,
+         0.35964912280701755
+        ],
+        "discordant": {
+         "minimal_only": 32,
+         "none_only": 1
+        },
+        "mcnemar_exact_p": 7.916241884231567e-09,
+        "holm_p": 6.332993507385254e-08
+       },
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "syntax_only_structured - minimal",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_minimal": 0.32456140350877194,
+        "rate_syntax_only_structured": 0.22807017543859648,
+        "effect": -0.09649122807017543,
+        "ci95_cluster_bootstrap": [
+         -0.21052631578947367,
+         0.008771929824561403
+        ],
+        "ci95_task_bootstrap": [
+         -0.18421052631578946,
+         -0.008771929824561403
+        ],
+        "discordant": {
+         "syntax_only_structured_only": 7,
+         "minimal_only": 18
+        },
+        "mcnemar_exact_p": 0.043285250663757324,
+        "holm_p": 0.1731410026550293
+       }
+      ]
+     }
+    },
+    "gpt-4.1-mini-2025-04-14": {
+     "conditions": {
+      "interactive_forced": {
+       "n": 114,
+       "first_attempt": 0.41228070175438597,
+       "first_attempt_ci95": [
+        0.32621904722729417,
+        0.5040613974492574
+       ],
+       "after_repair": 0.42105263157894735,
+       "after_repair_ci95": [
+        0.33444615493456853,
+        0.5128062452743277
+       ],
+       "first_attempt_verified": 0.41228070175438597,
+       "mean_input_tokens": 4071.6491228070176,
+       "mean_output_tokens": 634.561403508772,
+       "mean_input_tokens_if_solved": 1403.375,
+       "mean_tool_calls": 2.9210526315789473,
+       "mean_attempts": 2.1666666666666665,
+       "first_attempt_error_types": {
+        "static_syntax": 60,
+        "none": 47,
+        "static_shape": 7
+       }
+      },
+      "interactive_core": {
+       "n": 114,
+       "first_attempt": 0.43859649122807015,
+       "first_attempt_ci95": [
+        0.35098380909333193,
+        0.5302125021802542
+       ],
+       "after_repair": 0.6578947368421053,
+       "after_repair_ci95": [
+        0.566937222599592,
+        0.7385579769826155
+       ],
+       "first_attempt_verified": 0.43859649122807015,
+       "mean_input_tokens": 3950.4210526315787,
+       "mean_output_tokens": 540.3245614035088,
+       "mean_input_tokens_if_solved": 2856.16,
+       "mean_tool_calls": 2.0701754385964914,
+       "mean_attempts": 2.026315789473684,
+       "first_attempt_error_types": {
+        "static_shape": 21,
+        "none": 50,
+        "static_syntax": 43
+       }
+      },
+      "minimal": {
+       "n": 114,
+       "first_attempt": 0.6403508771929824,
+       "first_attempt_ci95": [
+        0.5490091273019986,
+        0.7225421612155191
+       ],
+       "after_repair": 0.7982456140350878,
+       "after_repair_ci95": [
+        0.7154171298315862,
+        0.8616293582681389
+       ],
+       "first_attempt_verified": 0.6403508771929824,
+       "mean_input_tokens": 1794.3245614035088,
+       "mean_output_tokens": 378.8859649122807,
+       "mean_input_tokens_if_solved": 1135.5274725274726,
+       "mean_tool_calls": 0,
+       "mean_attempts": 1.6140350877192982,
+       "first_attempt_error_types": {
+        "static_syntax": 32,
+        "none": 73,
+        "static_type": 2,
+        "static_shape": 7
+       }
+      },
+      "syntax_only_structured": {
+       "n": 114,
+       "first_attempt": 0.6403508771929824,
+       "first_attempt_ci95": [
+        0.5490091273019986,
+        0.7225421612155191
+       ],
+       "after_repair": 0.7456140350877193,
+       "after_repair_ci95": [
+        0.6585681926057113,
+        0.8166465622999445
+       ],
+       "first_attempt_verified": 0.6403508771929824,
+       "mean_input_tokens": 1670.6754385964912,
+       "mean_output_tokens": 395.4561403508772,
+       "mean_input_tokens_if_solved": 874.7294117647059,
+       "mean_tool_calls": 0,
+       "mean_attempts": 1.631578947368421,
+       "first_attempt_error_types": {
+        "static_syntax": 32,
+        "none": 73,
+        "static_shape": 9
+       }
+      },
+      "structured": {
+       "n": 114,
+       "first_attempt": 0.6403508771929824,
+       "first_attempt_ci95": [
+        0.5490091273019986,
+        0.7225421612155191
+       ],
+       "after_repair": 0.7719298245614035,
+       "after_repair_ci95": [
+        0.6867915434130047,
+        0.8393390780896856
+       ],
+       "first_attempt_verified": 0.6403508771929824,
+       "mean_input_tokens": 2264.745614035088,
+       "mean_output_tokens": 421.0438596491228,
+       "mean_input_tokens_if_solved": 1322.3068181818182,
+       "mean_tool_calls": 0,
+       "mean_attempts": 1.605263157894737,
+       "first_attempt_error_types": {
+        "none": 73,
+        "static_syntax": 29,
+        "static_type": 1,
+        "static_shape": 10,
+        "static_other": 1
+       }
+      },
+      "interactive": {
+       "n": 114,
+       "first_attempt": 0.41228070175438597,
+       "first_attempt_ci95": [
+        0.32621904722729417,
+        0.5040613974492574
+       ],
+       "after_repair": 0.4298245614035088,
+       "after_repair_ci95": [
+        0.34270114743104707,
+        0.521523208310194
+       ],
+       "first_attempt_verified": 0.41228070175438597,
+       "mean_input_tokens": 3987.4736842105262,
+       "mean_output_tokens": 608.7280701754386,
+       "mean_input_tokens_if_solved": 1441.2244897959183,
+       "mean_tool_calls": 2.8421052631578947,
+       "mean_attempts": 2.1578947368421053,
+       "first_attempt_error_types": {
+        "static_syntax": 56,
+        "none": 47,
+        "static_shape": 11
+       }
+      },
+      "prose": {
+       "n": 114,
+       "first_attempt": 0.7543859649122807,
+       "first_attempt_ci95": [
+        0.6679340466169862,
+        0.8242526638210146
+       ],
+       "after_repair": 0.8508771929824561,
+       "after_repair_ci95": [
+        0.7741160582947779,
+        0.9047621629990161
+       ],
+       "first_attempt_verified": 0.7543859649122807,
+       "mean_input_tokens": 1930.9122807017543,
+       "mean_output_tokens": 345.6666666666667,
+       "mean_input_tokens_if_solved": 1295.020618556701,
+       "mean_tool_calls": 0,
+       "mean_attempts": 1.4035087719298245,
+       "first_attempt_error_types": {
+        "none": 86,
+        "static_syntax": 21,
+        "static_shape": 7
+       }
+      },
+      "none": {
+       "n": 114,
+       "first_attempt": 0.0,
+       "first_attempt_ci95": [
+        0.0,
+        0.03259853465634346
+       ],
+       "after_repair": 0.0,
+       "after_repair_ci95": [
+        0.0,
+        0.03259853465634346
+       ],
+       "first_attempt_verified": 0.0,
+       "mean_input_tokens": 1270.9122807017543,
+       "mean_output_tokens": 556.2982456140351,
+       "mean_input_tokens_if_solved": null,
+       "mean_tool_calls": 0,
+       "mean_attempts": 3,
+       "first_attempt_error_types": {
+        "static_syntax": 63,
+        "static_type": 21,
+        "static_shape": 30
+       }
+      }
+     },
+     "families": {
+      "mask_index": {
+       "interactive_forced": [
+        0,
+        12
+       ],
+       "interactive_core": [
+        0.08333333333333333,
+        12
+       ],
+       "minimal": [
+        0.3333333333333333,
+        12
+       ],
+       "syntax_only_structured": [
+        0.25,
+        12
+       ],
+       "interactive": [
+        0,
+        12
+       ],
+       "structured": [
+        0.16666666666666666,
+        12
+       ],
+       "none": [
+        0,
+        12
+       ],
+       "prose": [
+        0.4166666666666667,
+        12
+       ]
+      },
+      "slice_pad": {
+       "minimal": [
+        0.9444444444444444,
+        18
+       ],
+       "syntax_only_structured": [
+        0.9444444444444444,
+        18
+       ],
+       "structured": [
+        0.9444444444444444,
+        18
+       ],
+       "interactive_forced": [
+        0.6666666666666666,
+        18
+       ],
+       "prose": [
+        0.9444444444444444,
+        18
+       ],
+       "interactive_core": [
+        0.9444444444444444,
+        18
+       ],
+       "interactive": [
+        0.6666666666666666,
+        18
+       ],
+       "none": [
+        0,
+        18
+       ]
+      },
+      "dot": {
+       "interactive": [
+        0.8333333333333334,
+        18
+       ],
+       "interactive_forced": [
+        0.7777777777777778,
+        18
+       ],
+       "none": [
+        0,
+        18
+       ],
+       "minimal": [
+        1,
+        18
+       ],
+       "syntax_only_structured": [
+        1,
+        18
+       ],
+       "structured": [
+        1,
+        18
+       ],
+       "prose": [
+        1,
+        18
+       ],
+       "interactive_core": [
+        0.2222222222222222,
+        18
+       ]
+      },
+      "composite": {
+       "syntax_only_structured": [
+        0.4444444444444444,
+        9
+       ],
+       "prose": [
+        0.6666666666666666,
+        9
+       ],
+       "interactive_forced": [
+        0,
+        9
+       ],
+       "interactive": [
+        0,
+        9
+       ],
+       "none": [
+        0,
+        9
+       ],
+       "minimal": [
+        0.2222222222222222,
+        9
+       ],
+       "interactive_core": [
+        0.5555555555555556,
+        9
+       ],
+       "structured": [
+        0.5555555555555556,
+        9
+       ]
+      },
+      "layout": {
+       "interactive_forced": [
+        1,
+        15
+       ],
+       "interactive_core": [
+        0.9333333333333333,
+        15
+       ],
+       "structured": [
+        1,
+        15
+       ],
+       "syntax_only_structured": [
+        1,
+        15
+       ],
+       "interactive": [
+        0.9333333333333333,
+        15
+       ],
+       "minimal": [
+        1,
+        15
+       ],
+       "prose": [
+        1,
+        15
+       ],
+       "none": [
+        0,
+        15
+       ]
+      },
+      "broadcast": {
+       "structured": [
+        0.3888888888888889,
+        18
+       ],
+       "minimal": [
+        0.3888888888888889,
+        18
+       ],
+       "interactive_core": [
+        0.1111111111111111,
+        18
+       ],
+       "interactive_forced": [
+        0,
+        18
+       ],
+       "prose": [
+        0.5555555555555556,
+        18
+       ],
+       "syntax_only_structured": [
+        0.5,
+        18
+       ],
+       "none": [
+        0,
+        18
+       ],
+       "interactive": [
+        0,
+        18
+       ]
+      },
+      "elementwise": {
+       "interactive": [
+        0.5,
+        6
+       ],
+       "none": [
+        0,
+        6
+       ],
+       "structured": [
+        0.5,
+        6
+       ],
+       "prose": [
+        0.6666666666666666,
+        6
+       ],
+       "interactive_core": [
+        0.16666666666666666,
+        6
+       ],
+       "minimal": [
+        0.5,
+        6
+       ],
+       "syntax_only_structured": [
+        0.6666666666666666,
+        6
+       ],
+       "interactive_forced": [
+        0.3333333333333333,
+        6
+       ]
+      },
+      "convert": {
+       "none": [
+        0,
+        6
+       ],
+       "interactive_forced": [
+        0.5,
+        6
+       ],
+       "prose": [
+        0.5,
+        6
+       ],
+       "structured": [
+        0.5,
+        6
+       ],
+       "minimal": [
+        0.5,
+        6
+       ],
+       "interactive_core": [
+        0.5,
+        6
+       ],
+       "interactive": [
+        0.3333333333333333,
+        6
+       ],
+       "syntax_only_structured": [
+        0.5,
+        6
+       ]
+      },
+      "reduce": {
+       "interactive_core": [
+        0.25,
+        12
+       ],
+       "structured": [
+        0.25,
+        12
+       ],
+       "none": [
+        0,
+        12
+       ],
+       "minimal": [
+        0.3333333333333333,
+        12
+       ],
+       "syntax_only_structured": [
+        0,
+        12
+       ],
+       "interactive_forced": [
+        0.08333333333333333,
+        12
+       ],
+       "prose": [
+        0.6666666666666666,
+        12
+       ],
+       "interactive": [
+        0.08333333333333333,
+        12
+       ]
+      }
+     },
+     "retrieval": {
+      "n": 114,
+      "mean_tool_calls": 2.8421052631578947,
+      "share_no_tool_call": 0.017543859649122806,
+      "mean_fraction_available_facts_retrieved": 0.788860944124102,
+      "query_categories": {
+       "all": 290,
+       "syntax": 34
+      }
+     },
+     "contrasts": {
+      "first_attempt_semantic_correct": [
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "structured - prose",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_prose": 0.7543859649122807,
+        "rate_structured": 0.6403508771929824,
+        "effect": -0.11403508771929824,
+        "ci95_cluster_bootstrap": [
+         -0.21052631578947367,
+         -0.03508771929824561
+        ],
+        "ci95_task_bootstrap": [
+         -0.18421052631578946,
+         -0.05263157894736842
+        ],
+        "discordant": {
+         "structured_only": 2,
+         "prose_only": 15
+        },
+        "mcnemar_exact_p": 0.002349853515625,
+        "holm_p": 0.011749267578125
+       },
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "interactive - structured",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_structured": 0.6403508771929824,
+        "rate_interactive": 0.41228070175438597,
+        "effect": -0.22807017543859648,
+        "ci95_cluster_bootstrap": [
+         -0.34210526315789475,
+         -0.12280701754385964
+        ],
+        "ci95_task_bootstrap": [
+         -0.30701754385964913,
+         -0.15789473684210525
+        ],
+        "discordant": {
+         "interactive_only": 0,
+         "structured_only": 26
+        },
+        "mcnemar_exact_p": 2.9802322387695312e-08,
+        "holm_p": 2.086162567138672e-07
+       },
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "interactive_forced - interactive",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_interactive": 0.41228070175438597,
+        "rate_interactive_forced": 0.41228070175438597,
+        "effect": 0,
+        "ci95_cluster_bootstrap": [
+         -0.043859649122807015,
+         0.043859649122807015
+        ],
+        "ci95_task_bootstrap": [
+         -0.043859649122807015,
+         0.05263157894736842
+        ],
+        "discordant": {
+         "interactive_forced_only": 4,
+         "interactive_only": 4
+        },
+        "mcnemar_exact_p": 1.0,
+        "holm_p": 1.0
+       },
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "interactive_core - interactive",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_interactive": 0.41228070175438597,
+        "rate_interactive_core": 0.43859649122807015,
+        "effect": 0.02631578947368421,
+        "ci95_cluster_bootstrap": [
+         -0.11403508771929824,
+         0.15789473684210525
+        ],
+        "ci95_task_bootstrap": [
+         -0.07017543859649122,
+         0.12280701754385964
+        ],
+        "discordant": {
+         "interactive_core_only": 18,
+         "interactive_only": 15
+        },
+        "mcnemar_exact_p": 0.7283324808813632,
+        "holm_p": 1.0
+       },
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "interactive_core - structured",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_structured": 0.6403508771929824,
+        "rate_interactive_core": 0.43859649122807015,
+        "effect": -0.20175438596491227,
+        "ci95_cluster_bootstrap": [
+         -0.32456140350877194,
+         -0.09649122807017543
+        ],
+        "ci95_task_bootstrap": [
+         -0.2894736842105263,
+         -0.12280701754385964
+        ],
+        "discordant": {
+         "interactive_core_only": 2,
+         "structured_only": 25
+        },
+        "mcnemar_exact_p": 5.647540092468262e-06,
+        "holm_p": 3.388524055480957e-05
+       },
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "prose - minimal",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_minimal": 0.6403508771929824,
+        "rate_prose": 0.7543859649122807,
+        "effect": 0.11403508771929824,
+        "ci95_cluster_bootstrap": [
+         0.017543859649122806,
+         0.21929824561403508
+        ],
+        "ci95_task_bootstrap": [
+         0.04364035087719318,
+         0.19298245614035087
+        ],
+        "discordant": {
+         "prose_only": 17,
+         "minimal_only": 4
+        },
+        "mcnemar_exact_p": 0.007197380065917969,
+        "holm_p": 0.028789520263671875
+       },
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "minimal - none",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_none": 0,
+        "rate_minimal": 0.6403508771929824,
+        "effect": 0.6403508771929824,
+        "ci95_cluster_bootstrap": [
+         0.5,
+         0.7719298245614035
+        ],
+        "ci95_task_bootstrap": [
+         0.5526315789473685,
+         0.7280701754385965
+        ],
+        "discordant": {
+         "minimal_only": 73,
+         "none_only": 0
+        },
+        "mcnemar_exact_p": 2.117582368135751e-22,
+        "holm_p": 1.6940658945086007e-21
+       },
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "syntax_only_structured - minimal",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 114,
+        "clusters": 38,
+        "missing_unpaired_tasks": [],
+        "rate_minimal": 0.6403508771929824,
+        "rate_syntax_only_structured": 0.6403508771929824,
+        "effect": 0,
+        "ci95_cluster_bootstrap": [
+         -0.08771929824561403,
+         0.07894736842105263
+        ],
+        "ci95_task_bootstrap": [
+         -0.06140350877192982,
+         0.06140350877192982
+        ],
+        "discordant": {
+         "syntax_only_structured_only": 7,
+         "minimal_only": 7
+        },
+        "mcnemar_exact_p": 1.0,
+        "holm_p": 1.0
+       }
+      ]
+     }
+    },
+    "gpt-4.1-2025-04-14": {
+     "conditions": {
+      "interactive": {
+       "n": 39,
+       "first_attempt": 0.28205128205128205,
+       "first_attempt_ci95": [
+        0.16543492017128972,
+        0.43775319610871005
+       ],
+       "after_repair": 0.38461538461538464,
+       "after_repair_ci95": [
+        0.24891373375022405,
+        0.5410093866333053
+       ],
+       "first_attempt_verified": 0.28205128205128205,
+       "mean_input_tokens": 1493.5128205128206,
+       "mean_output_tokens": 536.974358974359,
+       "mean_input_tokens_if_solved": 623.6,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.3846153846153846,
+       "first_attempt_error_types": {
+        "static_syntax": 27,
+        "none": 11,
+        "static_shape": 1
+       }
+      },
+      "syntax_only_structured": {
+       "n": 39,
+       "first_attempt": 0.8205128205128205,
+       "first_attempt_ci95": [
+        0.6733195420678146,
+        0.9102273457557151
+       ],
+       "after_repair": 0.9230769230769231,
+       "after_repair_ci95": [
+        0.7967892870242645,
+        0.9734926049027948
+       ],
+       "first_attempt_verified": 0.8205128205128205,
+       "mean_input_tokens": 1179.2564102564102,
+       "mean_output_tokens": 349.64102564102564,
+       "mean_input_tokens_if_solved": 900.3888888888889,
+       "mean_tool_calls": 0,
+       "mean_attempts": 1.2820512820512822,
+       "first_attempt_error_types": {
+        "static_syntax": 4,
+        "none": 32,
+        "static_shape": 3
+       }
+      },
+      "interactive_forced": {
+       "n": 39,
+       "first_attempt": 0.5641025641025641,
+       "first_attempt_ci95": [
+        0.40975691533553216,
+        0.7069524622291739
+       ],
+       "after_repair": 0.5897435897435898,
+       "after_repair_ci95": [
+        0.4341862276510412,
+        0.7292069009395471
+       ],
+       "first_attempt_verified": 0.5641025641025641,
+       "mean_input_tokens": 2838.846153846154,
+       "mean_output_tokens": 552.8461538461538,
+       "mean_input_tokens_if_solved": 1834.2608695652175,
+       "mean_tool_calls": 2.923076923076923,
+       "mean_attempts": 1.8461538461538463,
+       "first_attempt_error_types": {
+        "static_syntax": 7,
+        "none": 22,
+        "static_shape": 10
+       }
+      },
+      "minimal": {
+       "n": 39,
+       "first_attempt": 0.8205128205128205,
+       "first_attempt_ci95": [
+        0.6733195420678146,
+        0.9102273457557151
+       ],
+       "after_repair": 0.9230769230769231,
+       "after_repair_ci95": [
+        0.7967892870242645,
+        0.9734926049027948
+       ],
+       "first_attempt_verified": 0.8205128205128205,
+       "mean_input_tokens": 1316.3076923076924,
+       "mean_output_tokens": 357.4102564102564,
+       "mean_input_tokens_if_solved": 985.8888888888889,
+       "mean_tool_calls": 0,
+       "mean_attempts": 1.2820512820512822,
+       "first_attempt_error_types": {
+        "none": 32,
+        "static_syntax": 5,
+        "static_shape": 2
+       }
+      },
+      "structured": {
+       "n": 39,
+       "first_attempt": 0.8717948717948718,
+       "first_attempt_ci95": [
+        0.7329425648904853,
+        0.9439718249848091
+       ],
+       "after_repair": 0.9743589743589743,
+       "after_repair_ci95": [
+        0.8681900970295746,
+        0.9954592969492493
+       ],
+       "first_attempt_verified": 0.8717948717948718,
+       "mean_input_tokens": 1490.1538461538462,
+       "mean_output_tokens": 330.5897435897436,
+       "mean_input_tokens_if_solved": 1312.157894736842,
+       "mean_tool_calls": 0,
+       "mean_attempts": 1.1794871794871795,
+       "first_attempt_error_types": {
+        "none": 34,
+        "static_syntax": 2,
+        "static_shape": 2,
+        "static_type": 1
+       }
+      },
+      "interactive_core": {
+       "n": 39,
+       "first_attempt": 0.6923076923076923,
+       "first_attempt_ci95": [
+        0.5357874549954498,
+        0.8143406776986681
+       ],
+       "after_repair": 0.8461538461538461,
+       "after_repair_ci95": [
+        0.702705362196273,
+        0.927525276653139
+       ],
+       "first_attempt_verified": 0.6923076923076923,
+       "mean_input_tokens": 1442.5897435897436,
+       "mean_output_tokens": 424.02564102564105,
+       "mean_input_tokens_if_solved": 1059.6060606060605,
+       "mean_tool_calls": 0,
+       "mean_attempts": 1.5128205128205128,
+       "first_attempt_error_types": {
+        "static_syntax": 6,
+        "none": 27,
+        "static_other": 2,
+        "static_shape": 4
+       }
+      },
+      "prose": {
+       "n": 39,
+       "first_attempt": 0.8974358974358975,
+       "first_attempt_ci95": [
+        0.7642114540654643,
+        0.9593866868357126
+       ],
+       "after_repair": 0.9487179487179487,
+       "after_repair_ci95": [
+        0.8311435982403942,
+        0.9858220447125474
+       ],
+       "first_attempt_verified": 0.8974358974358975,
+       "mean_input_tokens": 1503.948717948718,
+       "mean_output_tokens": 325.20512820512823,
+       "mean_input_tokens_if_solved": 1185.7297297297298,
+       "mean_tool_calls": 0,
+       "mean_attempts": 1.1538461538461537,
+       "first_attempt_error_types": {
+        "none": 35,
+        "static_syntax": 2,
+        "static_shape": 2
+       }
+      },
+      "none": {
+       "n": 39,
+       "first_attempt": 0.3333333333333333,
+       "first_attempt_ci95": [
+        0.20632956108003395,
+        0.4902260572517306
+       ],
+       "after_repair": 0.4358974358974359,
+       "after_repair_ci95": [
+        0.2930475377708262,
+        0.5902430846644678
+       ],
+       "first_attempt_verified": 0.3333333333333333,
+       "mean_input_tokens": 962.4871794871794,
+       "mean_output_tokens": 517.4358974358975,
+       "mean_input_tokens_if_solved": 306.47058823529414,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.2564102564102564,
+       "first_attempt_error_types": {
+        "static_syntax": 25,
+        "none": 13,
+        "static_shape": 1
+       }
+      }
+     },
+     "families": {
+      "mask_index": {
+       "interactive": [
+        0,
+        4
+       ],
+       "syntax_only_structured": [
+        0.5,
+        4
+       ],
+       "interactive_forced": [
+        0.5,
+        4
+       ],
+       "minimal": [
+        0.5,
+        4
+       ],
+       "structured": [
+        0.75,
+        4
+       ],
+       "interactive_core": [
+        0,
+        4
+       ],
+       "none": [
+        0,
+        4
+       ],
+       "prose": [
+        0.75,
+        4
+       ]
+      },
+      "slice_pad": {
+       "minimal": [
+        1,
+        6
+       ],
+       "syntax_only_structured": [
+        1,
+        6
+       ],
+       "structured": [
+        1,
+        6
+       ],
+       "interactive_core": [
+        1,
+        6
+       ],
+       "interactive_forced": [
+        1,
+        6
+       ],
+       "prose": [
+        1,
+        6
+       ],
+       "none": [
+        0.6666666666666666,
+        6
+       ],
+       "interactive": [
+        0.6666666666666666,
+        6
+       ]
+      },
+      "dot": {
+       "interactive": [
+        0,
+        5
+       ],
+       "interactive_core": [
+        0,
+        5
+       ],
+       "minimal": [
+        1,
+        5
+       ],
+       "none": [
+        0,
+        5
+       ],
+       "syntax_only_structured": [
+        1,
+        5
+       ],
+       "structured": [
+        1,
+        5
+       ],
+       "interactive_forced": [
+        0.6,
+        5
+       ],
+       "prose": [
+        1,
+        5
+       ]
+      },
+      "composite": {
+       "syntax_only_structured": [
+        1,
+        4
+       ],
+       "prose": [
+        1,
+        4
+       ],
+       "interactive_forced": [
+        0.5,
+        4
+       ],
+       "interactive_core": [
+        1,
+        4
+       ],
+       "structured": [
+        0.75,
+        4
+       ],
+       "minimal": [
+        1,
+        4
+       ],
+       "interactive": [
+        0,
+        4
+       ],
+       "none": [
+        0,
+        4
+       ]
+      },
+      "layout": {
+       "interactive": [
+        0,
+        5
+       ],
+       "interactive_core": [
+        1,
+        5
+       ],
+       "structured": [
+        1,
+        5
+       ],
+       "syntax_only_structured": [
+        1,
+        5
+       ],
+       "minimal": [
+        1,
+        5
+       ],
+       "prose": [
+        1,
+        5
+       ],
+       "interactive_forced": [
+        1,
+        5
+       ],
+       "none": [
+        0,
+        5
+       ]
+      },
+      "broadcast": {
+       "structured": [
+        0.6666666666666666,
+        6
+       ],
+       "minimal": [
+        0.6666666666666666,
+        6
+       ],
+       "interactive_core": [
+        0.8333333333333334,
+        6
+       ],
+       "syntax_only_structured": [
+        0.6666666666666666,
+        6
+       ],
+       "prose": [
+        0.6666666666666666,
+        6
+       ],
+       "none": [
+        0.8333333333333334,
+        6
+       ],
+       "interactive": [
+        0.8333333333333334,
+        6
+       ],
+       "interactive_forced": [
+        0,
+        6
+       ]
+      },
+      "elementwise": {
+       "interactive": [
+        0.6666666666666666,
+        3
+       ],
+       "none": [
+        1,
+        3
+       ],
+       "structured": [
+        1,
+        3
+       ],
+       "interactive_core": [
+        1,
+        3
+       ],
+       "prose": [
+        1,
+        3
+       ],
+       "interactive_forced": [
+        1,
+        3
+       ],
+       "syntax_only_structured": [
+        0.6666666666666666,
+        3
+       ],
+       "minimal": [
+        0.6666666666666666,
+        3
+       ]
+      },
+      "convert": {
+       "none": [
+        0.5,
+        2
+       ],
+       "interactive_core": [
+        0.5,
+        2
+       ],
+       "interactive_forced": [
+        0.5,
+        2
+       ],
+       "minimal": [
+        0.5,
+        2
+       ],
+       "structured": [
+        0.5,
+        2
+       ],
+       "interactive": [
+        0,
+        2
+       ],
+       "prose": [
+        0.5,
+        2
+       ],
+       "syntax_only_structured": [
+        0.5,
+        2
+       ]
+      },
+      "reduce": {
+       "interactive_core": [
+        0.75,
+        4
+       ],
+       "none": [
+        0,
+        4
+       ],
+       "structured": [
+        1,
+        4
+       ],
+       "minimal": [
+        0.75,
+        4
+       ],
+       "syntax_only_structured": [
+        0.75,
+        4
+       ],
+       "prose": [
+        1,
+        4
+       ],
+       "interactive_forced": [
+        0,
+        4
+       ],
+       "interactive": [
+        0,
+        4
+       ]
+      }
+     },
+     "retrieval": {
+      "n": 39,
+      "mean_tool_calls": 0,
+      "share_no_tool_call": 1,
+      "mean_fraction_available_facts_retrieved": 0.0,
+      "query_categories": {}
+     },
+     "contrasts": {
+      "first_attempt_semantic_correct": [
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "structured - prose",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 39,
+        "clusters": 25,
+        "missing_unpaired_tasks": [],
+        "rate_prose": 0.8974358974358975,
+        "rate_structured": 0.8717948717948718,
+        "effect": -0.02564102564102564,
+        "ci95_cluster_bootstrap": [
+         -0.08108108108108109,
+         0.0
+        ],
+        "ci95_task_bootstrap": [
+         -0.07692307692307693,
+         0.0
+        ],
+        "discordant": {
+         "structured_only": 0,
+         "prose_only": 1
+        },
+        "mcnemar_exact_p": 1.0,
+        "holm_p": 1.0
+       },
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "interactive - structured",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 39,
+        "clusters": 25,
+        "missing_unpaired_tasks": [],
+        "rate_structured": 0.8717948717948718,
+        "rate_interactive": 0.28205128205128205,
+        "effect": -0.5897435897435898,
+        "ci95_cluster_bootstrap": [
+         -0.8055555555555556,
+         -0.34146341463414637
+        ],
+        "ci95_task_bootstrap": [
+         -0.7692307692307693,
+         -0.38461538461538464
+        ],
+        "discordant": {
+         "interactive_only": 2,
+         "structured_only": 25
+        },
+        "mcnemar_exact_p": 5.647540092468262e-06,
+        "holm_p": 4.5180320739746094e-05
+       },
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "interactive_forced - interactive",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 39,
+        "clusters": 25,
+        "missing_unpaired_tasks": [],
+        "rate_interactive": 0.28205128205128205,
+        "rate_interactive_forced": 0.5641025641025641,
+        "effect": 0.28205128205128205,
+        "ci95_cluster_bootstrap": [
+         0.0,
+         0.5588235294117647
+        ],
+        "ci95_task_bootstrap": [
+         0.07692307692307693,
+         0.48717948717948717
+        ],
+        "discordant": {
+         "interactive_forced_only": 16,
+         "interactive_only": 5
+        },
+        "mcnemar_exact_p": 0.02660369873046875,
+        "holm_p": 0.13301849365234375
+       },
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "interactive_core - interactive",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 39,
+        "clusters": 25,
+        "missing_unpaired_tasks": [],
+        "rate_interactive": 0.28205128205128205,
+        "rate_interactive_core": 0.6923076923076923,
+        "effect": 0.41025641025641024,
+        "ci95_cluster_bootstrap": [
+         0.19347158218125968,
+         0.6176820728291311
+        ],
+        "ci95_task_bootstrap": [
+         0.23076923076923078,
+         0.5897435897435898
+        ],
+        "discordant": {
+         "interactive_core_only": 17,
+         "interactive_only": 1
+        },
+        "mcnemar_exact_p": 0.00014495849609375,
+        "holm_p": 0.0008697509765625
+       },
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "interactive_core - structured",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 39,
+        "clusters": 25,
+        "missing_unpaired_tasks": [],
+        "rate_structured": 0.8717948717948718,
+        "rate_interactive_core": 0.6923076923076923,
+        "effect": -0.1794871794871795,
+        "ci95_cluster_bootstrap": [
+         -0.3809873949579831,
+         0.0
+        ],
+        "ci95_task_bootstrap": [
+         -0.3333333333333333,
+         -0.02564102564102564
+        ],
+        "discordant": {
+         "interactive_core_only": 2,
+         "structured_only": 9
+        },
+        "mcnemar_exact_p": 0.0654296875,
+        "holm_p": 0.26171875
+       },
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "prose - minimal",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 39,
+        "clusters": 25,
+        "missing_unpaired_tasks": [],
+        "rate_minimal": 0.8205128205128205,
+        "rate_prose": 0.8974358974358975,
+        "effect": 0.07692307692307693,
+        "ci95_cluster_bootstrap": [
+         0.0,
+         0.17647058823529413
+        ],
+        "ci95_task_bootstrap": [
+         0.0,
+         0.1794871794871795
+        ],
+        "discordant": {
+         "prose_only": 3,
+         "minimal_only": 0
+        },
+        "mcnemar_exact_p": 0.25,
+        "holm_p": 0.75
+       },
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "minimal - none",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 39,
+        "clusters": 25,
+        "missing_unpaired_tasks": [],
+        "rate_none": 0.3333333333333333,
+        "rate_minimal": 0.8205128205128205,
+        "effect": 0.48717948717948717,
+        "ci95_cluster_bootstrap": [
+         0.24324324324324326,
+         0.7105263157894737
+        ],
+        "ci95_task_bootstrap": [
+         0.3076923076923077,
+         0.6666666666666666
+        ],
+        "discordant": {
+         "minimal_only": 21,
+         "none_only": 2
+        },
+        "mcnemar_exact_p": 6.604194641113281e-05,
+        "holm_p": 0.0004622936248779297
+       },
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "syntax_only_structured - minimal",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 39,
+        "clusters": 25,
+        "missing_unpaired_tasks": [],
+        "rate_minimal": 0.8205128205128205,
+        "rate_syntax_only_structured": 0.8205128205128205,
+        "effect": 0,
+        "ci95_cluster_bootstrap": [
+         -0.07894736842105263,
+         0.07317073170731707
+        ],
+        "ci95_task_bootstrap": [
+         -0.07692307692307693,
+         0.07692307692307693
+        ],
+        "discordant": {
+         "syntax_only_structured_only": 1,
+         "minimal_only": 1
+        },
+        "mcnemar_exact_p": 1.0,
+        "holm_p": 1.0
+       }
+      ]
+     }
+    }
+   }
+  },
+  "kernelbench": {
+   "models": {
+    "gpt-4.1-nano-2025-04-14": {
+     "conditions": {
+      "structured": {
+       "n": 153,
+       "first_attempt": 0.0915032679738562,
+       "first_attempt_ci95": [
+        0.05528954035792402,
+        0.14772730932207614
+       ],
+       "after_repair": 0.10457516339869281,
+       "after_repair_ci95": [
+        0.06540047093599954,
+        0.16311983955424067
+       ],
+       "first_attempt_verified": 0.09803921568627451,
+       "mean_input_tokens": 10212.960784313726,
+       "mean_output_tokens": 2874.2287581699347,
+       "mean_input_tokens_if_solved": 1541.75,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.803921568627451,
+       "first_attempt_error_types": {
+        "none": 14,
+        "static_syntax": 94,
+        "static_shape": 31,
+        "static_type": 11,
+        "static_other": 2,
+        "semantic_mismatch": 1
+       }
+      },
+      "prose": {
+       "n": 153,
+       "first_attempt": 0.09803921568627451,
+       "first_attempt_ci95": [
+        0.06031594256988295,
+        0.15545263751523725
+       ],
+       "after_repair": 0.10457516339869281,
+       "after_repair_ci95": [
+        0.06540047093599954,
+        0.16311983955424067
+       ],
+       "first_attempt_verified": 0.1111111111111111,
+       "mean_input_tokens": 10118.764705882353,
+       "mean_output_tokens": 2956.424836601307,
+       "mean_input_tokens_if_solved": 1580.8125,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.803921568627451,
+       "first_attempt_error_types": {
+        "none": 15,
+        "static_syntax": 109,
+        "static_other": 2,
+        "static_shape": 20,
+        "static_type": 5,
+        "semantic_mismatch": 2
+       }
+      },
+      "minimal": {
+       "n": 153,
+       "first_attempt": 0.0784313725490196,
+       "first_attempt_ci95": [
+        0.045433069255136516,
+        0.1320803196146237
+       ],
+       "after_repair": 0.08496732026143791,
+       "after_repair_ci95": [
+        0.05032651590174139,
+        0.13993860337313882
+       ],
+       "first_attempt_verified": 0.0915032679738562,
+       "mean_input_tokens": 8327.058823529413,
+       "mean_output_tokens": 3062.4901960784314,
+       "mean_input_tokens_if_solved": 1284.8461538461538,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.843137254901961,
+       "first_attempt_error_types": {
+        "none": 12,
+        "static_syntax": 95,
+        "static_shape": 35,
+        "static_other": 4,
+        "static_type": 5,
+        "semantic_mismatch": 2
+       }
+      },
+      "syntax_only_structured": {
+       "n": 153,
+       "first_attempt": 0.0915032679738562,
+       "first_attempt_ci95": [
+        0.05528954035792402,
+        0.14772730932207614
+       ],
+       "after_repair": 0.09803921568627451,
+       "after_repair_ci95": [
+        0.06031594256988295,
+        0.15545263751523725
+       ],
+       "first_attempt_verified": 0.09803921568627451,
+       "mean_input_tokens": 7858.771241830065,
+       "mean_output_tokens": 2908.0392156862745,
+       "mean_input_tokens_if_solved": 1024.6666666666667,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.810457516339869,
+       "first_attempt_error_types": {
+        "none": 14,
+        "static_syntax": 101,
+        "static_other": 2,
+        "static_shape": 30,
+        "static_type": 5,
+        "semantic_mismatch": 1
+       }
+      },
+      "interactive_core": {
+       "n": 153,
+       "first_attempt": 0.006535947712418301,
+       "first_attempt_ci95": [
+        0.0011546884824321624,
+        0.03608966593100806
+       ],
+       "after_repair": 0.006535947712418301,
+       "after_repair_ci95": [
+        0.0011546884824321624,
+        0.03608966593100806
+       ],
+       "first_attempt_verified": 0.006535947712418301,
+       "mean_input_tokens": 6323.006535947712,
+       "mean_output_tokens": 2598.6862745098038,
+       "mean_input_tokens_if_solved": 924,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.9869281045751634,
+       "first_attempt_error_types": {
+        "static_syntax": 75,
+        "static_other": 15,
+        "static_type": 28,
+        "static_shape": 34,
+        "none": 1
+       }
+      },
+      "none": {
+       "n": 153,
+       "first_attempt": 0.006535947712418301,
+       "first_attempt_ci95": [
+        0.0011546884824321624,
+        0.03608966593100806
+       ],
+       "after_repair": 0.006535947712418301,
+       "after_repair_ci95": [
+        0.0011546884824321624,
+        0.03608966593100806
+       ],
+       "first_attempt_verified": 0.006535947712418301,
+       "mean_input_tokens": 4601.686274509804,
+       "mean_output_tokens": 2678.326797385621,
+       "mean_input_tokens_if_solved": 360,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.9869281045751634,
+       "first_attempt_error_types": {
+        "static_syntax": 100,
+        "static_shape": 28,
+        "static_type": 20,
+        "static_other": 4,
+        "none": 1
+       }
+      },
+      "interactive_forced": {
+       "n": 153,
+       "first_attempt": 0.05228758169934641,
+       "first_attempt_ci95": [
+        0.026730049446500655,
+        0.09977641780277956
+       ],
+       "after_repair": 0.05228758169934641,
+       "after_repair_ci95": [
+        0.026730049446500655,
+        0.09977641780277956
+       ],
+       "first_attempt_verified": 0.05228758169934641,
+       "mean_input_tokens": 10302.21568627451,
+       "mean_output_tokens": 2773.9150326797385,
+       "mean_input_tokens_if_solved": 2067.875,
+       "mean_tool_calls": 4.816993464052287,
+       "mean_attempts": 2.895424836601307,
+       "first_attempt_error_types": {
+        "none": 8,
+        "static_syntax": 82,
+        "static_type": 14,
+        "static_shape": 40,
+        "static_other": 4,
+        "no_program": 5
+       }
+      },
+      "interactive": {
+       "n": 153,
+       "first_attempt": 0.0196078431372549,
+       "first_attempt_ci95": [
+        0.006690488388238943,
+        0.05605732683544127
+       ],
+       "after_repair": 0.0196078431372549,
+       "after_repair_ci95": [
+        0.006690488388238943,
+        0.05605732683544127
+       ],
+       "first_attempt_verified": 0.0196078431372549,
+       "mean_input_tokens": 5582.40522875817,
+       "mean_output_tokens": 2387.372549019608,
+       "mean_input_tokens_if_solved": 2040,
+       "mean_tool_calls": 0.5163398692810458,
+       "mean_attempts": 2.9607843137254903,
+       "first_attempt_error_types": {
+        "static_shape": 11,
+        "static_other": 94,
+        "static_type": 26,
+        "static_syntax": 17,
+        "none": 3,
+        "forbidden_op": 1,
+        "no_program": 1
+       }
+      }
+     },
+     "families": {
+      "kb_level1": {
+       "structured": [
+        0.1686746987951807,
+        83
+       ],
+       "prose": [
+        0.18072289156626506,
+        83
+       ],
+       "minimal": [
+        0.14457831325301204,
+        83
+       ],
+       "syntax_only_structured": [
+        0.1686746987951807,
+        83
+       ],
+       "interactive_core": [
+        0.012048192771084338,
+        83
+       ],
+       "none": [
+        0.012048192771084338,
+        83
+       ],
+       "interactive_forced": [
+        0.0963855421686747,
+        83
+       ],
+       "interactive": [
+        0.03614457831325301,
+        83
+       ]
+      },
+      "kb_level2": {
+       "syntax_only_structured": [
+        0,
+        70
+       ],
+       "interactive_forced": [
+        0,
+        70
+       ],
+       "minimal": [
+        0,
+        70
+       ],
+       "structured": [
+        0,
+        70
+       ],
+       "prose": [
+        0,
+        70
+       ],
+       "interactive": [
+        0,
+        70
+       ],
+       "interactive_core": [
+        0,
+        70
+       ],
+       "none": [
+        0,
+        70
+       ]
+      }
+     },
+     "retrieval": {
+      "n": 153,
+      "mean_tool_calls": 0.5163398692810458,
+      "share_no_tool_call": 0.8562091503267973,
+      "mean_fraction_available_facts_retrieved": 0.10840275819398508,
+      "query_categories": {
+       "all": 73,
+       "type": 2
+      }
+     },
+     "contrasts": {
+      "first_attempt_semantic_correct": [
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "structured - prose",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_prose": 0.09803921568627451,
+        "rate_structured": 0.0915032679738562,
+        "effect": -0.006535947712418301,
+        "ci95_cluster_bootstrap": [
+         -0.0457516339869281,
+         0.032679738562091505
+        ],
+        "ci95_task_bootstrap": [
+         -0.0457516339869281,
+         0.032679738562091505
+        ],
+        "discordant": {
+         "structured_only": 4,
+         "prose_only": 5
+        },
+        "mcnemar_exact_p": 1.0,
+        "holm_p": 1.0
+       },
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "interactive - structured",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_structured": 0.0915032679738562,
+        "rate_interactive": 0.0196078431372549,
+        "effect": -0.0718954248366013,
+        "ci95_cluster_bootstrap": [
+         -0.11764705882352941,
+         -0.032679738562091505
+        ],
+        "ci95_task_bootstrap": [
+         -0.11764705882352941,
+         -0.026143790849673203
+        ],
+        "discordant": {
+         "interactive_only": 1,
+         "structured_only": 12
+        },
+        "mcnemar_exact_p": 0.00341796875,
+        "holm_p": 0.0205078125
+       },
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "interactive_forced - interactive",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_interactive": 0.0196078431372549,
+        "rate_interactive_forced": 0.05228758169934641,
+        "effect": 0.032679738562091505,
+        "ci95_cluster_bootstrap": [
+         0.006535947712418301,
+         0.06535947712418301
+        ],
+        "ci95_task_bootstrap": [
+         0.006535947712418301,
+         0.06535947712418301
+        ],
+        "discordant": {
+         "interactive_forced_only": 5,
+         "interactive_only": 0
+        },
+        "mcnemar_exact_p": 0.0625,
+        "holm_p": 0.3125
+       },
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "interactive_core - interactive",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_interactive": 0.0196078431372549,
+        "rate_interactive_core": 0.006535947712418301,
+        "effect": -0.013071895424836602,
+        "ci95_cluster_bootstrap": [
+         -0.0392156862745098,
+         0.013071895424836602
+        ],
+        "ci95_task_bootstrap": [
+         -0.0392156862745098,
+         0.013071895424836602
+        ],
+        "discordant": {
+         "interactive_core_only": 1,
+         "interactive_only": 3
+        },
+        "mcnemar_exact_p": 0.625,
+        "holm_p": 1.0
+       },
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "interactive_core - structured",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_structured": 0.0915032679738562,
+        "rate_interactive_core": 0.006535947712418301,
+        "effect": -0.08496732026143791,
+        "ci95_cluster_bootstrap": [
+         -0.13725490196078433,
+         -0.0392156862745098
+        ],
+        "ci95_task_bootstrap": [
+         -0.13725490196078433,
+         -0.0392156862745098
+        ],
+        "discordant": {
+         "interactive_core_only": 1,
+         "structured_only": 14
+        },
+        "mcnemar_exact_p": 0.0009765625,
+        "holm_p": 0.0078125
+       },
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "prose - minimal",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_minimal": 0.0784313725490196,
+        "rate_prose": 0.09803921568627451,
+        "effect": 0.0196078431372549,
+        "ci95_cluster_bootstrap": [
+         -0.006535947712418301,
+         0.05228758169934641
+        ],
+        "ci95_task_bootstrap": [
+         -0.006535947712418301,
+         0.05228758169934641
+        ],
+        "discordant": {
+         "prose_only": 4,
+         "minimal_only": 1
+        },
+        "mcnemar_exact_p": 0.375,
+        "holm_p": 1.0
+       },
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "minimal - none",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_none": 0.006535947712418301,
+        "rate_minimal": 0.0784313725490196,
+        "effect": 0.0718954248366013,
+        "ci95_cluster_bootstrap": [
+         0.032679738562091505,
+         0.11764705882352941
+        ],
+        "ci95_task_bootstrap": [
+         0.032679738562091505,
+         0.11764705882352941
+        ],
+        "discordant": {
+         "minimal_only": 11,
+         "none_only": 0
+        },
+        "mcnemar_exact_p": 0.0009765625,
+        "holm_p": 0.0078125
+       },
+       {
+        "model": "gpt-4.1-nano-2025-04-14",
+        "contrast": "syntax_only_structured - minimal",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_minimal": 0.0784313725490196,
+        "rate_syntax_only_structured": 0.0915032679738562,
+        "effect": 0.013071895424836602,
+        "ci95_cluster_bootstrap": [
+         -0.0196078431372549,
+         0.0457516339869281
+        ],
+        "ci95_task_bootstrap": [
+         -0.0196078431372549,
+         0.0457516339869281
+        ],
+        "discordant": {
+         "syntax_only_structured_only": 4,
+         "minimal_only": 2
+        },
+        "mcnemar_exact_p": 0.6875,
+        "holm_p": 1.0
+       }
+      ]
+     }
+    },
+    "gpt-4.1-mini-2025-04-14": {
+     "conditions": {
+      "prose": {
+       "n": 153,
+       "first_attempt": 0.1568627450980392,
+       "first_attempt_ci95": [
+        0.10773491661993304,
+        0.22279923711126715
+       ],
+       "after_repair": 0.21568627450980393,
+       "after_repair_ci95": [
+        0.15790572423097535,
+        0.2873940031463048
+       ],
+       "first_attempt_verified": 0.16993464052287582,
+       "mean_input_tokens": 9408.869281045752,
+       "mean_output_tokens": 2684.4771241830067,
+       "mean_input_tokens_if_solved": 2868.787878787879,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.6470588235294117,
+       "first_attempt_error_types": {
+        "none": 24,
+        "static_syntax": 87,
+        "static_shape": 38,
+        "static_other": 2,
+        "semantic_mismatch": 2
+       }
+      },
+      "structured": {
+       "n": 153,
+       "first_attempt": 0.10457516339869281,
+       "first_attempt_ci95": [
+        0.06540047093599954,
+        0.16311983955424067
+       ],
+       "after_repair": 0.11764705882352941,
+       "after_repair_ci95": [
+        0.07572653781313173,
+        0.1782972334873485
+       ],
+       "first_attempt_verified": 0.1111111111111111,
+       "mean_input_tokens": 10132.627450980392,
+       "mean_output_tokens": 2855.1960784313724,
+       "mean_input_tokens_if_solved": 1739.8333333333333,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.7777777777777777,
+       "first_attempt_error_types": {
+        "none": 16,
+        "static_syntax": 82,
+        "static_shape": 48,
+        "static_other": 6,
+        "semantic_mismatch": 1
+       }
+      },
+      "interactive_forced": {
+       "n": 153,
+       "first_attempt": 0.0784313725490196,
+       "first_attempt_ci95": [
+        0.045433069255136516,
+        0.1320803196146237
+       ],
+       "after_repair": 0.09803921568627451,
+       "after_repair_ci95": [
+        0.06031594256988295,
+        0.15545263751523725
+       ],
+       "first_attempt_verified": 0.0784313725490196,
+       "mean_input_tokens": 10109.274509803921,
+       "mean_output_tokens": 2924.921568627451,
+       "mean_input_tokens_if_solved": 3105.4,
+       "mean_tool_calls": 3.7320261437908497,
+       "mean_attempts": 2.8300653594771243,
+       "first_attempt_error_types": {
+        "none": 12,
+        "static_syntax": 94,
+        "static_shape": 30,
+        "static_other": 10,
+        "static_type": 6,
+        "forbidden_op": 1
+       }
+      },
+      "syntax_only_structured": {
+       "n": 153,
+       "first_attempt": 0.0915032679738562,
+       "first_attempt_ci95": [
+        0.05528954035792402,
+        0.14772730932207614
+       ],
+       "after_repair": 0.1568627450980392,
+       "after_repair_ci95": [
+        0.10773491661993304,
+        0.22279923711126715
+       ],
+       "first_attempt_verified": 0.09803921568627451,
+       "mean_input_tokens": 7672.78431372549,
+       "mean_output_tokens": 2800,
+       "mean_input_tokens_if_solved": 2459.2083333333335,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.7973856209150325,
+       "first_attempt_error_types": {
+        "none": 14,
+        "static_syntax": 76,
+        "static_shape": 60,
+        "semantic_mismatch": 1,
+        "static_other": 2
+       }
+      },
+      "minimal": {
+       "n": 153,
+       "first_attempt": 0.09803921568627451,
+       "first_attempt_ci95": [
+        0.06031594256988295,
+        0.15545263751523725
+       ],
+       "after_repair": 0.1111111111111111,
+       "after_repair_ci95": [
+        0.07053863038308487,
+        0.1707334105122753
+       ],
+       "first_attempt_verified": 0.10457516339869281,
+       "mean_input_tokens": 7939.267973856209,
+       "mean_output_tokens": 2847.732026143791,
+       "mean_input_tokens_if_solved": 1309.4117647058824,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.7908496732026142,
+       "first_attempt_error_types": {
+        "none": 15,
+        "static_syntax": 74,
+        "static_shape": 62,
+        "static_type": 1,
+        "semantic_mismatch": 1
+       }
+      },
+      "interactive_core": {
+       "n": 153,
+       "first_attempt": 0.032679738562091505,
+       "first_attempt_ci95": [
+        0.014038034410660578,
+        0.07421324162325964
+       ],
+       "after_repair": 0.11764705882352941,
+       "after_repair_ci95": [
+        0.07572653781313173,
+        0.1782972334873485
+       ],
+       "first_attempt_verified": 0.032679738562091505,
+       "mean_input_tokens": 9216.18954248366,
+       "mean_output_tokens": 3082.450980392157,
+       "mean_input_tokens_if_solved": 4671.833333333333,
+       "mean_tool_calls": 1.9215686274509804,
+       "mean_attempts": 2.9019607843137254,
+       "first_attempt_error_types": {
+        "static_syntax": 45,
+        "static_shape": 96,
+        "static_type": 3,
+        "static_other": 4,
+        "none": 5
+       }
+      },
+      "none": {
+       "n": 153,
+       "first_attempt": 0.006535947712418301,
+       "first_attempt_ci95": [
+        0.0011546884824321624,
+        0.03608966593100806
+       ],
+       "after_repair": 0.013071895424836602,
+       "after_repair_ci95": [
+        0.0035921357955734845,
+        0.04640394902298674
+       ],
+       "first_attempt_verified": 0.006535947712418301,
+       "mean_input_tokens": 4566.1241830065355,
+       "mean_output_tokens": 2623.424836601307,
+       "mean_input_tokens_if_solved": 693.5,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.980392156862745,
+       "first_attempt_error_types": {
+        "static_shape": 16,
+        "static_syntax": 119,
+        "static_type": 17,
+        "none": 1
+       }
+      },
+      "interactive": {
+       "n": 153,
+       "first_attempt": 0.0392156862745098,
+       "first_attempt_ci95": [
+        0.018094740802421738,
+        0.08290826563661846
+       ],
+       "after_repair": 0.058823529411764705,
+       "after_repair_ci95": [
+        0.031252630059557064,
+        0.10800556759484316
+       ],
+       "first_attempt_verified": 0.0457516339869281,
+       "mean_input_tokens": 7902.0522875817,
+       "mean_output_tokens": 2700.5228758169933,
+       "mean_input_tokens_if_solved": 2990.6666666666665,
+       "mean_tool_calls": 2.111111111111111,
+       "mean_attempts": 2.9215686274509802,
+       "first_attempt_error_types": {
+        "static_syntax": 101,
+        "none": 6,
+        "static_shape": 31,
+        "static_other": 5,
+        "static_type": 9,
+        "semantic_mismatch": 1
+       }
+      }
+     },
+     "families": {
+      "kb_level1": {
+       "prose": [
+        0.26506024096385544,
+        83
+       ],
+       "structured": [
+        0.1927710843373494,
+        83
+       ],
+       "interactive_forced": [
+        0.14457831325301204,
+        83
+       ],
+       "syntax_only_structured": [
+        0.1686746987951807,
+        83
+       ],
+       "minimal": [
+        0.18072289156626506,
+        83
+       ],
+       "interactive_core": [
+        0.060240963855421686,
+        83
+       ],
+       "none": [
+        0.012048192771084338,
+        83
+       ],
+       "interactive": [
+        0.07228915662650602,
+        83
+       ]
+      },
+      "kb_level2": {
+       "syntax_only_structured": [
+        0,
+        70
+       ],
+       "minimal": [
+        0,
+        70
+       ],
+       "structured": [
+        0,
+        70
+       ],
+       "prose": [
+        0.02857142857142857,
+        70
+       ],
+       "interactive_forced": [
+        0,
+        70
+       ],
+       "interactive": [
+        0,
+        70
+       ],
+       "interactive_core": [
+        0,
+        70
+       ],
+       "none": [
+        0,
+        70
+       ]
+      }
+     },
+     "retrieval": {
+      "n": 153,
+      "mean_tool_calls": 2.111111111111111,
+      "share_no_tool_call": 0.35947712418300654,
+      "mean_fraction_available_facts_retrieved": 0.31351457516442116,
+      "query_categories": {
+       "syntax": 48,
+       "all": 249,
+       "type": 8,
+       "shape": 9,
+       "semantics": 9
+      }
+     },
+     "contrasts": {
+      "first_attempt_semantic_correct": [
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "structured - prose",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_prose": 0.1568627450980392,
+        "rate_structured": 0.10457516339869281,
+        "effect": -0.05228758169934641,
+        "ci95_cluster_bootstrap": [
+         -0.09803921568627451,
+         -0.013071895424836602
+        ],
+        "ci95_task_bootstrap": [
+         -0.09803921568627451,
+         -0.013071895424836602
+        ],
+        "discordant": {
+         "structured_only": 2,
+         "prose_only": 10
+        },
+        "mcnemar_exact_p": 0.03857421875,
+        "holm_p": 0.1544189453125
+       },
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "interactive - structured",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_structured": 0.10457516339869281,
+        "rate_interactive": 0.0392156862745098,
+        "effect": -0.06535947712418301,
+        "ci95_cluster_bootstrap": [
+         -0.11764705882352941,
+         -0.013071895424836602
+        ],
+        "ci95_task_bootstrap": [
+         -0.11764705882352941,
+         -0.013071895424836602
+        ],
+        "discordant": {
+         "interactive_only": 4,
+         "structured_only": 14
+        },
+        "mcnemar_exact_p": 0.0308837890625,
+        "holm_p": 0.1544189453125
+       },
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "interactive_forced - interactive",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_interactive": 0.0392156862745098,
+        "rate_interactive_forced": 0.0784313725490196,
+        "effect": 0.0392156862745098,
+        "ci95_cluster_bootstrap": [
+         -0.006535947712418301,
+         0.08496732026143791
+        ],
+        "ci95_task_bootstrap": [
+         -0.006535947712418301,
+         0.0915032679738562
+        ],
+        "discordant": {
+         "interactive_forced_only": 10,
+         "interactive_only": 4
+        },
+        "mcnemar_exact_p": 0.1795654296875,
+        "holm_p": 0.5386962890625
+       },
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "interactive_core - interactive",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_interactive": 0.0392156862745098,
+        "rate_interactive_core": 0.032679738562091505,
+        "effect": -0.006535947712418301,
+        "ci95_cluster_bootstrap": [
+         -0.0457516339869281,
+         0.032679738562091505
+        ],
+        "ci95_task_bootstrap": [
+         -0.0457516339869281,
+         0.032679738562091505
+        ],
+        "discordant": {
+         "interactive_core_only": 4,
+         "interactive_only": 5
+        },
+        "mcnemar_exact_p": 1.0,
+        "holm_p": 1.0
+       },
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "interactive_core - structured",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_structured": 0.10457516339869281,
+        "rate_interactive_core": 0.032679738562091505,
+        "effect": -0.0718954248366013,
+        "ci95_cluster_bootstrap": [
+         -0.12418300653594772,
+         -0.026143790849673203
+        ],
+        "ci95_task_bootstrap": [
+         -0.12418300653594772,
+         -0.026143790849673203
+        ],
+        "discordant": {
+         "interactive_core_only": 2,
+         "structured_only": 13
+        },
+        "mcnemar_exact_p": 0.00738525390625,
+        "holm_p": 0.0443115234375
+       },
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "prose - minimal",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_minimal": 0.09803921568627451,
+        "rate_prose": 0.1568627450980392,
+        "effect": 0.058823529411764705,
+        "ci95_cluster_bootstrap": [
+         0.026143790849673203,
+         0.09803921568627451
+        ],
+        "ci95_task_bootstrap": [
+         0.026143790849673203,
+         0.09803921568627451
+        ],
+        "discordant": {
+         "prose_only": 9,
+         "minimal_only": 0
+        },
+        "mcnemar_exact_p": 0.00390625,
+        "holm_p": 0.02734375
+       },
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "minimal - none",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_none": 0.006535947712418301,
+        "rate_minimal": 0.09803921568627451,
+        "effect": 0.0915032679738562,
+        "ci95_cluster_bootstrap": [
+         0.052124183006536096,
+         0.13725490196078433
+        ],
+        "ci95_task_bootstrap": [
+         0.05228758169934641,
+         0.13725490196078433
+        ],
+        "discordant": {
+         "minimal_only": 14,
+         "none_only": 0
+        },
+        "mcnemar_exact_p": 0.0001220703125,
+        "holm_p": 0.0009765625
+       },
+       {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "contrast": "syntax_only_structured - minimal",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 153,
+        "clusters": 153,
+        "missing_unpaired_tasks": [],
+        "rate_minimal": 0.09803921568627451,
+        "rate_syntax_only_structured": 0.0915032679738562,
+        "effect": -0.006535947712418301,
+        "ci95_cluster_bootstrap": [
+         -0.032679738562091505,
+         0.013071895424836602
+        ],
+        "ci95_task_bootstrap": [
+         -0.032679738562091505,
+         0.013071895424836602
+        ],
+        "discordant": {
+         "syntax_only_structured_only": 1,
+         "minimal_only": 2
+        },
+        "mcnemar_exact_p": 1.0,
+        "holm_p": 1.0
+       }
+      ]
+     }
+    },
+    "gpt-4.1-2025-04-14": {
+     "conditions": {
+      "structured": {
+       "n": 52,
+       "first_attempt": 0.11538461538461539,
+       "first_attempt_ci95": [
+        0.05396969171559293,
+        0.22971664454167973
+       ],
+       "after_repair": 0.21153846153846154,
+       "after_repair_ci95": [
+        0.12244370478965937,
+        0.3403210474032951
+       ],
+       "first_attempt_verified": 0.11538461538461539,
+       "mean_input_tokens": 11005.461538461539,
+       "mean_output_tokens": 3297.653846153846,
+       "mean_input_tokens_if_solved": 4196.636363636364,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.75,
+       "first_attempt_error_types": {
+        "none": 6,
+        "static_syntax": 24,
+        "static_shape": 21,
+        "static_other": 1
+       }
+      },
+      "prose": {
+       "n": 52,
+       "first_attempt": 0.3076923076923077,
+       "first_attempt_ci95": [
+        0.199147278782216,
+        0.44269588934642035
+       ],
+       "after_repair": 0.34615384615384615,
+       "after_repair_ci95": [
+        0.23151007589374015,
+        0.4819644586091689
+       ],
+       "first_attempt_verified": 0.3076923076923077,
+       "mean_input_tokens": 9387.096153846154,
+       "mean_output_tokens": 3015.8653846153848,
+       "mean_input_tokens_if_solved": 2568.8333333333335,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.3653846153846154,
+       "first_attempt_error_types": {
+        "none": 16,
+        "static_syntax": 28,
+        "static_other": 1,
+        "static_shape": 7
+       }
+      },
+      "minimal": {
+       "n": 52,
+       "first_attempt": 0.11538461538461539,
+       "first_attempt_ci95": [
+        0.05396969171559293,
+        0.22971664454167973
+       ],
+       "after_repair": 0.15384615384615385,
+       "after_repair_ci95": [
+        0.08007684975817665,
+        0.27524085287336875
+       ],
+       "first_attempt_verified": 0.1346153846153846,
+       "mean_input_tokens": 8597.115384615385,
+       "mean_output_tokens": 3413.0384615384614,
+       "mean_input_tokens_if_solved": 1758.25,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.730769230769231,
+       "first_attempt_error_types": {
+        "none": 6,
+        "static_syntax": 22,
+        "static_shape": 23,
+        "semantic_mismatch": 1
+       }
+      },
+      "syntax_only_structured": {
+       "n": 52,
+       "first_attempt": 0.07692307692307693,
+       "first_attempt_ci95": [
+        0.030319344974210374,
+        0.18173562490878953
+       ],
+       "after_repair": 0.1346153846153846,
+       "after_repair_ci95": [
+        0.06676881669032912,
+        0.25273320275407984
+       ],
+       "first_attempt_verified": 0.07692307692307693,
+       "mean_input_tokens": 8405.73076923077,
+       "mean_output_tokens": 3294.5,
+       "mean_input_tokens_if_solved": 2135.285714285714,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.8076923076923075,
+       "first_attempt_error_types": {
+        "none": 4,
+        "static_syntax": 20,
+        "static_shape": 28
+       }
+      },
+      "interactive_forced": {
+       "n": 52,
+       "first_attempt": 0.09615384615384616,
+       "first_attempt_ci95": [
+        0.041774350788203046,
+        0.20609630228193318
+       ],
+       "after_repair": 0.11538461538461539,
+       "after_repair_ci95": [
+        0.05396969171559293,
+        0.22971664454167973
+       ],
+       "first_attempt_verified": 0.09615384615384616,
+       "mean_input_tokens": 10888.442307692309,
+       "mean_output_tokens": 3324.730769230769,
+       "mean_input_tokens_if_solved": 5858.666666666667,
+       "mean_tool_calls": 4.6923076923076925,
+       "mean_attempts": 2.8076923076923075,
+       "first_attempt_error_types": {
+        "none": 5,
+        "static_syntax": 8,
+        "static_shape": 37,
+        "static_type": 2
+       }
+      },
+      "interactive_core": {
+       "n": 52,
+       "first_attempt": 0.0,
+       "first_attempt_ci95": [
+        0.0,
+        0.06879223713445441
+       ],
+       "after_repair": 0.019230769230769232,
+       "after_repair_ci95": [
+        0.0034028080333148945,
+        0.10120511228827589
+       ],
+       "first_attempt_verified": 0.0,
+       "mean_input_tokens": 7502.307692307692,
+       "mean_output_tokens": 3709.4423076923076,
+       "mean_input_tokens_if_solved": 3572,
+       "mean_tool_calls": 0,
+       "mean_attempts": 3,
+       "first_attempt_error_types": {
+        "static_syntax": 39,
+        "static_shape": 13
+       }
+      },
+      "none": {
+       "n": 52,
+       "first_attempt": 0.0,
+       "first_attempt_ci95": [
+        0.0,
+        0.06879223713445441
+       ],
+       "after_repair": 0.019230769230769232,
+       "after_repair_ci95": [
+        0.0034028080333148945,
+        0.10120511228827589
+       ],
+       "first_attempt_verified": 0.0,
+       "mean_input_tokens": 5122.884615384615,
+       "mean_output_tokens": 3175.3653846153848,
+       "mean_input_tokens_if_solved": 1071,
+       "mean_tool_calls": 0,
+       "mean_attempts": 2.980769230769231,
+       "first_attempt_error_types": {
+        "static_syntax": 49,
+        "static_shape": 3
+       }
+      },
+      "interactive": {
+       "n": 52,
+       "first_attempt": 0.0,
+       "first_attempt_ci95": [
+        0.0,
+        0.06879223713445441
+       ],
+       "after_repair": 0.0,
+       "after_repair_ci95": [
+        0.0,
+        0.06879223713445441
+       ],
+       "first_attempt_verified": 0.0,
+       "mean_input_tokens": 6157.442307692308,
+       "mean_output_tokens": 3467,
+       "mean_input_tokens_if_solved": null,
+       "mean_tool_calls": 0,
+       "mean_attempts": 3,
+       "first_attempt_error_types": {
+        "static_syntax": 35,
+        "static_shape": 17
+       }
+      }
+     },
+     "families": {
+      "kb_level1": {
+       "structured": [
+        0.3,
+        20
+       ],
+       "prose": [
+        0.65,
+        20
+       ],
+       "minimal": [
+        0.3,
+        20
+       ],
+       "syntax_only_structured": [
+        0.2,
+        20
+       ],
+       "interactive_forced": [
+        0.25,
+        20
+       ],
+       "interactive_core": [
+        0,
+        20
+       ],
+       "none": [
+        0,
+        20
+       ],
+       "interactive": [
+        0,
+        20
+       ]
+      },
+      "kb_level2": {
+       "interactive_forced": [
+        0,
+        32
+       ],
+       "syntax_only_structured": [
+        0,
+        32
+       ],
+       "structured": [
+        0,
+        32
+       ],
+       "interactive": [
+        0,
+        32
+       ],
+       "none": [
+        0,
+        32
+       ],
+       "minimal": [
+        0,
+        32
+       ],
+       "interactive_core": [
+        0,
+        32
+       ],
+       "prose": [
+        0.09375,
+        32
+       ]
+      }
+     },
+     "retrieval": {
+      "n": 52,
+      "mean_tool_calls": 0,
+      "share_no_tool_call": 1,
+      "mean_fraction_available_facts_retrieved": 0.0,
+      "query_categories": {}
+     },
+     "contrasts": {
+      "first_attempt_semantic_correct": [
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "structured - prose",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 52,
+        "clusters": 52,
+        "missing_unpaired_tasks": [],
+        "rate_prose": 0.3076923076923077,
+        "rate_structured": 0.11538461538461539,
+        "effect": -0.19230769230769232,
+        "ci95_cluster_bootstrap": [
+         -0.3076923076923077,
+         -0.09615384615384616
+        ],
+        "ci95_task_bootstrap": [
+         -0.3076923076923077,
+         -0.09615384615384616
+        ],
+        "discordant": {
+         "structured_only": 0,
+         "prose_only": 10
+        },
+        "mcnemar_exact_p": 0.001953125,
+        "holm_p": 0.015625
+       },
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "interactive - structured",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 52,
+        "clusters": 52,
+        "missing_unpaired_tasks": [],
+        "rate_structured": 0.11538461538461539,
+        "rate_interactive": 0,
+        "effect": -0.11538461538461539,
+        "ci95_cluster_bootstrap": [
+         -0.21153846153846154,
+         -0.038461538461538464
+        ],
+        "ci95_task_bootstrap": [
+         -0.21153846153846154,
+         -0.038461538461538464
+        ],
+        "discordant": {
+         "interactive_only": 0,
+         "structured_only": 6
+        },
+        "mcnemar_exact_p": 0.03125,
+        "holm_p": 0.1875
+       },
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "interactive_forced - interactive",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 52,
+        "clusters": 52,
+        "missing_unpaired_tasks": [],
+        "rate_interactive": 0,
+        "rate_interactive_forced": 0.09615384615384616,
+        "effect": 0.09615384615384616,
+        "ci95_cluster_bootstrap": [
+         0.019230769230769232,
+         0.17307692307692307
+        ],
+        "ci95_task_bootstrap": [
+         0.019230769230769232,
+         0.19230769230769232
+        ],
+        "discordant": {
+         "interactive_forced_only": 5,
+         "interactive_only": 0
+        },
+        "mcnemar_exact_p": 0.0625,
+        "holm_p": 0.1875
+       },
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "interactive_core - interactive",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 52,
+        "clusters": 52,
+        "missing_unpaired_tasks": [],
+        "rate_interactive": 0,
+        "rate_interactive_core": 0,
+        "effect": 0,
+        "ci95_cluster_bootstrap": [
+         0.0,
+         0.0
+        ],
+        "ci95_task_bootstrap": [
+         0.0,
+         0.0
+        ],
+        "discordant": {
+         "interactive_core_only": 0,
+         "interactive_only": 0
+        },
+        "mcnemar_exact_p": 1.0,
+        "holm_p": 1.0
+       },
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "interactive_core - structured",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 52,
+        "clusters": 52,
+        "missing_unpaired_tasks": [],
+        "rate_structured": 0.11538461538461539,
+        "rate_interactive_core": 0,
+        "effect": -0.11538461538461539,
+        "ci95_cluster_bootstrap": [
+         -0.21153846153846154,
+         -0.038461538461538464
+        ],
+        "ci95_task_bootstrap": [
+         -0.21153846153846154,
+         -0.038461538461538464
+        ],
+        "discordant": {
+         "interactive_core_only": 0,
+         "structured_only": 6
+        },
+        "mcnemar_exact_p": 0.03125,
+        "holm_p": 0.1875
+       },
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "prose - minimal",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 52,
+        "clusters": 52,
+        "missing_unpaired_tasks": [],
+        "rate_minimal": 0.11538461538461539,
+        "rate_prose": 0.3076923076923077,
+        "effect": 0.19230769230769232,
+        "ci95_cluster_bootstrap": [
+         0.09615384615384616,
+         0.3076923076923077
+        ],
+        "ci95_task_bootstrap": [
+         0.09615384615384616,
+         0.3076923076923077
+        ],
+        "discordant": {
+         "prose_only": 10,
+         "minimal_only": 0
+        },
+        "mcnemar_exact_p": 0.001953125,
+        "holm_p": 0.015625
+       },
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "minimal - none",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 52,
+        "clusters": 52,
+        "missing_unpaired_tasks": [],
+        "rate_none": 0,
+        "rate_minimal": 0.11538461538461539,
+        "effect": 0.11538461538461539,
+        "ci95_cluster_bootstrap": [
+         0.038461538461538464,
+         0.21153846153846154
+        ],
+        "ci95_task_bootstrap": [
+         0.038461538461538464,
+         0.21153846153846154
+        ],
+        "discordant": {
+         "minimal_only": 6,
+         "none_only": 0
+        },
+        "mcnemar_exact_p": 0.03125,
+        "holm_p": 0.1875
+       },
+       {
+        "model": "gpt-4.1-2025-04-14",
+        "contrast": "syntax_only_structured - minimal",
+        "outcome": "first_attempt_semantic_correct",
+        "paired_tasks": 52,
+        "clusters": 52,
+        "missing_unpaired_tasks": [],
+        "rate_minimal": 0.11538461538461539,
+        "rate_syntax_only_structured": 0.07692307692307693,
+        "effect": -0.038461538461538464,
+        "ci95_cluster_bootstrap": [
+         -0.09615384615384616,
+         0.0
+        ],
+        "ci95_task_bootstrap": [
+         -0.09615384615384616,
+         0.0
+        ],
+        "discordant": {
+         "syntax_only_structured_only": 0,
+         "minimal_only": 2
+        },
+        "mcnemar_exact_p": 0.5,
+        "holm_p": 1.0
+       }
+      ]
+     }
+    }
+   }
+  }
+ },
+ "taxonomy": {
+  "gpt-4.1-nano-2025-04-14": {
+   "none": {
+    "assembly_syntax": 138,
+    "literal": 56,
+    "shape_type": 21,
+    "attr_encoding": 24,
+    "correct": 7,
+    "unknown_op": 20,
+    "other": 1
+   },
+   "minimal": {
+    "correct": 49,
+    "attr_encoding": 15,
+    "assembly_syntax": 123,
+    "shape_type": 51,
+    "unknown_op": 12,
+    "literal": 13,
+    "wrong_values": 2,
+    "other": 2
+   },
+   "syntax_only_structured": {
+    "correct": 40,
+    "literal": 29,
+    "shape_type": 51,
+    "assembly_syntax": 119,
+    "unknown_op": 17,
+    "attr_encoding": 10,
+    "wrong_values": 1
+   },
+   "prose": {
+    "correct": 61,
+    "attr_encoding": 21,
+    "assembly_syntax": 127,
+    "shape_type": 42,
+    "unknown_op": 8,
+    "literal": 5,
+    "wrong_values": 2,
+    "other": 1
+   },
+   "structured": {
+    "correct": 45,
+    "assembly_syntax": 102,
+    "shape_type": 37,
+    "literal": 38,
+    "attr_encoding": 18,
+    "unknown_op": 25,
+    "wrong_values": 1,
+    "other": 1
+   },
+   "interactive": {
+    "attr_encoding": 48,
+    "assembly_syntax": 32,
+    "unknown_op": 102,
+    "literal": 39,
+    "correct": 34,
+    "shape_type": 9,
+    "wrong_values": 2,
+    "signature_format": 1
+   },
+   "interactive_forced": {
+    "correct": 38,
+    "attr_encoding": 60,
+    "assembly_syntax": 84,
+    "shape_type": 19,
+    "literal": 40,
+    "unknown_op": 21,
+    "signature_format": 5
+   },
+   "interactive_core": {
+    "literal": 68,
+    "attr_encoding": 55,
+    "assembly_syntax": 84,
+    "unknown_op": 21,
+    "correct": 10,
+    "shape_type": 28,
+    "other": 1
+   }
+  },
+  "gpt-4.1-mini-2025-04-14": {
+   "none": {
+    "attr_encoding": 49,
+    "assembly_syntax": 153,
+    "literal": 46,
+    "unknown_op": 14,
+    "shape_type": 4,
+    "correct": 1
+   },
+   "minimal": {
+    "correct": 88,
+    "shape_type": 97,
+    "literal": 35,
+    "assembly_syntax": 42,
+    "unknown_op": 2,
+    "other": 1,
+    "wrong_values": 1,
+    "attr_encoding": 1
+   },
+   "syntax_only_structured": {
+    "correct": 87,
+    "attr_encoding": 7,
+    "literal": 44,
+    "assembly_syntax": 47,
+    "shape_type": 78,
+    "unknown_op": 1,
+    "wrong_values": 1,
+    "other": 2
+   },
+   "prose": {
+    "correct": 110,
+    "shape_type": 81,
+    "literal": 33,
+    "assembly_syntax": 35,
+    "other": 3,
+    "unknown_op": 3,
+    "wrong_values": 2
+   },
+   "structured": {
+    "correct": 89,
+    "attr_encoding": 14,
+    "literal": 34,
+    "assembly_syntax": 48,
+    "shape_type": 71,
+    "other": 6,
+    "wrong_values": 1,
+    "unknown_op": 4
+   },
+   "interactive": {
+    "assembly_syntax": 128,
+    "correct": 53,
+    "shape_type": 13,
+    "attr_encoding": 32,
+    "other": 5,
+    "literal": 28,
+    "unknown_op": 7,
+    "wrong_values": 1
+   },
+   "interactive_forced": {
+    "correct": 59,
+    "assembly_syntax": 125,
+    "literal": 24,
+    "shape_type": 23,
+    "other": 10,
+    "attr_encoding": 22,
+    "unknown_op": 4
+   },
+   "interactive_core": {
+    "literal": 33,
+    "shape_type": 62,
+    "correct": 55,
+    "attr_encoding": 75,
+    "assembly_syntax": 36,
+    "unknown_op": 4,
+    "other": 2
+   }
+  },
+  "gpt-4.1-2025-04-14": {
+   "none": {
+    "assembly_syntax": 67,
+    "correct": 13,
+    "unknown_op": 4,
+    "attr_encoding": 4,
+    "shape_type": 2,
+    "literal": 1
+   },
+   "minimal": {
+    "correct": 38,
+    "literal": 25,
+    "shape_type": 26,
+    "wrong_values": 1,
+    "attr_encoding": 1
+   },
+   "syntax_only_structured": {
+    "correct": 36,
+    "literal": 21,
+    "shape_type": 33,
+    "attr_encoding": 1
+   },
+   "prose": {
+    "correct": 51,
+    "literal": 21,
+    "shape_type": 13,
+    "assembly_syntax": 5,
+    "other": 1
+   },
+   "structured": {
+    "correct": 40,
+    "literal": 15,
+    "assembly_syntax": 1,
+    "shape_type": 32,
+    "other": 1,
+    "unknown_op": 1,
+    "attr_encoding": 1
+   },
+   "interactive": {
+    "assembly_syntax": 58,
+    "unknown_op": 3,
+    "correct": 11,
+    "attr_encoding": 18,
+    "shape_type": 1
+   },
+   "interactive_forced": {
+    "correct": 27,
+    "literal": 7,
+    "assembly_syntax": 8,
+    "shape_type": 20,
+    "attr_encoding": 29
+   },
+   "interactive_core": {
+    "literal": 17,
+    "attr_encoding": 22,
+    "correct": 27,
+    "shape_type": 5,
+    "assembly_syntax": 19,
+    "unknown_op": 1
+   }
+  }
+ },
+ "cost_usd": {
+  "gpt-4.1-nano-2025-04-14": 2.93,
+  "gpt-4.1-mini-2025-04-14": 11.27,
+  "gpt-4.1-2025-04-14": 20.32
+ }
+}

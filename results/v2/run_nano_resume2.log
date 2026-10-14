@@ -1,0 +1,10 @@
+179 trials to run (1957 already done) -> /Users/luxin/Desktop/Paper/VISA2026/AgentISA-Bench/results/v2/trackA_gpt-4.1-nano-2025-04-14_eval.jsonl
+[20/179] correct so far 0/20  spent $0.04  66s
+[40/179] correct so far 6/40  spent $0.07  101s
+[60/179] correct so far 10/60  spent $0.09  132s
+[80/179] correct so far 12/80  spent $0.11  152s
+[100/179] correct so far 12/100  spent $0.13  188s
+[120/179] correct so far 20/120  spent $0.16  216s
+[140/179] correct so far 25/140  spent $0.17  240s
+[160/179] correct so far 25/160  spent $0.23  306s
+[179/179] correct so far 26/179  spent $0.25  332s
