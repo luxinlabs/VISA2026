@@ -125,13 +125,29 @@ def retrieval_stats(rows, model):
             "query_categories": dict(cats)}
 
 
-def full_report(rows, models, outcomes=("first_attempt_semantic_correct", "correct_after_repair")):
+CONTRASTS_V2 = [  # pre-registered for study 2, Track A (docs/PREREGISTRATION_V2.md)
+    ("structured", "prose"), ("interactive", "structured"), ("interactive_forced", "interactive"),
+    ("interactive_core", "interactive"), ("interactive_core", "structured"), ("prose", "minimal"),
+    ("minimal", "none"), ("syntax_only_structured", "minimal"),
+]
+
+
+def complete_tasks(rows, model, conditions):
+    """Tasks with an outcome for every condition (used when a budget stop truncates a run)."""
+    have = defaultdict(set)
+    for r in rows:
+        if r["model"] == model: have[r["task_id"]].add(r["condition"])
+    return {t for t, cs in have.items() if set(conditions) <= cs}
+
+
+def full_report(rows, models, outcomes=("first_attempt_semantic_correct", "correct_after_repair"), contrasts=None):
+    contrasts = contrasts or CONTRASTS
     rep = {"models": {}}
     for m in models:
         mr = {"conditions": condition_table(rows, m), "families": family_table(rows, m),
               "retrieval": retrieval_stats(rows, m), "contrasts": {}}
         for oc in outcomes:
-            res = [paired_effect(rows, m, a, b, oc) for b, a in CONTRASTS]
+            res = [paired_effect(rows, m, a, b, oc) for b, a in contrasts]
             for r, p in zip(res, holm([r["mcnemar_exact_p"] for r in res])):
                 r["holm_p"] = p
             mr["contrasts"][oc] = res

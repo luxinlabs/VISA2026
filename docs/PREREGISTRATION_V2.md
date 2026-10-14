@@ -50,3 +50,9 @@ model, and the number of completed tasks is reported (the stop point is outcome-
 ## Statistics
 Paired differences; 95% cluster bootstrap (template for synthetic, task for KernelBench), exact McNemar on task-level
 discordant pairs, Holm correction. Suite-level and family-level analyses are secondary/exploratory.
+
+## Addendum 1 (2026-10-14, before any valid eval trial)
+The first launch of the nano/mini eval runs produced 0 trials: every call returned HTTP 401 because the runner let a
+revoked key inherited from the shell environment take precedence over the project `.env` key. `run_experiment.py`
+now lets `.env` override the environment (one-line change; no effect on prompts, tasks, grading or analysis). Its
+hash in FREEZE.sha256 was updated accordingly; no trial data existed at the time.

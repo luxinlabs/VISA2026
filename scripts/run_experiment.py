@@ -37,7 +37,7 @@ if _env.exists():
     for _line in _env.read_text().splitlines():
         if "=" in _line and not _line.lstrip().startswith("#"):
             _k, _v = _line.split("=", 1)
-            os.environ.setdefault(_k.strip().removeprefix("export ").strip(), _v.strip().strip("\"'"))
+            os.environ[_k.strip().removeprefix("export ").strip()] = _v.strip().strip("\"'")  # .env wins over a stale shell env
 cfg = yaml.safe_load((ROOT / "configs/experiment.yaml").read_text())
 lock = json.loads((ROOT / "data/versions.lock.json").read_text())
 budget = cfg["budget"]
