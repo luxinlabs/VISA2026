@@ -1,0 +1,430 @@
+{
+ "strong_case_distribution": {
+  "generator": 114,
+  "signed": 152,
+  "nonnegative_fallback": 1
+ },
+ "reference_fails_strong": [
+  "kb_1_98",
+  "kb_2_62"
+ ],
+ "regraded": {
+  "first_attempt_accepted": 1069,
+  "final_accepted": 1282
+ },
+ "flips": [
+  [
+   "gpt-4.1-2025-04-14",
+   "kb_1_52",
+   "structured",
+   "final",
+   "wrong_values"
+  ]
+ ],
+ "n_flips": {
+  "final": 1
+ },
+ "flips_by_model_condition": {
+  "gpt-4.1-2025-04-14|structured|final": 1
+ },
+ "mutation_resurvey": {
+  "killed_by_strong_oracle": 15,
+  "survives_strong_oracle": 89,
+  "task_excluded": 3
+ },
+ "previously_unprobed": [
+  [
+   "kb_1_42",
+   "attr [1, 1, 1, 1]->[2, 1, 1, 1]",
+   "killed_by_strong_oracle(static_error)"
+  ],
+  [
+   "kb_1_43",
+   "attr [1, 1, 3, 3, 3]->[2, 1, 3, 3, 3]",
+   "killed_by_strong_oracle(static_error)"
+  ],
+  [
+   "kb_1_44",
+   "attr [1, 1, 1, 1]->[2, 1, 1, 1]",
+   "killed_by_strong_oracle(static_error)"
+  ],
+  [
+   "kb_1_90",
+   "attr [1, 1]->[2, 1]",
+   "killed_by_strong_oracle(static_error)"
+  ],
+  [
+   "kb_1_91",
+   "attr [1, 1]->[2, 1]",
+   "killed_by_strong_oracle(static_error)"
+  ],
+  [
+   "kb_1_92",
+   "attr [1, 1]->[2, 1]",
+   "killed_by_strong_oracle(static_error)"
+  ],
+  [
+   "kb_1_93",
+   "attr [1, 1]->[2, 1]",
+   "killed_by_strong_oracle(static_error)"
+  ]
+ ],
+ "still_surviving": [
+  [
+   "kb_1_23",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_1_23",
+   "stablehlo.subtract->stablehlo.add"
+  ],
+  [
+   "kb_1_24",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_1_24",
+   "stablehlo.subtract->stablehlo.add"
+  ],
+  [
+   "kb_1_41",
+   "attr [1, 1, 1, 3]->[2, 1, 1, 3]"
+  ],
+  [
+   "kb_1_45",
+   "attr [1, 1, 1, 1]->[2, 1, 1, 1]"
+  ],
+  [
+   "kb_1_49",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_1_95",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_1_95",
+   "stablehlo.add->stablehlo.subtract"
+  ],
+  [
+   "kb_1_95",
+   "stablehlo.subtract->stablehlo.add"
+  ],
+  [
+   "kb_1_96",
+   "stablehlo.divide->stablehlo.multiply"
+  ],
+  [
+   "kb_1_97",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_1_97",
+   "stablehlo.subtract->stablehlo.add"
+  ],
+  [
+   "kb_2_10",
+   "attr [1, 1, 1, 1]->[2, 1, 1, 1]"
+  ],
+  [
+   "kb_2_17",
+   "stablehlo.add->stablehlo.subtract"
+  ],
+  [
+   "kb_2_18",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_2_18",
+   "stablehlo.divide->stablehlo.multiply"
+  ],
+  [
+   "kb_2_18",
+   "stablehlo.maximum->stablehlo.minimum"
+  ],
+  [
+   "kb_2_24",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_2_24",
+   "stablehlo.subtract->stablehlo.add"
+  ],
+  [
+   "kb_2_27",
+   "stablehlo.divide->stablehlo.multiply"
+  ],
+  [
+   "kb_2_28",
+   "stablehlo.multiply->stablehlo.add"
+  ],
+  [
+   "kb_2_30",
+   "stablehlo.add->stablehlo.subtract"
+  ],
+  [
+   "kb_2_30",
+   "stablehlo.divide->stablehlo.multiply"
+  ],
+  [
+   "kb_2_30",
+   "stablehlo.multiply->stablehlo.add"
+  ],
+  [
+   "kb_2_33",
+   "stablehlo.multiply->stablehlo.add"
+  ],
+  [
+   "kb_2_35",
+   "attr [1, 1, 1, 1]->[2, 1, 1, 1]"
+  ],
+  [
+   "kb_2_37",
+   "stablehlo.add->stablehlo.subtract"
+  ],
+  [
+   "kb_2_37",
+   "stablehlo.divide->stablehlo.multiply"
+  ],
+  [
+   "kb_2_37",
+   "stablehlo.exponential->stablehlo.negate"
+  ],
+  [
+   "kb_2_37",
+   "stablehlo.multiply->stablehlo.add"
+  ],
+  [
+   "kb_2_38",
+   "attr [1, 1, 1, 1, 1]->[2, 1, 1, 1, 1]"
+  ],
+  [
+   "kb_2_38",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_2_38",
+   "stablehlo.subtract->stablehlo.add"
+  ],
+  [
+   "kb_2_39",
+   "stablehlo.multiply->stablehlo.add"
+  ],
+  [
+   "kb_2_41",
+   "stablehlo.multiply->stablehlo.add"
+  ],
+  [
+   "kb_2_42",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_2_42",
+   "stablehlo.maximum->stablehlo.minimum"
+  ],
+  [
+   "kb_2_46",
+   "attr [1, 1, 1, 1]->[2, 1, 1, 1]"
+  ],
+  [
+   "kb_2_50",
+   "attr [1, 1, 1, 1, 1]->[2, 1, 1, 1, 1]"
+  ],
+  [
+   "kb_2_51",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_2_51",
+   "stablehlo.maximum->stablehlo.minimum"
+  ],
+  [
+   "kb_2_55",
+   "attr [1, 1, 1, 1]->[2, 1, 1, 1]"
+  ],
+  [
+   "kb_2_58",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_2_58",
+   "stablehlo.maximum->stablehlo.minimum"
+  ],
+  [
+   "kb_2_6",
+   "attr [1, 1, 1, 1, 1]->[2, 1, 1, 1, 1]"
+  ],
+  [
+   "kb_2_6",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_2_6",
+   "stablehlo.subtract->stablehlo.add"
+  ],
+  [
+   "kb_2_64",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_2_64",
+   "stablehlo.maximum->stablehlo.minimum"
+  ],
+  [
+   "kb_2_65",
+   "attr [1, 1, 1, 1]->[2, 1, 1, 1]"
+  ],
+  [
+   "kb_2_72",
+   "attr [1, 1, 1, 1, 1]->[2, 1, 1, 1, 1]"
+  ],
+  [
+   "kb_2_72",
+   "stablehlo.add->stablehlo.subtract"
+  ],
+  [
+   "kb_2_73",
+   "stablehlo.add->stablehlo.subtract"
+  ],
+  [
+   "kb_2_75",
+   "stablehlo.add->stablehlo.subtract"
+  ],
+  [
+   "kb_2_75",
+   "stablehlo.divide->stablehlo.multiply"
+  ],
+  [
+   "kb_2_75",
+   "stablehlo.multiply->stablehlo.add"
+  ],
+  [
+   "kb_2_78",
+   "attr [1, 1, 1, 1, 1]->[2, 1, 1, 1, 1]"
+  ],
+  [
+   "kb_2_78",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_2_79",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_2_79",
+   "stablehlo.add->stablehlo.subtract"
+  ],
+  [
+   "kb_2_8",
+   "attr [1, 1, 1, 1, 1]->[2, 1, 1, 1, 1]"
+  ],
+  [
+   "kb_2_80",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_2_80",
+   "stablehlo.add->stablehlo.subtract"
+  ],
+  [
+   "kb_2_80",
+   "stablehlo.divide->stablehlo.multiply"
+  ],
+  [
+   "kb_2_80",
+   "stablehlo.multiply->stablehlo.add"
+  ],
+  [
+   "kb_2_82",
+   "attr [1, 1, 1, 1]->[2, 1, 1, 1]"
+  ],
+  [
+   "kb_2_84",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_2_84",
+   "stablehlo.multiply->stablehlo.add"
+  ],
+  [
+   "kb_2_88",
+   "stablehlo.add->stablehlo.subtract"
+  ],
+  [
+   "kb_2_88",
+   "stablehlo.divide->stablehlo.multiply"
+  ],
+  [
+   "kb_2_88",
+   "stablehlo.exponential->stablehlo.negate"
+  ],
+  [
+   "kb_2_88",
+   "stablehlo.multiply->stablehlo.add"
+  ],
+  [
+   "kb_2_89",
+   "attr [1, 1, 1, 1, 1]->[2, 1, 1, 1, 1]"
+  ],
+  [
+   "kb_2_89",
+   "stablehlo.subtract->stablehlo.add"
+  ],
+  [
+   "kb_2_91",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_2_91",
+   "stablehlo.subtract->stablehlo.add"
+  ],
+  [
+   "kb_2_92",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_2_92",
+   "stablehlo.maximum->stablehlo.minimum"
+  ],
+  [
+   "kb_2_94",
+   "stablehlo.add->stablehlo.subtract"
+  ],
+  [
+   "kb_2_94",
+   "stablehlo.divide->stablehlo.multiply"
+  ],
+  [
+   "kb_2_94",
+   "stablehlo.exponential->stablehlo.negate"
+  ],
+  [
+   "kb_2_94",
+   "stablehlo.maximum->stablehlo.minimum"
+  ],
+  [
+   "kb_2_94",
+   "stablehlo.multiply->stablehlo.add"
+  ],
+  [
+   "kb_2_96",
+   "attr [1, 1, 1, 1, 1]->[2, 1, 1, 1, 1]"
+  ],
+  [
+   "kb_2_97",
+   "stablehlo.multiply->stablehlo.add"
+  ],
+  [
+   "kb_2_98",
+   "attr [1, 1, 1, 1]->[2, 1, 1, 1]"
+  ],
+  [
+   "kb_2_98",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "kb_2_98",
+   "stablehlo.maximum->stablehlo.minimum"
+  ]
+ ]
+}

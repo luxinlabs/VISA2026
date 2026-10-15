@@ -1,0 +1,26 @@
+{
+ "nano": {
+  "acc_all_conditions_full": 0.133,
+  "acc_all_conditions_subset": 0.122,
+  "prose_full": 0.228,
+  "prose_subset": 0.176,
+  "C-B_full": -6.0,
+  "C-B_subset": -3.3,
+  "C-B_subset_ci": [
+   -11.7,
+   5.2
+  ]
+ },
+ "mini": {
+  "acc_all_conditions_full": 0.254,
+  "acc_all_conditions_subset": 0.234,
+  "prose_full": 0.412,
+  "prose_subset": 0.363,
+  "C-B_full": -7.9,
+  "C-B_subset": -6.6,
+  "C-B_subset_ci": [
+   -14.4,
+   0.0
+  ]
+ }
+}

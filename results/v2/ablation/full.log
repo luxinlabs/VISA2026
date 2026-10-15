@@ -1,0 +1,6 @@
+91 trials to run (0 already done) -> results/v2/ablation/abl_full.jsonl
+[20/91] correct so far 9/20  spent $0.67  65s
+[40/91] correct so far 21/40  spent $1.16  97s
+[60/91] correct so far 36/60  spent $1.42  12435s
+[80/91] correct so far 43/80  spent $2.16  12529s
+[91/91] correct so far 45/91  spent $2.80  12587s

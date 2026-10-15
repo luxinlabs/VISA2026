@@ -1,0 +1,100 @@
+/Users/luxin/Desktop/Paper/VISA2026/AgentISA-Bench/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py:1790: UserWarning: input's size at dim=1 does not match num_features. You can silence this warning by not passing in num_features, which is not used because affine=False
+  return forward_call(*args, **kwargs)
+reference fails strong cases: ['kb_1_98', 'kb_2_62']
+{
+ "strong_case_distribution": {
+  "generator": 114,
+  "signed": 152,
+  "nonnegative_fallback": 1
+ },
+ "reference_fails_strong": [
+  "kb_1_98",
+  "kb_2_62"
+ ],
+ "regraded": {
+  "first_attempt_accepted": 1069,
+  "final_accepted": 1282
+ },
+ "flips": [
+  [
+   "gpt-4.1-2025-04-14",
+   "kb_1_52",
+   "structured",
+   "final",
+   "wrong_values"
+  ],
+  [
+   "gpt-4.1-mini-2025-04-14",
+   "kb_1_49",
+   "minimal",
+   "first",
+   "wrong_values"
+  ],
+  [
+   "gpt-4.1-mini-2025-04-14",
+   "kb_1_49",
+   "minimal",
+   "final",
+   "wrong_values"
+  ],
+  [
+   "gpt-4.1-mini-2025-04-14",
+   "kb_1_49",
+   "syntax_only_structured",
+   "final",
+   "wrong_values"
+  ]
+ ],
+ "n_flips": {
+  "final": 3,
+  "first": 1
+ },
+ "flips_by_model_condition": {
+  "gpt-4.1-2025-04-14|structured|final": 1,
+  "gpt-4.1-mini-2025-04-14|minimal|first": 1,
+  "gpt-4.1-mini-2025-04-14|minimal|final": 1,
+  "gpt-4.1-mini-2025-04-14|syntax_only_structured|final": 1
+ },
+ "mutation_resurvey": {
+  "killed_by_strong_oracle": 9,
+  "survives_strong_oracle": 95,
+  "task_excluded": 3
+ },
+ "previously_unprobed": [
+  [
+   "kb_1_42",
+   "attr [1, 1, 1, 1]->[2, 1, 1, 1]",
+   "survives_strong_oracle"
+  ],
+  [
+   "kb_1_43",
+   "attr [1, 1, 3, 3, 3]->[2, 1, 3, 3, 3]",
+   "survives_strong_oracle"
+  ],
+  [
+   "kb_1_44",
+   "attr [1, 1, 1, 1]->[2, 1, 1, 1]",
+   "survives_strong_oracle"
+  ],
+  [
+   "kb_1_90",
+   "attr [1, 1]->[2, 1]",
+   "survives_strong_oracle"
+  ],
+  [
+   "kb_1_91",
+   "attr [1, 1]->[2, 1]",
+   "survives_strong_oracle"
+  ],
+  [
+   "kb_1_92",
+   "attr [1, 1]->[2, 1]",
+   "survives_strong_oracle"
+  ],
+  [
+   "kb_1_93",
+   "attr [1, 1]->[2, 1]",
+   "survives_strong_oracle"
+  ]
+ ]
+}

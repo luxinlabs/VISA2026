@@ -1,0 +1,185 @@
+{
+ "nano": {
+  "n_tasks": 267,
+  "rates": {
+   "prose": 0.22846441947565543,
+   "structured_nl": 0.17228464419475656,
+   "structured": 0.16853932584269662
+  },
+  "contrasts": [
+   {
+    "model": "gpt-4.1-nano-2025-04-14",
+    "contrast": "structured_nl - prose",
+    "outcome": "first_attempt_semantic_correct",
+    "paired_tasks": 267,
+    "clusters": 191,
+    "missing_unpaired_tasks": [],
+    "rate_prose": 0.22846441947565543,
+    "rate_structured_nl": 0.17228464419475656,
+    "effect": -0.056179775280898875,
+    "ci95_cluster_bootstrap": [
+     -0.09885931558935361,
+     -0.018583931192471828
+    ],
+    "ci95_task_bootstrap": [
+     -0.09363295880149813,
+     -0.02247191011235955
+    ],
+    "discordant": {
+     "structured_nl_only": 5,
+     "prose_only": 20
+    },
+    "mcnemar_exact_p": 0.004077315330505371,
+    "holm_p": 0.008154630661010742
+   },
+   {
+    "model": "gpt-4.1-nano-2025-04-14",
+    "contrast": "structured - structured_nl",
+    "outcome": "first_attempt_semantic_correct",
+    "paired_tasks": 267,
+    "clusters": 191,
+    "missing_unpaired_tasks": [],
+    "rate_structured_nl": 0.17228464419475656,
+    "rate_structured": 0.16853932584269662,
+    "effect": -0.003745318352059925,
+    "ci95_cluster_bootstrap": [
+     -0.05904059040590406,
+     0.04980842911877394
+    ],
+    "ci95_task_bootstrap": [
+     -0.0449438202247191,
+     0.03745318352059925
+    ],
+    "discordant": {
+     "structured_only": 15,
+     "structured_nl_only": 16
+    },
+    "mcnemar_exact_p": 1.0,
+    "holm_p": 1.0
+   }
+  ],
+  "cost_usd": null
+ },
+ "mini": {
+  "n_tasks": 267,
+  "rates": {
+   "prose": 0.41198501872659177,
+   "structured_nl": 0.3707865168539326,
+   "structured": 0.3333333333333333
+  },
+  "contrasts": [
+   {
+    "model": "gpt-4.1-mini-2025-04-14",
+    "contrast": "structured_nl - prose",
+    "outcome": "first_attempt_semantic_correct",
+    "paired_tasks": 267,
+    "clusters": 191,
+    "missing_unpaired_tasks": [],
+    "rate_prose": 0.41198501872659177,
+    "rate_structured_nl": 0.3707865168539326,
+    "effect": -0.04119850187265917,
+    "ci95_cluster_bootstrap": [
+     -0.07829530388667923,
+     -0.0038314176245210726
+    ],
+    "ci95_task_bootstrap": [
+     -0.07865168539325842,
+     -0.003745318352059925
+    ],
+    "discordant": {
+     "structured_nl_only": 8,
+     "prose_only": 19
+    },
+    "mcnemar_exact_p": 0.052238985896110535,
+    "holm_p": 0.0827789306640625
+   },
+   {
+    "model": "gpt-4.1-mini-2025-04-14",
+    "contrast": "structured - structured_nl",
+    "outcome": "first_attempt_semantic_correct",
+    "paired_tasks": 267,
+    "clusters": 191,
+    "missing_unpaired_tasks": [],
+    "rate_structured_nl": 0.3707865168539326,
+    "rate_structured": 0.3333333333333333,
+    "effect": -0.03745318352059925,
+    "ci95_cluster_bootstrap": [
+     -0.07942238267148015,
+     0.0
+    ],
+    "ci95_task_bootstrap": [
+     -0.07116104868913857,
+     -0.003745318352059925
+    ],
+    "discordant": {
+     "structured_only": 5,
+     "structured_nl_only": 15
+    },
+    "mcnemar_exact_p": 0.04138946533203125,
+    "holm_p": 0.0827789306640625
+   }
+  ],
+  "cost_usd": null
+ },
+ "4.1": {
+  "n_tasks": 91,
+  "rates": {
+   "prose": 0.5604395604395604,
+   "structured_nl": 0.4945054945054945,
+   "structured": 0.43956043956043955
+  },
+  "contrasts": [
+   {
+    "model": "gpt-4.1-2025-04-14",
+    "contrast": "structured_nl - prose",
+    "outcome": "first_attempt_semantic_correct",
+    "paired_tasks": 91,
+    "clusters": 77,
+    "missing_unpaired_tasks": [],
+    "rate_prose": 0.5604395604395604,
+    "rate_structured_nl": 0.4945054945054945,
+    "effect": -0.06593406593406594,
+    "ci95_cluster_bootstrap": [
+     -0.13541666666666666,
+     0.0
+    ],
+    "ci95_task_bootstrap": [
+     -0.13186813186813187,
+     0.0
+    ],
+    "discordant": {
+     "structured_nl_only": 2,
+     "prose_only": 8
+    },
+    "mcnemar_exact_p": 0.109375,
+    "holm_p": 0.21875
+   },
+   {
+    "model": "gpt-4.1-2025-04-14",
+    "contrast": "structured - structured_nl",
+    "outcome": "first_attempt_semantic_correct",
+    "paired_tasks": 91,
+    "clusters": 77,
+    "missing_unpaired_tasks": [],
+    "rate_structured_nl": 0.4945054945054945,
+    "rate_structured": 0.43956043956043955,
+    "effect": -0.054945054945054944,
+    "ci95_cluster_bootstrap": [
+     -0.11238075047699807,
+     0.0
+    ],
+    "ci95_task_bootstrap": [
+     -0.10989010989010989,
+     0.0
+    ],
+    "discordant": {
+     "structured_only": 1,
+     "structured_nl_only": 6
+    },
+    "mcnemar_exact_p": 0.125,
+    "holm_p": 0.21875
+   }
+  ],
+  "cost_usd": null
+ }
+}

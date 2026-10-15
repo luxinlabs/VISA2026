@@ -34,14 +34,15 @@ def run(item):
     return t["template"], name, ev.verified, ev.semantic_correct
 
 
-SUITE = sys.argv[1] if len(sys.argv) > 1 else "synthetic"
-tasks = all_tasks("eval", suite=SUITE)
-items = [(t, n, p) for t in tasks for n, p in mutants(t["sol"])]
-with ThreadPoolExecutor(3) as ex:
-    res = list(ex.map(run, items))
-execd = [r for r in res if r[2]]
-survivors = [r for r in execd if r[3]]
-out = {"mutants": len(res), "statically_rejected": len(res) - len(execd), "executed": len(execd),
-       "killed_by_oracle": len(execd) - len(survivors), "survivors": sorted({(r[0], r[1]) for r in survivors})}
-(ROOT / f"data/processed/mutation_test_{SUITE}.json").write_text(json.dumps(out, indent=1))
-print(json.dumps(out, indent=1))
+if __name__ == "__main__":
+    SUITE = sys.argv[1] if len(sys.argv) > 1 else "synthetic"
+    tasks = all_tasks("eval", suite=SUITE)
+    items = [(t, n, p) for t in tasks for n, p in mutants(t["sol"])]
+    with ThreadPoolExecutor(3) as ex:
+        res = list(ex.map(run, items))
+    execd = [r for r in res if r[2]]
+    survivors = [r for r in execd if r[3]]
+    out = {"mutants": len(res), "statically_rejected": len(res) - len(execd), "executed": len(execd),
+           "killed_by_oracle": len(execd) - len(survivors), "survivors": sorted({(r[0], r[1]) for r in survivors})}
+    (ROOT / f"data/processed/mutation_test_{SUITE}.json").write_text(json.dumps(out, indent=1))
+    print(json.dumps(out, indent=1))
