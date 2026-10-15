@@ -18,6 +18,9 @@ from .fact_inventory import FACTS, OP_SUMMARY
 CONDITIONS = ["none", "minimal", "syntax_only_structured", "prose", "structured", "interactive"]
 # v2 (pre-registered 2026-10-14): forced first retrieval becomes a planned condition, plus core-upfront hybrid
 CONDITIONS_V2 = CONDITIONS + ["interactive_forced", "interactive_core"]
+# Reviewer-requested ablation (2026-10-15): the structured contract's JSON wrapper, IDs and category grouping,
+# but each rule carries the prose sentence (fact.nl) instead of the formal predicate.
+ABLATION = ["structured_nl"]
 INTERACTIVE = ("interactive", "interactive_forced", "interactive_core")
 CATEGORIES = ["syntax", "type", "shape", "semantics"]
 
@@ -47,12 +50,12 @@ def render_prose(facts):
     return "".join(parts).strip()
 
 
-def render_structured(facts):
+def render_structured(facts, field="formal"):
     ops = []
     for f in facts:
         if not ops or ops[-1]["operation"] != _title(f["op"]):
             ops.append({"operation": _title(f["op"])})
-        ops[-1].setdefault(f["category"], []).append({"id": f["id"], "rule": f["formal"]})
+        ops[-1].setdefault(f["category"], []).append({"id": f["id"], "rule": f[field]})
     # v2: compact JSON so the structured rendering is length-matched to prose (v1 used indent=1, +31% tokens)
     return json.dumps({"stablehlo_contract": ops}, ensure_ascii=False, separators=(",", ":"))
 
@@ -69,6 +72,9 @@ def render(task, condition):
     if condition == "prose":
         facts = select_facts(ops)
         return {"condition": condition, "fact_ids": [f["id"] for f in facts], "content": render_prose(facts)}
+    if condition == "structured_nl":
+        facts = select_facts(ops)
+        return {"condition": condition, "fact_ids": [f["id"] for f in facts], "content": render_structured(facts, field="nl")}
     if condition == "structured":
         facts = select_facts(ops)
         return {"condition": condition, "fact_ids": [f["id"] for f in facts], "content": render_structured(facts)}

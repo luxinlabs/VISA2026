@@ -69,3 +69,11 @@ KernelBench)". The frozen, hashed manifest (`data/processed/tasks_manifest_all.j
 authoritative artifact that the runs used — contains 23 KernelBench dev and 153 KernelBench eval tasks, i.e. 267 eval
 tasks in total. The prose was written before the final G1 exclusion was applied and was not updated. No task, code or
 analysis changed; the paper reports the manifest counts (153 / 267).
+
+## Addendum 3 (2026-10-15, before any ablation trial; reviewer-requested, exploratory)
+Condition `structured_nl` (C'): the structured contract's compact JSON wrapper, fact IDs and category grouping, with each
+rule holding the prose sentence (fact.nl) instead of the formal predicate. Contrasts: C' - B (JSON wrapper, IDs and
+grouping) and C - C' (formal predicates vs sentences), Holm over these two within model, first-attempt endpoint.
+Mean documentation length: B 1466, C 1483, C' 1822 o200k tokens (JSON escaping of full sentences).
+Runs: nano and mini on all 267 eval tasks; gpt-4.1 on its 91 complete Study 2 tasks only, so all contrasts are paired.
+Budget approved by the owner: $8 total (caps nano $1, mini $2.5, gpt-4.1 $4.5). Same harness, prompts and grading.

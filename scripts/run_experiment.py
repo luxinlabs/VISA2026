@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]; sys.path.insert(0, str(ROOT / "src"))
 import yaml
 from agentisa.tasks import all_tasks, manifest_hash
-from agentisa.interfaces import CONDITIONS, CONDITIONS_V2
+from agentisa.interfaces import CONDITIONS, CONDITIONS_V2, ABLATION
 from agentisa.agent import run_agent_trial
 from agentisa.harness import run_trial
 from agentisa.models import ChatClient
@@ -27,6 +27,7 @@ p.add_argument("--trials", type=int, default=1)
 p.add_argument("--workers", type=int, default=4)
 p.add_argument("--limit", type=int, default=0, help="first N tasks only (pilot)")
 p.add_argument("--templates", default="", help="comma-separated template names (pilot)")
+p.add_argument("--task-ids-file", default="", help="file with one task_id per line (restrict to these tasks)")
 p.add_argument("--out", default=None)
 p.add_argument("--max-usd", type=float, default=0.0, help="hard stop once list-price spend of THIS run reaches this (0 = no paid calls allowed for openai)")
 a = p.parse_args()
@@ -44,10 +45,12 @@ budget = cfg["budget"]
 tasks = all_tasks(None if a.split == "all" else a.split, suite=a.suite)
 if a.templates:
     keep = set(a.templates.split(",")); tasks = [t for t in tasks if t["template"] in keep]
+if a.task_ids_file:
+    keep_ids = set(Path(a.task_ids_file).read_text().split()); tasks = [t for t in tasks if t["task_id"] in keep_ids]
 if a.limit:
     tasks = tasks[:a.limit]
 conds = (a.conditions or ",".join(cfg["tracks"][a.track]["conditions"])).split(",")
-assert all(c in CONDITIONS_V2 for c in conds), conds
+assert all(c in CONDITIONS_V2 + ABLATION for c in conds), conds
 safe = a.model.replace(":", "_").replace("/", "_")
 out = Path(a.out or ROOT / f"results/v2/track{a.track}_{safe}_{a.split}.jsonl")
 tr_out = out.with_name(out.stem + "_transcripts.jsonl")
