@@ -7,6 +7,7 @@
 \usepackage{url}
 \Urlmuskip=0mu plus 2mu  % let long bibliography URLs stretch instead of leaving underfull lines
 \usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={What Makes a Virtual ISA Agent-Programmable? A Controlled Study of Agent-Facing Documentation for StableHLO}, pdfauthor={Luxin Zhang}, pdfsubject={VISA 2026}, pdfkeywords={virtual ISA, StableHLO, MLIR, LLM agents, documentation}}
 \usepackage{xcolor}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning}
@@ -19,13 +20,17 @@
 {\LARGE A Controlled Study of Agent-Facing Documentation for StableHLO}}
 
 \author{\IEEEauthorblockN{Luxin Zhang}
-\IEEEauthorblockA{Independent Researcher\\ philomela.zhang@gmail.com}}
+\IEEEauthorblockA{Independent Researcher\\ luxin.zhang92@outlook.com}}
 
 \maketitle
 
 \begin{abstract}
-AI agents increasingly write code at the virtual instruction-set architecture (ISA) layer, while benchmarks score the agent rather than the \emph{interface} the ISA exposes to it. Isolating that interface is hard because documentation variants must carry the same facts, examples and length, or the comparison measures something else. We fix one intermediate representation (IR), StableHLO, together with a pinned verifier and executor, the tasks and the agent loop. Only the delivery of semantic documentation varies: none, syntax only, natural-language prose, a structured JSON contract with the same canonical facts and code examples at matched length, and on-demand retrieval through a tool (free, forced, or with the cross-cutting rules given upfront). We ran a study with a protocol frozen before the evaluation runs on 267 held-out tasks (114 synthetic, 153 lowered from KernelBench PyTorch modules), with independent oracles and three GPT-4.1 snapshots (5{,}005 trials; the largest model covers 91 tasks within budget). Documentation was the dominant lever, adding 16 to 33 percentage points (pp) of first-attempt correctness over none. Once representation confounds were removed, the structured contract scored below prose for every model in point estimate ($-6.0$, $-7.9$, $-12.1$\pp), significantly for the two larger models, reversing the trend of our own earlier, unmatched comparison. On-demand access trailed upfront delivery by 4--32\pp: the strongest model never called the tool unless forced, partial upfront documentation suppressed lookup, and retrieving agents often missed the cross-cutting encoding rule on which correctness hinged. Over 99\% of failures were rejected statically, even on real-world tasks, so for this model family agent-facing virtual-ISA design is first a problem of making well-formedness learnable. Harness, tasks, protocol and logs will be released.
+AI agents increasingly write code at the virtual instruction-set architecture (ISA) layer, while benchmarks score the agent rather than the \emph{interface} the ISA exposes to it. Isolating that interface is hard because documentation variants must carry the same facts, examples and length. We fix one intermediate representation (IR), StableHLO, with a pinned verifier and executor, the tasks and the agent loop, and vary only how semantic documentation reaches the agent: none, syntax only, prose, a length-matched JSON contract with the same facts and examples, or on-demand retrieval through a tool (free, forced, or with the cross-cutting rules upfront). With a protocol frozen before the runs, we evaluated 267 held-out tasks (114 synthetic, 153 lowered from KernelBench PyTorch modules) with independent oracles and three GPT-4.1 snapshots (5{,}005 trials; the largest model covers 91 tasks within budget). Documentation was the dominant lever, adding 16 to 33 percentage points (pp) of first-attempt correctness. With matched content, the contract scored below prose for every model ($-6.0$, $-7.9$, $-12.1$\pp; significant for the two larger), reversing our earlier, unmatched comparison. On-demand access trailed upfront delivery by 4--32\pp: the strongest model never called the tool unless forced, partial upfront documentation suppressed lookup, and retrieving agents often missed the cross-cutting encoding rule. Over 99\% of failures were rejected statically, even on real-world tasks, so for this model family agent-facing virtual-ISA design is first a problem of making well-formedness learnable. Harness, tasks, protocol and logs will be released.
 \end{abstract}
+
+\begin{IEEEkeywords}
+virtual ISA, StableHLO, MLIR, LLM agents, agent-facing interfaces, documentation, code generation, benchmarking
+\end{IEEEkeywords}
 
 \section{Introduction}
 A virtual ISA decouples programs from rapidly changing hardware: front ends target the virtual layer and back ends absorb the churn~\cite{lattner2004llvm,lattner2021mlir}. Increasingly, the producer at that layer is an AI agent that writes, repairs and lowers code, which makes the presentation of the ISA to a non-human programmer a design dimension in its own right. Existing benchmarks score models on GPU kernels~\cite{ouyang2025kernelbench,li2025tritonbench,guan2026tritongym}, LLVM IR optimization~\cite{yang2026cirbench} or unfamiliar accelerator ISAs~\cite{nie2026kernelcraft}; they answer ``how good is the agent?'' for a given interface. We ask the complementary question: \emph{for a fixed agent and a fixed IR, which properties of the agent-facing interface change whether the agent writes correct programs?}
@@ -107,7 +112,7 @@ mini & $-13.2$ [$-25.4$, $-1.7$] & $-11.4$ [$-21.1$, $-3.5$] \\
 The following are hypotheses supported for one model family and one IR, stated as design guidance to be re-tested on others.
 \textbf{Validate interface claims with matched treatments.} The same comparison gave opposite answers before and after we equalized content, examples and length, so agent-facing ISA documentation should be evaluated with fact-equivalent, length-matched variants.
 \textbf{Prefer explained constraints to bare predicates.} A machine-readable contract is useful for tools, but prose scored at or above the contract for every model. An ISA can ship both, generated from one fact inventory, and give agents the prose.
-\textbf{Do not rely on agents to ask.} Strong agents skipped retrieval, partially documented agents stopped retrieving, and retrieving agents often missed the cross-cutting rule. Introspection APIs therefore need uptake design, such as a required first query or diagnostics that cite the violated fact. Returning cross-cutting rules with every operation-level answer is a further option that F3 motivates but we did not test.
+\textbf{Do not rely on agents to ask.} Strong agents skipped retrieval, partially documented agents stopped retrieving, and retrieving agents often missed the cross-cutting rule. For self-describing virtual ISAs, introspection mechanisms therefore need uptake design, such as a required first query or diagnostics that cite the violated fact. Returning cross-cutting rules with every operation-level answer is a further option that F3 motivates but we did not test.
 \textbf{Make well-formedness learnable.} Most failures are static, so a normative, version-pinned surface syntax with concrete instances, plus diagnostics that name the violated rule, targets the actual bottleneck.
 
 \section{Threats to Validity}
