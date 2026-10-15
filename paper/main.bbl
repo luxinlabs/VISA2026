@@ -37,7 +37,7 @@ C.~Lattner, M.~Amini, U.~Bondhugula, A.~Cohen, A.~Davis, J.~Pienaar, R.~Riddle,
 A.~Ouyang, S.~Guo, S.~Arora, A.~L. Zhang, W.~Hu, C.~R{\'e}, and A.~Mirhoseini,
   ``{KernelBench}: Can {LLMs} write efficient {GPU} kernels?'' in
   \emph{Proceedings of the 42nd International Conference on Machine Learning
-  (ICML)}, 2025.
+  (ICML), PMLR 267}, 2025, pp. 47\,356--47\,415.
 
 \bibitem{li2025tritonbench}
 J.~Li, S.~Li, Z.~Gao, Q.~Shi, Y.~Li, Z.~Wang, J.~Huang, H.~Wang, J.~Wang,
@@ -67,8 +67,8 @@ J.~Nie, H.~Wu, Y.~Lai, Z.~Cao, C.~Zhang, B.~Lou, E.~Wang, J.~Cheng, T.~M.
 
 \bibitem{stablehlospec}
 {OpenXLA}, ``{StableHLO} specification,''
-  \url{https://github.com/openxla/stablehlo/blob/23d2f926aefe39e15a07d9874ec6871bb671b437/docs/spec.md},
-  commit 23d2f926, accessed 2026-10-13.
+  \url{https://github.com/openxla/stablehlo/blob/23d2f926/docs/spec.md}, commit
+  23d2f926, accessed 2026-10-13.
 
 \bibitem{rath2026mlirdecoding}
 P.~K. Rath, ``Cross-dialect generalization without retraining: Benchmarks and
@@ -79,7 +79,7 @@ P.~K. Rath, ``Cross-dialect generalization without retraining: Benchmarks and
 J.~Yang, C.~E. Jimenez, A.~Wettig, K.~Lieret, S.~Yao, K.~Narasimhan, and
   O.~Press, ``{SWE-agent}: Agent-computer interfaces enable automated software
   engineering,'' in \emph{Advances in Neural Information Processing Systems 37
-  (NeurIPS)}, 2024.
+  (NeurIPS)}, 2024, pp. 50\,528--50\,652.
 
 \bibitem{zhou2023docprompting}
 S.~Zhou, U.~Alon, F.~F. Xu, Z.~Wang, Z.~Jiang, and G.~Neubig, ``{DocPrompting}:
@@ -88,7 +88,10 @@ S.~Zhou, U.~Alon, F.~F. Xu, Z.~Wang, Z.~Jiang, and G.~Neubig, ``{DocPrompting}:
 
 \bibitem{wang2025pddldocs}
 R.~Wang and L.~Zhang, ``Documentation retrieval improves planning language
-  generation,'' in \emph{Proceedings of IJCNLP-AACL}, 2025, arXiv:2509.19931.
+  generation,'' in \emph{Proceedings of the 14th International Joint Conference
+  on Natural Language Processing and the 4th Conference of the Asia-Pacific
+  Chapter of the Association for Computational Linguistics (IJCNLP-AACL)},
+  2025, pp. 147--158.
 
 \bibitem{ashik2026evolvingapis}
 A.~N. Ashik, S.~Wang, T.-H. Chen, M.~Asaduzzaman, and Y.~Tian, ``When {LLMs}

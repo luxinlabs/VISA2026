@@ -62,3 +62,10 @@ The gpt-4.1-nano run stalled twice with worker threads blocked for >1 h in SSL r
 (the HTTP client timeout did not fire). The runner was restarted (resumable; completed trials kept, in-flight
 trials re-run) and `models.py` gained a 150 s hard watchdog per API call. No prompt, grading or analysis change.
 The gpt-4.1 run stopped at its budget cap after 733/2136 trials (task-blocked order, outcome-blind stop).
+
+## Erratum (2026-10-14, after the runs; text only)
+The "Tasks" bullets above state "dev (24), eval = 152 tasks" and "Eval population: 266 tasks (114 synthetic + 152
+KernelBench)". The frozen, hashed manifest (`data/processed/tasks_manifest_all.jsonl`, hash in FREEZE.sha256) — the
+authoritative artifact that the runs used — contains 23 KernelBench dev and 153 KernelBench eval tasks, i.e. 267 eval
+tasks in total. The prose was written before the final G1 exclusion was applied and was not updated. No task, code or
+analysis changed; the paper reports the manifest counts (153 / 267).

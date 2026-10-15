@@ -58,7 +58,8 @@ L.append("\\end{tabular}")
 # ---- figure: per-condition first-attempt correctness, by suite
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-plt.rcParams.update({"font.family": "serif", "font.size": 8, "axes.edgecolor": "#52514e", "xtick.color": "#52514e",
+plt.rcParams.update({"pdf.fonttype": 42, "ps.fonttype": 42,  # embed TrueType, never Type 3 (IEEE PDF eXpress)
+                     "font.family": "serif", "font.serif": ["STIXGeneral"], "mathtext.fontset": "stix", "font.size": 8, "axes.edgecolor": "#52514e", "xtick.color": "#52514e",
                      "ytick.color": "#52514e", "axes.spines.top": False, "axes.spines.right": False})
 COL = ["#2a78d6", "#eb6834", "#1baf7a"]; MK = ["o", "s", "D"]
 suites = [("synthetic", "Synthetic (114 tasks)"), ("kernelbench", "KernelBench-derived")]
