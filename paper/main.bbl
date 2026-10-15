@@ -70,6 +70,11 @@ J.~Nie, H.~Wu, Y.~Lai, Z.~Cao, C.~Zhang, B.~Lou, E.~Wang, J.~Cheng, T.~M.
   \url{https://github.com/openxla/stablehlo/blob/23d2f926aefe39e15a07d9874ec6871bb671b437/docs/spec.md},
   commit 23d2f926, accessed 2026-10-13.
 
+\bibitem{rath2026mlirdecoding}
+P.~K. Rath, ``Cross-dialect generalization without retraining: Benchmarks and
+  evaluation of schema-derived constrained decoding for {MLIR},'' 2026,
+  arXiv:2607.18254.
+
 \bibitem{yang2024sweagent}
 J.~Yang, C.~E. Jimenez, A.~Wettig, K.~Lieret, S.~Yao, K.~Narasimhan, and
   O.~Press, ``{SWE-agent}: Agent-computer interfaces enable automated software
@@ -90,9 +95,15 @@ A.~N. Ashik, S.~Wang, T.-H. Chen, M.~Asaduzzaman, and Y.~Tian, ``When {LLMs}
   lag behind: Knowledge conflicts from evolving {APIs} in code generation,''
   2026, arXiv:2604.09515.
 
-\bibitem{rath2026mlirdecoding}
-P.~K. Rath, ``Cross-dialect generalization without retraining: Benchmarks and
-  evaluation of schema-derived constrained decoding for {MLIR},'' 2026,
-  arXiv:2607.18254.
+\bibitem{sclar2024format}
+M.~Sclar, Y.~Choi, Y.~Tsvetkov, and A.~Suhr, ``Quantifying language models'
+  sensitivity to spurious features in prompt design or: How {I} learned to
+  start worrying about prompt formatting,'' in \emph{International Conference
+  on Learning Representations (ICLR)}, 2024.
+
+\bibitem{he2024promptformat}
+J.~He, M.~Rungta, D.~Koleczek, A.~Sekhon, F.~X. Wang, and S.~Hasan, ``Does
+  prompt formatting have any impact on {LLM} performance?'' 2024,
+  arXiv:2411.10541.
 
 \end{thebibliography}

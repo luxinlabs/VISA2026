@@ -1,0 +1,25 @@
+{
+ "weak_tasks": [
+  "kb_1_15",
+  "kb_1_20",
+  "kb_1_41",
+  "kb_1_42",
+  "kb_1_43",
+  "kb_1_49",
+  "kb_1_51",
+  "kb_2_88",
+  "kb_2_9"
+ ],
+ "accepted": 3,
+ "result": {
+  "still_correct": 2,
+  "wrong_on_signed": 1
+ },
+ "flipped": [
+  [
+   "gpt-4.1-mini-2025-04-14",
+   "kb_1_49",
+   "minimal"
+  ]
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "mutants": 326,
+ "statically_rejected": 181,
+ "executed": 145,
+ "killed_by_oracle": 132,
+ "survivors": [
+  [
+   "leaky_relu",
+   "direction GT->direction GE"
+  ],
+  [
+   "softmax_rows",
+   "dense<0xFF800000>->dense<0.0>"
+  ],
+  [
+   "softmax_rows",
+   "stablehlo.subtract->stablehlo.add"
+  ],
+  [
+   "strided_slice",
+   "attr [10]->[11]"
+  ],
+  [
+   "sum_two_axes",
+   "attr [0, 2]->[2, 0]"
+  ]
+ ]
+}

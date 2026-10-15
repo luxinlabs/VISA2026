@@ -8,7 +8,7 @@ from agentisa.analysis import full_report, complete_tasks, CONTRASTS_V2, diagnos
 from agentisa.interfaces import CONDITIONS_V2 as CONDS
 
 MODELS = ["gpt-4.1-nano-2025-04-14", "gpt-4.1-mini-2025-04-14", "gpt-4.1-2025-04-14"]
-SHORT = {"gpt-4.1-nano-2025-04-14": "4.1-nano", "gpt-4.1-mini-2025-04-14": "4.1-mini", "gpt-4.1-2025-04-14": "4.1"}
+SHORT = {"gpt-4.1-nano-2025-04-14": "nano", "gpt-4.1-mini-2025-04-14": "mini", "gpt-4.1-2025-04-14": "4.1"}
 PRICE = {"gpt-4.1-nano-2025-04-14": (0.10, 0.40), "gpt-4.1-mini-2025-04-14": (0.40, 1.60), "gpt-4.1-2025-04-14": (2.00, 8.00)}
 CLAB = {"none": "None", "minimal": "Minimal (A)", "syntax_only_structured": "Syntax-only struct. (N)", "prose": "Prose (B)",
         "structured": "Structured (C)", "interactive": "Interactive (D)", "interactive_forced": "Int. forced (D*)",
@@ -73,13 +73,13 @@ for ax, (s, title) in zip(axes, suites):
             lo, hi = d["first_attempt_ci95"]
             ax.plot([100 * lo, 100 * hi], [y, y], color=COL[j], lw=1.2)
             ax.plot(100 * d["first_attempt"], y, MK[j], color=COL[j], ms=4.5, mec="#fcfcfb", mew=0.8, label=SHORT[m] if i == 0 else None)
-    n = {m: R["models"][m]["conditions"]["none"]["n"] for m in R["models"]}
-    ax.set_title(f"{title.split(' (')[0]} (n={max(n.values())} tasks)", fontsize=8.5); ax.set_xlim(0, 100)
+    n = {SHORT[m]: R["models"][m]["conditions"]["none"]["n"] for m in R["models"]}
+    ax.set_title(f"{title.split(' (')[0]}\n(nano/mini n={n['nano']}, 4.1 n={n['4.1']} tasks)", fontsize=8); ax.set_xlim(0, 100)
     ax.set_xlabel("First-attempt semantic correctness (%)"); ax.grid(axis="x", color="#e4e3df", lw=0.5); ax.set_axisbelow(True)
 axes[0].set_yticks(range(len(CONDS))); axes[0].set_yticklabels([CLAB[c] for c in CONDS][::-1])
 h, l = axes[0].get_legend_handles_labels()
 f1.legend(h, l, loc="upper center", ncol=3, frameon=False, fontsize=7.5, bbox_to_anchor=(0.6, 1.0))
-f1.tight_layout(rect=(0, 0, 1, 0.92)); f1.savefig(fig / "fig_v2_conditions.pdf"); f1.savefig(fig / "fig_v2_conditions.png", dpi=200)
+f1.tight_layout(rect=(0, 0, 1, 0.90)); f1.savefig(fig / "fig_v2_conditions.pdf"); f1.savefig(fig / "fig_v2_conditions.png", dpi=200)
 print(json.dumps({"complete_tasks": rep["complete_tasks"], "cost": rep["cost_usd"]}))
 for m in models:
     c = rep["overall"]["models"][m]["conditions"]
