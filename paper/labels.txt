@@ -4,6 +4,7 @@ sec:design
 sec:implications
 sec:results
 sec:tasks
+tab:ablation
 tab:conds
 tab:confound
 tab:contrasts
