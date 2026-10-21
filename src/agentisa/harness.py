@@ -83,7 +83,7 @@ def run_trial(client, task, condition, budget, trial=0):
     log = dict(task_id=task["task_id"], template=task["template"], family=task["family"], split=task["split"],
                condition=condition, trial=trial, model=client.model, provider=client.provider,
                available_fact_ids=r["fact_ids"], attempts=[], tool_calls=0, retrieved_fact_ids=[],
-               tool_queries=[], input_tokens=0, output_tokens=0, model_calls=0, t0=time.time())
+               tool_queries=[], served_by=[], input_tokens=0, cached_input_tokens=0, output_tokens=0, model_calls=0, t0=time.time())
     attempts = 0
     while log["model_calls"] < budget["max_model_calls"]:
         use_tools = tools if (tools and log["tool_calls"] < budget["max_tool_calls"]) else None
@@ -93,6 +93,8 @@ def run_trial(client, task, condition, budget, trial=0):
         resp = client.chat(msgs, tools=use_tools, max_tokens=budget["max_output_tokens"], seed=trial, tool_choice=force)
         log["model_calls"] += 1
         log["input_tokens"] += resp["input_tokens"]; log["output_tokens"] += resp["output_tokens"]
+        log["cached_input_tokens"] += resp.get("cached_input_tokens", 0)
+        log["served_by"].append(resp.get("system_fingerprint"))
         if resp["tool_calls"]:
             msgs.append(resp["assistant_message"])
             for tc in resp["tool_calls"]:

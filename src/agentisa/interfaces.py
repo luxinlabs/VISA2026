@@ -10,9 +10,11 @@ Conditions (all receive the identical task statement, signature and list of rele
   interactive_core        v2: cross-cutting 'module' facts delivered upfront (structured), operation facts on demand
   interactive_forced      (v1: POST-HOC exploratory; v2: pre-registered) (added 2026-10-13 after observing zero tool use): as interactive,
                           but the first model turn is required to call the tool (tool_choice="required")
+  full_spec               (camera-ready, Addendum 5) the whole pinned StableHLO specification instead of curated facts
 The fact set for a task is the 'module' facts plus the facts of the task's relevant operations.
 """
 import json
+from pathlib import Path
 from .fact_inventory import FACTS, OP_SUMMARY
 
 CONDITIONS = ["none", "minimal", "syntax_only_structured", "prose", "structured", "interactive"]
@@ -21,6 +23,12 @@ CONDITIONS_V2 = CONDITIONS + ["interactive_forced", "interactive_core"]
 # Reviewer-requested ablation (2026-10-15): the structured contract's JSON wrapper, IDs and category grouping,
 # but each rule carries the prose sentence (fact.nl) instead of the formal predicate.
 ABLATION = ["structured_nl"]
+# Reviewer-requested (camera-ready, 2026-10-19): the raw pinned spec (91k o200k tokens) as the documentation.
+ABLATION += ["full_spec"]
+# Mechanism test (camera-ready, Addendum 7): contract C with every quoted code span moved out of the JSON strings
+# into a plain code block keyed by fact ID, so no example needs JSON escaping; content otherwise identical to C.
+ABLATION += ["structured_rawcode"]
+SPEC_PATH = Path(__file__).resolve().parents[2] / "data/vendor/stablehlo_spec.md"
 INTERACTIVE = ("interactive", "interactive_forced", "interactive_core")
 CATEGORIES = ["syntax", "type", "shape", "semantics"]
 
@@ -60,6 +68,19 @@ def render_structured(facts, field="formal"):
     return json.dumps({"stablehlo_contract": ops}, ensure_ascii=False, separators=(",", ":"))
 
 
+def render_structured_rawcode(facts):
+    import re
+    blocks, out = [], []
+    for f in facts:
+        k = 0
+        def lift(m):
+            nonlocal k
+            k += 1; ref = f"{f['id']}#{k}"; blocks.append(f"{ref}: {m.group(1)}"); return f"[code {ref}]"
+        out.append(dict(f, formal=re.sub(r"`([^`]*\"[^`]*)`", lift, f["formal"])))
+    body = render_structured(out)
+    return body + ("\n\nCode referenced above:\n```\n" + "\n".join(blocks) + "\n```" if blocks else "")
+
+
 def render(task, condition):
     """Returns dict(condition, fact_ids, content). content is placed before the task statement."""
     ops = task_ops(task)
@@ -75,6 +96,11 @@ def render(task, condition):
     if condition == "structured_nl":
         facts = select_facts(ops)
         return {"condition": condition, "fact_ids": [f["id"] for f in facts], "content": render_structured(facts, field="nl")}
+    if condition == "structured_rawcode":
+        facts = select_facts(ops)
+        return {"condition": condition, "fact_ids": [f["id"] for f in facts], "content": render_structured_rawcode(facts)}
+    if condition == "full_spec":
+        return {"condition": condition, "fact_ids": [], "content": SPEC_PATH.read_text()}
     if condition == "structured":
         facts = select_facts(ops)
         return {"condition": condition, "fact_ids": [f["id"] for f in facts], "content": render_structured(facts)}

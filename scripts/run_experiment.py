@@ -17,13 +17,15 @@ from agentisa.models import ChatClient
 from agentisa.fact_inventory import FACTS
 
 p = argparse.ArgumentParser()
-p.add_argument("--provider", required=True, choices=["openai", "ollama"])
+p.add_argument("--provider", required=True, choices=["openai", "ollama", "anthropic", "openrouter"])
 p.add_argument("--model", required=True)
 p.add_argument("--split", default="eval", choices=["dev", "eval", "all"])
 p.add_argument("--conditions", default=None)
 p.add_argument("--track", default="A", choices=["A", "B"], help="A = interface isolation (harness repairs); B = closed-loop agent")
 p.add_argument("--suite", default="all", choices=["synthetic", "kernelbench", "all"])
 p.add_argument("--trials", type=int, default=1)
+p.add_argument("--trial-start", type=int, default=0, help="index of the first trial (repeats; the trial index is also the API seed)")
+p.add_argument("--repairs", type=int, default=None, help="override budget.repair_attempts (0 = first attempt only)")
 p.add_argument("--workers", type=int, default=4)
 p.add_argument("--limit", type=int, default=0, help="first N tasks only (pilot)")
 p.add_argument("--templates", default="", help="comma-separated template names (pilot)")
@@ -42,6 +44,8 @@ if _env.exists():
 cfg = yaml.safe_load((ROOT / "configs/experiment.yaml").read_text())
 lock = json.loads((ROOT / "data/versions.lock.json").read_text())
 budget = cfg["budget"]
+if a.repairs is not None:
+    budget = dict(budget, repair_attempts=a.repairs)
 tasks = all_tasks(None if a.split == "all" else a.split, suite=a.suite)
 if a.templates:
     keep = set(a.templates.split(",")); tasks = [t for t in tasks if t["template"] in keep]
@@ -67,13 +71,17 @@ order = list(tasks); rng.shuffle(order)
 jobs = []
 for t in order:
     cs = list(conds); rng.shuffle(cs)
-    jobs += [(t, c, k) for c in cs for k in range(a.trials) if (t["task_id"], c, k) not in done]
+    jobs += [(t, c, k) for c in cs for k in range(a.trial_start, a.trial_start + a.trials) if (t["task_id"], c, k) not in done]
 meta = dict(toolchain=lock, study="v2", track=a.track, manifest_sha256=manifest_hash(all_tasks(suite="all")),
             fact_inventory_sha256=hashlib.sha256(json.dumps(FACTS, sort_keys=True).encode()).hexdigest(),
             temperature=cfg["model"]["temperature"])
 client = ChatClient(a.provider, a.model, temperature=cfg["model"]["temperature"])
-PRICE = {"gpt-4.1-nano-2025-04-14": (0.10, 0.40), "gpt-4.1-mini-2025-04-14": (0.40, 1.60), "gpt-4.1-2025-04-14": (2.00, 8.00)}
-if a.provider == "openai":
+# list prices per 1M tokens: (input, output, cached input)
+PRICE = {"gpt-4.1-nano-2025-04-14": (0.10, 0.40, 0.025), "gpt-4.1-mini-2025-04-14": (0.40, 1.60, 0.10), "gpt-4.1-2025-04-14": (2.00, 8.00, 0.50),
+         "claude-haiku-5-5": (0.10, 0.50, 0.10),  # no prompt caching requested for Claude
+         "claude-haiku-4-5-20251001": (1.00, 5.00, 1.00), "gpt-5.4-mini-2026-03-17": (0.75, 4.50, 0.075),
+         "qwen/qwen3-coder": (0.30, 1.00, 0.30)}  # OpenRouter list price; served price can vary by host
+if a.provider in ("openai", "anthropic", "openrouter"):
     if a.model not in PRICE: sys.exit(f"no price for {a.model}; add it before running")
     if a.max_usd <= 0: sys.exit("refusing to make paid API calls without an explicit --max-usd budget")
 spent = 0.0; stop = threading.Event()
@@ -101,9 +109,9 @@ with ThreadPoolExecutor(a.workers, thread_name_prefix="w") as ex:
             print(f"ERROR {t['task_id']} {c}: {traceback.format_exc()[-800:]}", flush=True); continue
         if log is None:
             continue
-        if a.provider == "openai":
-            pin, pout = PRICE[a.model]
-            spent += log["input_tokens"] / 1e6 * pin + log["output_tokens"] / 1e6 * pout
+        if a.provider in ("openai", "anthropic", "openrouter"):
+            pin, pout, pcache = PRICE[a.model]; cached = log.get("cached_input_tokens", 0)
+            spent += (log["input_tokens"] - cached) / 1e6 * pin + cached / 1e6 * pcache + log["output_tokens"] / 1e6 * pout
             if spent >= a.max_usd and not stop.is_set():
                 stop.set(); print(f"BUDGET STOP: spent ${spent:.2f} >= ${a.max_usd:.2f}; remaining trials skipped", flush=True)
         with wlock:
