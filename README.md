@@ -50,14 +50,14 @@ API keys go in a git-ignored `.env` (`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `OPE
 ## Reproduce
 These steps need no API calls:
 ```bash
-.venv/bin/python scripts/validate_tasks.py        # gate G1: every reference program passes its oracle
+.venv/bin/python scripts/validate_tasks.py        # gate G1: every reference program passes its oracle (synthetic; KernelBench once generated)
 .venv/bin/python tests/check_fact_examples.py     # every code example in the fact inventory verifies
 .venv/bin/python scripts/audit_treatments.py      # fact equivalence and token lengths of the treatments
 .venv/bin/python scripts/mutation_test.py         # oracle sensitivity
 .venv/bin/python scripts/analyze_v2.py            # Study 2 tables and contrasts from the committed logs
 .venv/bin/python scripts/analyze_ablation.py      # JSON-with-prose ablation
 ```
-KernelBench conversion needs a local KernelBench clone in `data/vendor/kernelbench` (see `data/DATA_SOURCES.md`):
+The converted KernelBench tasks (reference programs and oracle inputs, `data/processed/kernelbench/`) are not committed. Until they are generated, the 153 KernelBench tasks do not load and their unit test is skipped. To generate them you need a local KernelBench clone in `data/vendor/kernelbench` (see `data/DATA_SOURCES.md`):
 ```bash
 .venv/bin/python scripts/convert_kernelbench.py
 ```
