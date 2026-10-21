@@ -7,10 +7,10 @@ paper/*.log
 paper/*.blg
 paper/*.out
 .DS_Store
-data/processed/kernelbench/
 .env
 
 # Not part of the public artifact
 camera-ready/
 submission/
+paper/
 OFFICIAL_REVIEW

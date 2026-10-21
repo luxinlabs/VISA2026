@@ -1,7 +1,7 @@
 # Third-party notices
 
 ## KernelBench (MIT License)
-The KernelBench-derived tasks (`data/processed/tasks_manifest_kernelbench.jsonl`,
+The KernelBench-derived tasks (`data/processed/kernelbench/`, `data/processed/tasks_manifest_kernelbench.jsonl`,
 `data/processed/tasks_manifest_all.jsonl` and the related trial transcripts) embed PyTorch module
 sources from KernelBench, https://github.com/ScalingIntelligence/KernelBench. They were shrunk and
 lowered to StableHLO by `scripts/convert_kernelbench.py`. The KernelBench license:

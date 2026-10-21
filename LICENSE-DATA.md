@@ -12,7 +12,7 @@ task suite and manifests in `data/processed/`, the treatment audits, the validat
 outputs, the protocols in `docs/` and `releases/`, and the trial logs and transcripts in `results/`.
 
 **Not covered (third-party terms apply):**
-- KernelBench-derived content, i.e. the PyTorch module sources embedded in
+- KernelBench-derived content, i.e. `data/processed/kernelbench/` and the PyTorch module sources embedded in
   `data/processed/tasks_manifest_kernelbench.jsonl`, `data/processed/tasks_manifest_all.jsonl` and in
   the KernelBench trial transcripts. It remains under KernelBench's MIT License; see
   `THIRD_PARTY_NOTICES.md`.

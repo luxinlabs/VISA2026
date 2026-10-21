@@ -1,0 +1,1 @@
+{"status": "excluded", "reason": "stochastic op in forward (dropout/random)", "shrink_strategy": "distinct_small", "task_id": "kb_2_66", "level": 2, "upstream_file": "66_Matmul_Dropout_Softmax.py"}

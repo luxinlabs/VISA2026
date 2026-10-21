@@ -1,0 +1,1 @@
+{"status": "excluded", "reason": "stochastic op in forward (dropout/random)", "shrink_strategy": "distinct_small", "task_id": "kb_2_83", "level": 2, "upstream_file": "83_Conv3d_GroupNorm_Min_Clamp_Dropout.py"}

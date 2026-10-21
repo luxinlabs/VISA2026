@@ -1,6 +1,6 @@
 # AgentISA-Bench
 
-Artifact for **"What Makes a Virtual ISA Agent-Programmable? A Controlled Study of Agent-Facing Documentation for StableHLO"**, by Luxin Zhang. VISA 2026 Workshop, co-located with MICRO 2026; non-archival. The paper is posted on the workshop website. `paper/` holds the submitted version.
+Artifact for **"What Makes a Virtual ISA Agent-Programmable? A Controlled Study of Agent-Facing Documentation for StableHLO"**, by Luxin Zhang. VISA 2026 Workshop, co-located with MICRO 2026; non-archival. The paper is posted on the workshop website.
 
 The study fixes one IR (StableHLO), a pinned verifier and executor, the tasks and a harness-driven repair loop. It varies only how documentation reaches an LLM agent:
 
@@ -29,11 +29,10 @@ Correctness is judged on 267 held-out tasks (114 synthetic, 153 lowered from Ker
 | `src/agentisa/` | Fact inventory (96 facts anchored to the pinned spec), interface treatments and retrieval tool, task generator and oracles, sandboxed evaluator, trial harness, model clients (OpenAI, Anthropic, OpenRouter, Ollama), statistics |
 | `scripts/` | Task validation, KernelBench conversion, treatment audit, mutation tests, stronger-oracle re-grade, experiment runner, analyses |
 | `configs/experiment.yaml` | Frozen Study 2 configuration |
-| `data/processed/` | Task manifests (synthetic and KernelBench-derived), validation (gate G1), treatment audits, mutation-test results |
+| `data/processed/` | Task manifests (synthetic and KernelBench-derived), converted KernelBench tasks with oracle inputs (`kernelbench/`), validation (gate G1), treatment audits, mutation-test results |
 | `docs/` | Pre-registration (`PREREGISTRATION_V2.md`), protocol, reproducibility notes |
 | `results/` | Study 1 logs (`trials_*`), Study 2 pre-registered logs and transcripts (`results/v2/trackA_*`), ablation, file hashes (`FREEZE.sha256`) |
 | `releases/v1/` | Frozen snapshot of Study 1 |
-| `paper/` | LaTeX source and PDF of the submitted paper |
 | `tests/` | Unit tests |
 
 The post-hoc runs reported in the camera-ready paper (repeats, raw specification, further models, mechanism test) are not included: their logs and protocol addenda 4–8 are available from the author on request. The code that produced them is included.
@@ -50,14 +49,14 @@ API keys go in a git-ignored `.env` (`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `OPE
 ## Reproduce
 These steps need no API calls:
 ```bash
-.venv/bin/python scripts/validate_tasks.py        # gate G1: every reference program passes its oracle (synthetic; KernelBench once generated)
+.venv/bin/python scripts/validate_tasks.py        # gate G1: all 328 reference programs pass their oracles
 .venv/bin/python tests/check_fact_examples.py     # every code example in the fact inventory verifies
 .venv/bin/python scripts/audit_treatments.py      # fact equivalence and token lengths of the treatments
 .venv/bin/python scripts/mutation_test.py         # oracle sensitivity
 .venv/bin/python scripts/analyze_v2.py            # Study 2 tables and contrasts from the committed logs
 .venv/bin/python scripts/analyze_ablation.py      # JSON-with-prose ablation
 ```
-The converted KernelBench tasks (reference programs and oracle inputs, `data/processed/kernelbench/`) are not committed. Until they are generated, the 153 KernelBench tasks do not load and their unit test is skipped. To generate them you need a local KernelBench clone in `data/vendor/kernelbench` (see `data/DATA_SOURCES.md`):
+The converted KernelBench tasks are committed in `data/processed/kernelbench/`. To regenerate them from KernelBench, you need a local clone in `data/vendor/kernelbench` (see `data/DATA_SOURCES.md`):
 ```bash
 .venv/bin/python scripts/convert_kernelbench.py
 ```

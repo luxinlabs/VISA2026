@@ -1,0 +1,1 @@
+{"status": "excluded", "reason": "non-tensor forward inputs", "shrink_strategy": "distinct_small", "task_id": "kb_1_5", "level": 1, "upstream_file": "5_Matrix_scalar_multiplication.py"}
