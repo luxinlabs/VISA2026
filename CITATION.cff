@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite the paper below."
+title: "AgentISA-Bench: harness, tasks and logs for agent-facing virtual ISA documentation"
+authors:
+  - family-names: Zhang
+    given-names: Luxin
+repository-code: "https://github.com/luxinlabs/VISA2026"
+license: MIT
+preferred-citation:
+  type: conference-paper
+  title: "What Makes a Virtual ISA Agent-Programmable? A Controlled Study of Agent-Facing Documentation for StableHLO"
+  authors:
+    - family-names: Zhang
+      given-names: Luxin
+  collection-title: "VISA 2026 Workshop, co-located with MICRO 2026"
+  year: 2026
+  notes: "Non-archival workshop paper."
