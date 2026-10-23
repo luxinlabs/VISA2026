@@ -217,7 +217,7 @@ hv = ROOT / "results/v2/analysis_v2_haiku.json"
 if hv.exists() and out["family"]:
     rep2 = json.loads(hv.read_text())["overall"]["models"]
     allrows = raw + [r for r in map(json.loads, open(ROOT / "results/v2/haiku/trackA_claude-haiku-5-5_eval.jsonl"))]
-    star = lambda e: f"{100 * e['effect']:+.1f}" + ("$^\\ast$" if e["holm_p"] < 0.05 else "")
+    star = lambda e: f"${100 * e['effect']:+.1f}" + ("^\\ast" if e["holm_p"] < 0.05 else "") + "$"  # math mode: true minus sign
     want = {"minimal - none", "prose - minimal", "structured - prose", "interactive - structured"}
     rowsT = []
     for m, lab in [("gpt-4.1-nano-2025-04-14", "GPT-4.1 nano"), ("gpt-4.1-mini-2025-04-14", "GPT-4.1 mini"), ("gpt-4.1-2025-04-14", "GPT-4.1"),

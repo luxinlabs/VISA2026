@@ -8,7 +8,7 @@ from agentisa.analysis import full_report, complete_tasks, CONTRASTS_V2, diagnos
 from agentisa.interfaces import CONDITIONS_V2 as CONDS
 
 ap = argparse.ArgumentParser(); ap.add_argument("--fig-dir", default=None); ap.add_argument("--fig-height", type=float, default=2.6)
-ap.add_argument("--crop", action="store_true", help="camera-ready: crop the figure margin"); ap.add_argument("--with-haiku", action="store_true", help="camera-ready: add the Addendum 5 Claude Haiku 5.5 run (JSON to analysis_v2_haiku.json)")
+ap.add_argument("--math-minus", action="store_true", help="camera-ready: numbers in math mode (true minus signs)"); ap.add_argument("--crop", action="store_true", help="camera-ready: crop the figure margin"); ap.add_argument("--with-haiku", action="store_true", help="camera-ready: add the Addendum 5 Claude Haiku 5.5 run (JSON to analysis_v2_haiku.json)")
 A = ap.parse_args()
 MODELS = ["gpt-4.1-nano-2025-04-14", "gpt-4.1-mini-2025-04-14", "gpt-4.1-2025-04-14"]
 SHORT = {"gpt-4.1-nano-2025-04-14": "nano", "gpt-4.1-mini-2025-04-14": "mini", "gpt-4.1-2025-04-14": "4.1"}
@@ -51,13 +51,14 @@ def cond_table(report, key):
     L += ["\\bottomrule", "\\end{tabular}"]
     (fig / key).write_text("\n".join(L))
 cond_table(rep["overall"], "tab_v2_conditions.tex")
+num = (lambda x: f"${x:+.1f}$") if A.math_minus else (lambda x: f"{x:+.1f}")
 L = ["\\begin{tabular}{llrrrr}", "\\toprule", "Model & Contrast & $\\Delta$ (pp) & 95\\% CI & disc. & $p_\\text{Holm}$ \\\\", "\\midrule"]
 for m in models:
     for i, e in enumerate(rep["overall"]["models"][m]["contrasts"]["first_attempt_semantic_correct"]):
         b, a = e["contrast"].split(" - "); d = e["discordant"]
         p = "$<$0.001" if e["holm_p"] < 0.001 else f"{e['holm_p']:.3f}"
-        L.append((SHORT[m] if i == 0 else "") + f" & {CLAB[b].split(' (')[0]} -- {CLAB[a].split(' (')[0]} & {100 * e['effect']:+.1f} & "
-                 f"[{100 * e['ci95_cluster_bootstrap'][0]:+.1f}, {100 * e['ci95_cluster_bootstrap'][1]:+.1f}] & {d[b + '_only']}/{d[a + '_only']} & {p} \\\\")
+        L.append((SHORT[m] if i == 0 else "") + f" & {CLAB[b].split(' (')[0]} -- {CLAB[a].split(' (')[0]} & {num(100 * e['effect'])} & "
+                 f"[{num(100 * e['ci95_cluster_bootstrap'][0])}, {num(100 * e['ci95_cluster_bootstrap'][1])}] & {d[b + '_only']}/{d[a + '_only']} & {p} \\\\")
     L.append("\\midrule" if m != models[-1] else "\\bottomrule")
 L.append("\\end{tabular}")
 (fig / "tab_v2_contrasts.tex").write_text("\n".join(L))
