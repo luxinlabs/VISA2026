@@ -1,0 +1,6 @@
+f66f0fc098acf2494f54d6f9390dfa4a4f16e1fcf98bac93c5330df0df790c00  docs/PREREGISTRATION_V2.md
+3db9908373787061056a9be9cbf94d50effe79b05c6615ea16344d52299a9cda  scripts/run_experiment.py
+72d78c715e1c122230728353dfe0253ec8bafaf46130f6b99a050d719d5d517a  src/agentisa/harness.py
+31e784ba300c277d84e36d81137b8fb4aa0a249e09f340fe19a9976f4c19ce2c  src/agentisa/interfaces.py
+28bd18b8d29665d659c4232faee9d3a7639b6846d537da5be9e6c04eaa461476  configs/experiment.yaml
+Tue Oct 20 04:10:37 UTC 2026

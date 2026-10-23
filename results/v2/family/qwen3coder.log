@@ -1,0 +1,115 @@
+1335 trials to run (0 already done) -> results/v2/family/qwen3coder.jsonl
+[20/1335] correct so far 12/20  spent $0.01  22s
+[40/1335] correct so far 24/40  spent $0.04  37s
+[60/1335] correct so far 30/60  spent $0.08  60s
+[80/1335] correct so far 34/80  spent $0.11  90s
+[100/1335] correct so far 46/100  spent $0.14  109s
+[120/1335] correct so far 62/120  spent $0.16  126s
+[140/1335] correct so far 71/140  spent $0.20  154s
+[160/1335] correct so far 78/160  spent $0.23  169s
+[180/1335] correct so far 84/180  spent $0.26  190s
+[200/1335] correct so far 88/200  spent $0.32  4322s
+[220/1335] correct so far 98/220  spent $0.34  7309s
+ERROR kb_2_78 prose: .py", line 1213, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-coder is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'DeepInfra', 'is_byok': False, 'provider_error_code': 'engine_overloaded', 'limit_source': 'upstream_provider_shared_pool', 'remedy_hint': 'Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing'}}, 'user_id': 'user_3KxuXAMgKiYn1lVPfcX4PNut1hJ'}
+
+[240/1335] correct so far 106/240  spent $0.36  12911s
+ERROR kb_2_78 structured: .py", line 1213, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-coder is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'DeepInfra', 'is_byok': False, 'provider_error_code': 'engine_overloaded', 'limit_source': 'upstream_provider_shared_pool', 'remedy_hint': 'Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing'}}, 'user_id': 'user_3KxuXAMgKiYn1lVPfcX4PNut1hJ'}
+
+ERROR kb_2_78 none: k)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/luxin/Desktop/Paper/VISA2026/AgentISA-Bench/src/agentisa/harness.py", line 93, in run_trial
+    resp = client.chat(msgs, tools=use_tools, max_tokens=budget["max_output_tokens"], seed=trial, tool_choice=force)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/luxin/Desktop/Paper/VISA2026/AgentISA-Bench/src/agentisa/models.py", line 46, in chat
+    r = fut.result(timeout=150)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/luxin/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py", line 458, in result
+    raise TimeoutError()
+TimeoutError
+
+ERROR kb_2_78 minimal: .py", line 1213, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-coder is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'DeepInfra', 'is_byok': False, 'provider_error_code': 'engine_overloaded', 'limit_source': 'upstream_provider_shared_pool', 'remedy_hint': 'Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing'}}, 'user_id': 'user_3KxuXAMgKiYn1lVPfcX4PNut1hJ'}
+
+ERROR sum_axis__3 none: .py", line 1213, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-coder is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'DeepInfra', 'is_byok': False, 'provider_error_code': 'engine_overloaded', 'limit_source': 'upstream_provider_shared_pool', 'remedy_hint': 'Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing'}}, 'user_id': 'user_3KxuXAMgKiYn1lVPfcX4PNut1hJ'}
+
+ERROR kb_2_91 interactive: .py", line 1213, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-coder is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'DeepInfra', 'is_byok': False, 'provider_error_code': 'engine_overloaded', 'limit_source': 'upstream_provider_shared_pool', 'remedy_hint': 'Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing'}}, 'user_id': 'user_3KxuXAMgKiYn1lVPfcX4PNut1hJ'}
+
+ERROR broadcast_size1__3 interactive: .py", line 1213, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-coder is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'DeepInfra', 'is_byok': False, 'provider_error_code': 'engine_overloaded', 'limit_source': 'upstream_provider_shared_pool', 'remedy_hint': 'Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing'}}, 'user_id': 'user_3KxuXAMgKiYn1lVPfcX4PNut1hJ'}
+
+ERROR kb_2_91 none: .py", line 1213, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-coder is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'DeepInfra', 'is_byok': False, 'provider_error_code': 'engine_overloaded', 'limit_source': 'upstream_provider_shared_pool', 'remedy_hint': 'Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing'}}, 'user_id': 'user_3KxuXAMgKiYn1lVPfcX4PNut1hJ'}
+
+ERROR kb_1_45 interactive: .py", line 1213, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-coder is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'DeepInfra', 'is_byok': False, 'provider_error_code': 'engine_overloaded', 'limit_source': 'upstream_provider_shared_pool', 'remedy_hint': 'Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing'}}, 'user_id': 'user_3KxuXAMgKiYn1lVPfcX4PNut1hJ'}
+
+ERROR kb_2_91 structured: .py", line 1213, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-coder is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'DeepInfra', 'is_byok': False, 'provider_error_code': 'engine_overloaded', 'limit_source': 'upstream_provider_shared_pool', 'remedy_hint': 'Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing'}}, 'user_id': 'user_3KxuXAMgKiYn1lVPfcX4PNut1hJ'}
+
+[280/1335] correct so far 120/280  spent $0.40  13394s
+[300/1335] correct so far 127/300  spent $0.44  13426s
+[320/1335] correct so far 131/320  spent $0.49  13468s
+[340/1335] correct so far 134/340  spent $0.53  13512s
+[360/1335] correct so far 140/360  spent $0.58  13559s
+[380/1335] correct so far 149/380  spent $0.61  13574s
+[400/1335] correct so far 159/400  spent $0.65  13608s
+[420/1335] correct so far 169/420  spent $0.67  13624s
+[440/1335] correct so far 177/440  spent $0.71  13662s
+[460/1335] correct so far 183/460  spent $0.75  13694s
+[480/1335] correct so far 187/480  spent $0.77  13726s
+[500/1335] correct so far 197/500  spent $0.81  13784s
+[520/1335] correct so far 209/520  spent $0.84  13799s
+[540/1335] correct so far 218/540  spent $0.85  13828s
+[560/1335] correct so far 225/560  spent $0.89  13881s
+[580/1335] correct so far 234/580  spent $0.91  13916s
+[600/1335] correct so far 243/600  spent $0.94  13926s
+[620/1335] correct so far 256/620  spent $0.96  13934s
+[640/1335] correct so far 270/640  spent $0.98  13954s
+[660/1335] correct so far 275/660  spent $1.00  13976s
+[680/1335] correct so far 284/680  spent $1.03  13995s
+[700/1335] correct so far 295/700  spent $1.05  14012s
+[720/1335] correct so far 307/720  spent $1.08  14031s
+[740/1335] correct so far 312/740  spent $1.12  14050s
+[760/1335] correct so far 317/760  spent $1.15  14072s
+[780/1335] correct so far 322/780  spent $1.18  14089s
+[800/1335] correct so far 335/800  spent $1.21  14099s
+[820/1335] correct so far 343/820  spent $1.24  14118s
+[840/1335] correct so far 348/840  spent $1.27  14132s
+[860/1335] correct so far 362/860  spent $1.29  14143s
+[880/1335] correct so far 366/880  spent $1.33  22355s
+[900/1335] correct so far 376/900  spent $1.37  22390s
+[920/1335] correct so far 380/920  spent $1.41  22451s
+[940/1335] correct so far 384/940  spent $1.46  22484s
+[960/1335] correct so far 389/960  spent $1.49  22508s
+[980/1335] correct so far 399/980  spent $1.51  22514s
+[1000/1335] correct so far 410/1000  spent $1.54  22530s
+[1020/1335] correct so far 420/1020  spent $1.57  22551s
+[1040/1335] correct so far 425/1040  spent $1.60  22568s
+[1060/1335] correct so far 429/1060  spent $1.64  22596s
+[1080/1335] correct so far 438/1080  spent $1.68  22618s
+[1100/1335] correct so far 450/1100  spent $1.70  22630s
+[1120/1335] correct so far 461/1120  spent $1.72  22647s
+[1140/1335] correct so far 473/1140  spent $1.74  22660s
+[1160/1335] correct so far 489/1160  spent $1.76  22676s
+[1180/1335] correct so far 497/1180  spent $1.79  22694s
+[1200/1335] correct so far 502/1200  spent $1.85  22728s
+[1220/1335] correct so far 508/1220  spent $1.88  22793s
+[1240/1335] correct so far 515/1240  spent $1.91  22842s
+[1260/1335] correct so far 522/1260  spent $1.94  22868s
+[1280/1335] correct so far 535/1280  spent $1.97  22913s
+[1300/1335] correct so far 547/1300  spent $1.99  22936s
+[1320/1335] correct so far 553/1320  spent $2.03  22974s
+[1335/1335] correct so far 557/1335  spent $2.07  22987s

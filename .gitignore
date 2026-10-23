@@ -14,3 +14,8 @@ camera-ready/
 submission/
 paper/
 OFFICIAL_REVIEW
+
+# Post-hoc transcripts are published as a release asset; development pilots are not part of the artifact
+results/v2/*/*_transcripts.jsonl
+results/v2/camera_pilot*/
+results/v2/addendum7/pilot_*

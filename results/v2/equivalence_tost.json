@@ -1,0 +1,128 @@
+{
+ "gpt-4.1-nano-2025-04-14|structured-prose": {
+  "effect": -0.0599,
+  "ci90": [
+   -0.1132,
+   -0.0074
+  ],
+  "n": 267,
+  "equivalent_5pp": false
+ },
+ "gpt-4.1-nano-2025-04-14|interactive-structured": {
+  "effect": -0.0412,
+  "ci90": [
+   -0.083,
+   0.0
+  ],
+  "n": 267,
+  "equivalent_5pp": false
+ },
+ "gpt-4.1-mini-2025-04-14|structured-prose": {
+  "effect": -0.0787,
+  "ci90": [
+   -0.1174,
+   -0.0425
+  ],
+  "n": 267,
+  "equivalent_5pp": false
+ },
+ "gpt-4.1-mini-2025-04-14|interactive-structured": {
+  "effect": -0.1348,
+  "ci90": [
+   -0.1849,
+   -0.0861
+  ],
+  "n": 267,
+  "equivalent_5pp": false
+ },
+ "gpt-4.1-2025-04-14|structured-prose": {
+  "effect": -0.1209,
+  "ci90": [
+   -0.1798,
+   -0.0667
+  ],
+  "n": 91,
+  "equivalent_5pp": false
+ },
+ "gpt-4.1-2025-04-14|interactive-structured": {
+  "effect": -0.3187,
+  "ci90": [
+   -0.4216,
+   -0.2111
+  ],
+  "n": 91,
+  "equivalent_5pp": false
+ },
+ "claude-haiku-5-5|structured-prose": {
+  "effect": 0.0187,
+  "ci90": [
+   -0.0037,
+   0.0415
+  ],
+  "n": 267,
+  "equivalent_5pp": true
+ },
+ "claude-haiku-5-5|interactive-structured": {
+  "effect": -0.015,
+  "ci90": [
+   -0.0494,
+   0.0196
+  ],
+  "n": 267,
+  "equivalent_5pp": true
+ },
+ "qwen/qwen3-coder|structured-prose": {
+  "effect": -0.0112,
+  "ci90": [
+   -0.0487,
+   0.0249
+  ],
+  "n": 267,
+  "equivalent_5pp": true
+ },
+ "qwen/qwen3-coder|interactive-structured": {
+  "effect": 0.0037,
+  "ci90": [
+   -0.0456,
+   0.0516
+  ],
+  "n": 267,
+  "equivalent_5pp": false
+ },
+ "claude-haiku-4-5-20251001|structured-prose": {
+  "effect": -0.0195,
+  "ci90": [
+   -0.0644,
+   0.0244
+  ],
+  "n": 205,
+  "equivalent_5pp": false
+ },
+ "claude-haiku-4-5-20251001|interactive-structured": {
+  "effect": -0.039,
+  "ci90": [
+   -0.0872,
+   0.0098
+  ],
+  "n": 205,
+  "equivalent_5pp": false
+ },
+ "gpt-5.4-mini-2026-03-17|structured-prose": {
+  "effect": -0.0037,
+  "ci90": [
+   -0.0317,
+   0.0253
+  ],
+  "n": 267,
+  "equivalent_5pp": true
+ },
+ "gpt-5.4-mini-2026-03-17|interactive-structured": {
+  "effect": -0.0375,
+  "ci90": [
+   -0.0734,
+   -0.0035
+  ],
+  "n": 267,
+  "equivalent_5pp": false
+ }
+}
