@@ -16,12 +16,12 @@ Correctness is judged on 267 held-out tasks (114 synthetic, 153 lowered from Ker
 - **Pre-registered study (5,005 trials, GPT-4.1 nano / mini / 4.1).**
   - Syntax-only documentation added 16–33 pp of first-attempt correctness.
   - With matched content, the JSON contract scored below prose (−6.0, −7.9, −12.1 pp). This reverses our earlier, unmatched comparison.
-  - On-demand access trailed upfront delivery, because the agents did not call the tool.
+  - On-demand access trailed upfront delivery (−4 to −32 pp): GPT-4.1 never called the tool unless forced, and nano stopped retrieving when part of the documentation was given upfront.
   - Over 99% of failures were rejected statically.
-- **Post-hoc checks after review (10,862 trials; each under a protocol addendum frozen before its first trial).**
+- **Post-hoc checks after review (14,002 trials; each under a protocol addendum frozen before its first trial).**
   - The presence effect held for six of seven models (GPT-4.1 ×3, Qwen3-Coder, Claude Haiku 4.5, GPT-5.4-mini; the exception is Claude Haiku 5.5, which already writes StableHLO).
   - Curated facts beat the raw 91k-token specification by 12–26 pp.
-  - The JSON penalty and the uptake failure were large only for GPT-4.1.
+  - The JSON penalty and the uptake failure were large only for GPT-4.1 mini and 4.1.
 
 ## Repository layout
 | Path | Content |
@@ -31,11 +31,14 @@ Correctness is judged on 267 held-out tasks (114 synthetic, 153 lowered from Ker
 | `configs/experiment.yaml` | Frozen Study 2 configuration |
 | `data/processed/` | Task manifests (synthetic and KernelBench-derived), converted KernelBench tasks with oracle inputs (`kernelbench/`), validation (gate G1), treatment audits, mutation-test results |
 | `docs/` | Pre-registration (`PREREGISTRATION_V2.md`), protocol, reproducibility notes |
-| `results/` | Study 1 logs (`trials_*`), Study 2 pre-registered logs and transcripts (`results/v2/trackA_*`), ablation, file hashes (`FREEZE.sha256`) |
+| `results/` | Study 1 logs (`trials_*`), Study 2 pre-registered logs and transcripts (`results/v2/trackA_*`), post-hoc trial records (`results/v2/<addendum>/`), analyses and camera-ready tables (`results/v2/tables/`), file hashes (`FREEZE.sha256`) |
 | `releases/v1/` | Frozen snapshot of Study 1 |
 | `tests/` | Unit tests |
+| `REVIEW.md`, `legacy/` | Review of the original scaffold and its illustrative contract; historical only (every issue it marks [B] or [M] is fixed in the current code) |
 
-The post-hoc runs reported in the camera-ready paper (repeats, raw specification, further models, mechanism test) are not included: their logs and protocol addenda 4–8 are available from the author on request. The code that produced them is included.
+The post-hoc runs reported in the camera-ready paper (14,002 trials under Addenda 3–8: ablations, repeats, raw specification, four further models) are included. Their trial records are in `results/v2/{ablation,repeats,full_spec,haiku,family,addendum7,addendum8}/`, each directory with the hashes frozen before its first trial (`FREEZE.sha256`); the addenda are in `docs/PREREGISTRATION_V2.md`. The ablation's transcripts are in the repository; the others (274 MB) are attached to the [camera-ready release](https://github.com/luxinlabs/VISA2026/releases/tag/camera-ready) as `visa2026-posthoc-transcripts.tar.xz` (unpack it in the repository root). Development pilots are not included.
+
+`results/v2/FREEZE.sha256` lists the files hashed before the Study 2 runs. Check it against commit `af6c04c` (Addendum 1, made before the first valid trial): two entries, `src/agentisa/analysis.py` and the first `configs/experiment.yaml` line, still carry hashes from before that commit. Later commits added the post-hoc conditions and logging fields; the documentation rendered for the eight pre-registered conditions is unchanged. The code hashed before Addenda 7 and 8 is commit `4547ff7`. Addenda 4–6 hashed intermediate versions of `scripts/run_experiment.py` and `src/agentisa/{harness,interfaces,models}.py` that were not committed separately; their hashes therefore cannot be checked against the history.
 
 ## Setup
 Python 3.12; exact dependencies are in `requirements.lock.txt`.
@@ -55,6 +58,8 @@ These steps need no API calls:
 .venv/bin/python scripts/mutation_test.py         # oracle sensitivity
 .venv/bin/python scripts/analyze_v2.py            # Study 2 tables and contrasts from the committed logs
 .venv/bin/python scripts/analyze_ablation.py      # JSON-with-prose ablation
+.venv/bin/python scripts/analyze_v2.py --with-haiku   # Claude Haiku 5.5 run (Addendum 5)
+.venv/bin/python scripts/analyze_camera_ready.py  # post-hoc analyses and camera-ready Tables II and V (results/v2/tables/)
 ```
 The converted KernelBench tasks are committed in `data/processed/kernelbench/`. To regenerate them from KernelBench, you need a local clone in `data/vendor/kernelbench` (see `data/DATA_SOURCES.md`):
 ```bash

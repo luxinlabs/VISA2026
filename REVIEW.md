@@ -1,5 +1,7 @@
 # Strict code & design review of the original AgentISA-Bench scaffold (2026-10-13)
 
+> Historical record. This review covers the original scaffold (now in `legacy/`), not the current code; every issue marked [B] or [M] was fixed on 2026-10-13 (see the last section).
+
 Scope: every file in the original archive (≈100 lines of Python, configs, docs). The two unit tests pass
 (`PYTHONPATH=src pytest` → 2 passed), but they only test a tautology (see T1). Severity: **[B]** blocks a valid
 experiment / invalidates the primary claim, **[M]** produces wrong or misleading numbers, **[m]** minor.
