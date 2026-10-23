@@ -6,15 +6,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]; sys.path.insert(0, str(ROOT / "src"))
 from agentisa.analysis import full_report, complete_tasks, CONTRASTS_V2, diagnostic_class, wilson
 from agentisa.interfaces import CONDITIONS_V2 as CONDS
+from agentisa.pricing import trial_cost_usd
 
 ap = argparse.ArgumentParser(); ap.add_argument("--fig-dir", default=None); ap.add_argument("--fig-height", type=float, default=2.6)
 ap.add_argument("--math-minus", action="store_true", help="camera-ready: numbers in math mode (true minus signs)"); ap.add_argument("--crop", action="store_true", help="camera-ready: crop the figure margin"); ap.add_argument("--with-haiku", action="store_true", help="camera-ready: add the Addendum 5 Claude Haiku 5.5 run (JSON to analysis_v2_haiku.json)")
 A = ap.parse_args()
 MODELS = ["gpt-4.1-nano-2025-04-14", "gpt-4.1-mini-2025-04-14", "gpt-4.1-2025-04-14"]
 SHORT = {"gpt-4.1-nano-2025-04-14": "nano", "gpt-4.1-mini-2025-04-14": "mini", "gpt-4.1-2025-04-14": "4.1"}
-PRICE = {"gpt-4.1-nano-2025-04-14": (0.10, 0.40), "gpt-4.1-mini-2025-04-14": (0.40, 1.60), "gpt-4.1-2025-04-14": (2.00, 8.00)}
 if A.with_haiku:
-    MODELS.append("claude-haiku-5-5"); SHORT["claude-haiku-5-5"] = "Haiku 5.5"; PRICE["claude-haiku-5-5"] = (0.10, 0.50)
+    MODELS.append("claude-haiku-5-5"); SHORT["claude-haiku-5-5"] = "Haiku 5.5"
 CLAB = {"none": "None", "minimal": "Minimal (A)", "syntax_only_structured": "Syntax-only struct. (N)", "prose": "Prose (B)",
         "structured": "Structured (C)", "interactive": "Interactive (D)", "interactive_forced": "Int. forced (D*)",
         "interactive_core": "Int. core (D+)"}
@@ -35,8 +35,7 @@ for suite in ("synthetic", "kernelbench"):
                                              outcomes=("first_attempt_semantic_correct",), contrasts=CONTRASTS_V2)
 rep["taxonomy"] = {m: {c: dict(Counter(diagnostic_class(r["attempts"][0]) for r in rows if r["model"] == m and r["condition"] == c))
                        for c in CONDS} for m in models}
-rep["cost_usd"] = {m: round(sum(r["input_tokens"] / 1e6 * PRICE[m][0] + r["output_tokens"] / 1e6 * PRICE[m][1]
-                                for r in raw if r["model"] == m), 2) for m in models}
+rep["cost_usd"] = {m: round(sum(trial_cost_usd(r) for r in raw if r["model"] == m), 2) for m in models}
 out = ROOT / "results/v2"; (out / ("analysis_v2_haiku.json" if A.with_haiku else "analysis_v2.json")).write_text(json.dumps(rep, indent=1, default=str))
 
 # ---- tables
@@ -73,7 +72,7 @@ if A.with_haiku:  # camera-ready: one column block per model (full-width table)
         cells = []
         for m in models:
             e = res[m][i]; pv = "$<$0.001" if e["holm_p"] < 0.001 else f"{e['holm_p']:.3f}"
-            cells.append(f"{100 * e['effect']:+.1f} & [{100 * e['ci95_cluster_bootstrap'][0]:+.1f}, {100 * e['ci95_cluster_bootstrap'][1]:+.1f}] & {pv}")
+            cells.append(f"{num(100 * e['effect'])} & [{num(100 * e['ci95_cluster_bootstrap'][0])}, {num(100 * e['ci95_cluster_bootstrap'][1])}] & {pv}")
         W.append(f"{CLAB[b_].split(' (')[0]} -- {CLAB[a_].split(' (')[0]} & " + " & ".join(cells) + " \\\\")
     W += ["\\bottomrule", "\\end{tabular}"]
     (fig / "tab_v2_contrasts_wide.tex").write_text("\n".join(W))
@@ -98,8 +97,9 @@ for ax, (s, title) in zip(axes, suites):
             ax.plot([100 * lo, 100 * hi], [y, y], color=COL[j], lw=1.2)
             ax.plot(100 * d["first_attempt"], y, MK[j], color=COL[j], ms=4.5, mec="#fcfcfb", mew=0.8, label=SHORT[m] if i == 0 else None)
     n = {SHORT[m]: R["models"][m]["conditions"]["none"]["n"] for m in R["models"]}
-    full = "/".join(k for k in n if k != "4.1")
-    ax.set_title(f"{title.split(' (')[0]}\n({full} n={n['nano']}, 4.1 n={n['4.1']} tasks)", fontsize=8); ax.set_xlim(0, 100)
+    groups = {}
+    for k, v in n.items(): groups.setdefault(v, []).append(k)
+    ax.set_title(f"{title.split(' (')[0]}\n(" + ", ".join(f"{'/'.join(ks)} n={v}" for v, ks in groups.items()) + " tasks)", fontsize=8); ax.set_xlim(0, 100)
     ax.set_xlabel("First-attempt semantic correctness (%)"); ax.grid(axis="x", color="#e4e3df", lw=0.5); ax.set_axisbelow(True)
 axes[0].set_yticks(range(len(CONDS))); axes[0].set_yticklabels([CLAB[c] for c in CONDS][::-1])
 h, l = axes[0].get_legend_handles_labels()

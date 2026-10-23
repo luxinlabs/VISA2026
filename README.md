@@ -65,7 +65,7 @@ Running trials costs money. Each run is resumable, ordered task by task, and sto
 .venv/bin/python scripts/run_experiment.py --provider openai --model gpt-4.1-mini-2025-04-14 \
     --split eval --suite all --track A --workers 6 --max-usd 12
 ```
-Other providers: `--provider anthropic` (e.g. `claude-haiku-4-5-20251001`), `--provider openrouter` (e.g. `qwen/qwen3-coder`). Useful flags: `--conditions`, `--repairs 0` (first attempt only), `--trials N --trial-start K` (repeats).
+The raw-specification condition (`--conditions full_spec`) needs the StableHLO clone at the pinned commit (see `data/DATA_SOURCES.md`); its spec is checked against the hash in `data/versions.lock.json`. Other providers: `--provider anthropic` (e.g. `claude-haiku-4-5-20251001`), `--provider openrouter` (e.g. `qwen/qwen3-coder`). Useful flags: `--conditions`, `--repairs 0` (first attempt only), `--trials N --trial-start K` (repeats).
 
 ## License
 - Code: MIT (`LICENSE`).

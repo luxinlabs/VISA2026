@@ -12,6 +12,7 @@ Dataset size varies by version, subsets and definitions; compute counts from pin
 ## Acquisition (instructions only; NOT executed)
 ```bash
 git clone https://github.com/openxla/stablehlo.git data/vendor/stablehlo
+git -C data/vendor/stablehlo checkout 23d2f926aefe39e15a07d9874ec6871bb671b437   # pinned spec (full_spec condition)
 git clone https://github.com/ScalingIntelligence/KernelBench.git data/vendor/kernelbench
 git clone https://github.com/thunlp/TritonBench.git data/vendor/tritonbench
 # Record exact commit hashes and licenses in data/versions.lock.json.

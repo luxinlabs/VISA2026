@@ -15,6 +15,7 @@ from agentisa.agent import run_agent_trial
 from agentisa.harness import run_trial
 from agentisa.models import ChatClient
 from agentisa.fact_inventory import FACTS
+from agentisa.pricing import PRICE, trial_cost_usd
 
 p = argparse.ArgumentParser()
 p.add_argument("--provider", required=True, choices=["openai", "ollama", "anthropic", "openrouter"])
@@ -74,13 +75,9 @@ for t in order:
     jobs += [(t, c, k) for c in cs for k in range(a.trial_start, a.trial_start + a.trials) if (t["task_id"], c, k) not in done]
 meta = dict(toolchain=lock, study="v2", track=a.track, manifest_sha256=manifest_hash(all_tasks(suite="all")),
             fact_inventory_sha256=hashlib.sha256(json.dumps(FACTS, sort_keys=True).encode()).hexdigest(),
-            temperature=cfg["model"]["temperature"])
+            temperature=cfg["model"]["temperature"],
+            repair_budget=budget["repair_attempts"], trial_start=a.trial_start)  # protocol overrides travel with each log
 client = ChatClient(a.provider, a.model, temperature=cfg["model"]["temperature"])
-# list prices per 1M tokens: (input, output, cached input)
-PRICE = {"gpt-4.1-nano-2025-04-14": (0.10, 0.40, 0.025), "gpt-4.1-mini-2025-04-14": (0.40, 1.60, 0.10), "gpt-4.1-2025-04-14": (2.00, 8.00, 0.50),
-         "claude-haiku-5-5": (0.10, 0.50, 0.10),  # no prompt caching requested for Claude
-         "claude-haiku-4-5-20251001": (1.00, 5.00, 1.00), "gpt-5.4-mini-2026-03-17": (0.75, 4.50, 0.075),
-         "qwen/qwen3-coder": (0.30, 1.00, 0.30)}  # OpenRouter list price; served price can vary by host
 if a.provider in ("openai", "anthropic", "openrouter"):
     if a.model not in PRICE: sys.exit(f"no price for {a.model}; add it before running")
     if a.max_usd <= 0: sys.exit("refusing to make paid API calls without an explicit --max-usd budget")
@@ -110,8 +107,7 @@ with ThreadPoolExecutor(a.workers, thread_name_prefix="w") as ex:
         if log is None:
             continue
         if a.provider in ("openai", "anthropic", "openrouter"):
-            pin, pout, pcache = PRICE[a.model]; cached = log.get("cached_input_tokens", 0)
-            spent += (log["input_tokens"] - cached) / 1e6 * pin + cached / 1e6 * pcache + log["output_tokens"] / 1e6 * pout
+            spent += trial_cost_usd(log, a.model)
             if spent >= a.max_usd and not stop.is_set():
                 stop.set(); print(f"BUDGET STOP: spent ${spent:.2f} >= ${a.max_usd:.2f}; remaining trials skipped", flush=True)
         with wlock:

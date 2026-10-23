@@ -39,19 +39,10 @@ class ChatClient:
             kw["tools"] = tools
             if tool_choice:
                 kw["tool_choice"] = tool_choice
-        for attempt in range(8):
-            try:
-                # hard watchdog: a half-dead TCP connection can block an SSL read far beyond the client timeout
-                fut = _WATCHDOG.submit(self.client.chat.completions.create, **kw)
-                r = fut.result(timeout=150)
-                break
-            except Exception as e:  # rate limits / transient network errors
-                if attempt == 7 or isinstance(e, (TypeError, ValueError, KeyError)) or type(e).__name__ in ("AuthenticationError", "PermissionDeniedError", "NotFoundError", "BadRequestError"):
-                    raise
-                time.sleep(min(60, 2 ** attempt + 1))
-        return self._parse_openai(r)
+        return self._parse_openai(self._call(self.client.chat.completions.create, **kw))
 
     def _call(self, fn, **kw):
+        """One API call with retries on transient errors and a hard watchdog (shared by every provider)."""
         for attempt in range(8):
             try:
                 # hard watchdog: a half-dead TCP connection can block an SSL read far beyond the client timeout

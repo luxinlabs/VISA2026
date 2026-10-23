@@ -13,7 +13,7 @@ Conditions (all receive the identical task statement, signature and list of rele
   full_spec               (camera-ready, Addendum 5) the whole pinned StableHLO specification instead of curated facts
 The fact set for a task is the 'module' facts plus the facts of the task's relevant operations.
 """
-import json
+import functools, hashlib, json
 from pathlib import Path
 from .fact_inventory import FACTS, OP_SUMMARY
 
@@ -28,7 +28,24 @@ ABLATION += ["full_spec"]
 # Mechanism test (camera-ready, Addendum 7): contract C with every quoted code span moved out of the JSON strings
 # into a plain code block keyed by fact ID, so no example needs JSON escaping; content otherwise identical to C.
 ABLATION += ["structured_rawcode"]
-SPEC_PATH = Path(__file__).resolve().parents[2] / "data/vendor/stablehlo_spec.md"
+_ROOT = Path(__file__).resolve().parents[2]
+# The pinned spec comes from the StableHLO clone described in data/DATA_SOURCES.md (commit in data/versions.lock.json);
+# a standalone copy at data/vendor/stablehlo_spec.md is also accepted. Either must match the pinned SHA-256.
+SPEC_CANDIDATES = (_ROOT / "data/vendor/stablehlo/docs/spec.md", _ROOT / "data/vendor/stablehlo_spec.md")
+
+
+@functools.lru_cache(maxsize=1)
+def pinned_spec_text():
+    lock = json.loads((_ROOT / "data/versions.lock.json").read_text())
+    for path in SPEC_CANDIDATES:
+        if path.exists():
+            data = path.read_bytes()
+            if hashlib.sha256(data).hexdigest() == lock["stablehlo_spec_sha256"]:
+                return data.decode("utf-8")
+    raise FileNotFoundError(
+        "full_spec needs the pinned StableHLO spec: clone https://github.com/openxla/stablehlo into data/vendor/stablehlo "
+        f"and check out commit {lock['stablehlo_spec_commit']} (see data/DATA_SOURCES.md); "
+        f"spec.md must match sha256 {lock['stablehlo_spec_sha256']}")
 INTERACTIVE = ("interactive", "interactive_forced", "interactive_core")
 CATEGORIES = ["syntax", "type", "shape", "semantics"]
 
@@ -100,7 +117,7 @@ def render(task, condition):
         facts = select_facts(ops)
         return {"condition": condition, "fact_ids": [f["id"] for f in facts], "content": render_structured_rawcode(facts)}
     if condition == "full_spec":
-        return {"condition": condition, "fact_ids": [], "content": SPEC_PATH.read_text()}
+        return {"condition": condition, "fact_ids": [], "content": pinned_spec_text()}
     if condition == "structured":
         facts = select_facts(ops)
         return {"condition": condition, "fact_ids": [f["id"] for f in facts], "content": render_structured(facts)}
